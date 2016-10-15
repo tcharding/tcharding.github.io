@@ -207,7 +207,7 @@ a = all&lt;br /&gt;
       <pubDate>Tue, 11 Oct 2016 22:10:57 +1100</pubDate>
       
       <guid>/blog/initial-commit/</guid>
-      <description>&lt;p&gt;According to &lt;strong&gt;Apprenticeship Patters&lt;/strong&gt; by Bavid H. Hoover and Adewale Oshineye
+      <description>&lt;p&gt;According to &lt;strong&gt;Apprenticeship Patterns&lt;/strong&gt; by Bavid H. Hoover and Adewale Oshineye,
 in order to become a journeyman one must learn to explain their craft to
 others. This is one apprentices effort to learn these skills.&lt;/p&gt;
 </description>
@@ -215,10 +215,10 @@ others. This is one apprentices effort to learn these skills.&lt;/p&gt;
     
     <item>
       <title>About Me</title>
-      <link>/about/me/</link>
+      <link>/about-me/</link>
       <pubDate>Tue, 11 Oct 2016 21:59:47 +1100</pubDate>
       
-      <guid>/about/me/</guid>
+      <guid>/about-me/</guid>
       <description>&lt;p&gt;Hello people, I am &lt;strong&gt;Tobin Harding&lt;/strong&gt;. I code in the Linux environment. I like
 command line interfaces and statically typed languages. When I am trying to
 relax I listen to classical music, when eating jazz, and when getting excitable
