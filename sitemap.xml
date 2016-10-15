@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tcharding.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2016-10-11T22:10:57+11:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tcharding.github.io/blog/initial-commit/</loc>
+    <loc>/blog/initial-commit/</loc>
     <lastmod>2016-10-11T22:10:57+11:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tcharding.github.io/about/me/</loc>
+    <loc>/about/me/</loc>
     <lastmod>2016-10-11T21:59:47+11:00</lastmod>
   </url>
   
