@@ -15,12 +15,12 @@
       <pubDate>Mon, 17 Oct 2016 08:28:17 +1100</pubDate>
       
       <guid>/blog/stack/</guid>
-      <description>
-
-&lt;p&gt;A stack is a data structure defined by the operations push, pop, peek, and
+      <description>&lt;p&gt;A stack is a data structure defined by the operations push, pop, peek, and
 empty. A full description of stacks can be found in
 &lt;a href=&#34;http://opendatastructures.org&#34;&gt;this&lt;/a&gt; book. A stack of any of Go&amp;rsquo;s basic data
 types can be easily implemented in Go using using slices.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;stack-of-integers&#34;&gt;stack of integers&lt;/h2&gt;
 
@@ -110,8 +110,7 @@ strongly typed language.&lt;/p&gt;
 &lt;p&gt;Full source code is available &lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Also Douglas Hall has done a nice implementation using linked lists instead of
-slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1777766&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
+slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1777766&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
