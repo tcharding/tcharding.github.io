@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title> Stack Data Structure in Golang &middot; Tobin Harding </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.13" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+ 
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+	</head>
+
+	<body>
+		<header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@eros ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li >
+					<a href="/about-me">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/blog">~/blog</a>
+				</li>
+				
+				
+				<li >
+					<a href="/reading-list">~/books</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+		<div class="container wrapper">
+			<h1><a href="/blog/stack/">Stack Data Structure in Golang</a></h1>
+			<span class="post-date">Oct 17, 2016 </span>
+			<div class="post-content">
+				
+
+<p>A stack is a data structure defined by the operations push, pop, peek, and
+empty. A full description of stacks can be found in
+<a href="http://opendatastructures.org">this</a> book. A stack of any of Go&rsquo;s basic data
+types can be easily implemented in Go using using slices.</p>
+
+<h2 id="stack-of-integers">stack of integers</h2>
+
+<pre><code>// stack of integers
+package stack
+
+type Stack []int
+
+// IsEmpty: check if stack is empty
+func (s *Stack) IsEmpty() bool {
+	return len(*s) == 0
+}
+
+// Push a new integer onto the stack
+func (s *Stack) Push(x int) {
+	*s = append(*s, x)
+}
+
+// Pop: remove and return top element of stack, return false if stack is empty
+func (s *Stack) Pop() (int, bool) {
+	if s.IsEmpty() {
+		return 0, false
+	}
+
+	i := len(*s) - 1
+	x := (*s)[i]
+	*s = (*s)[:i]
+
+	return x, true
+}
+
+// Peek: return top element of stack, return false if stack is empty
+func (s *Stack) Peek() (int, bool) {
+	if s.IsEmpty() {
+		return 0, false
+	}
+
+	i := len(*s) - 1
+	x := (*s)[i]
+
+	return x, true
+}
+</code></pre>
+
+<p>We can then use our stack of integers like this</p>
+
+<pre><code>func fn() {
+    var stack Stack
+
+    stack.Push(1)
+    stack.Push(2)
+    stack.Push(3)
+
+    x := stack.Peek()  // x == 3
+    x = stack.Pop()    // x == 3
+    x = stack.Peek()   // x == 2
+}
+</code></pre>
+
+<p>It is trivial to replace integers with any other of Go&rsquo;s basic data types
+(<a href="https://github.com/tcharding/types/tree/master/stacks/string">string</a>, float64, etc).</p>
+
+<h2 id="stack-of-anything">stack of anything</h2>
+
+<p>One downside to the above method is that a new stack needs to be written for
+each data type. An alternative is to use the empty interface to allow stacks of
+anything.</p>
+
+<pre><code>// All types satisfy the empty interface, so we can store anything here.
+type Stack []interface{}
+</code></pre>
+
+<p>Then any time we pop or peek at an item from the stack we use a type
+assertion.</p>
+
+<pre><code>var stack Stack
+stack.Push(&quot;this&quot;)
+
+item := stack.Pop()
+fmt.Printf(&quot;%s\n&quot;, item.(string))
+</code></pre>
+
+<p>This comes with the usual warnings that using the empty type interface reduces
+the ability of the compiler to catch type errors, one of the benefits of using a
+strongly typed language.</p>
+
+<p>Full source code is available <a href="https://github.com/tcharding/types/tree/master/stacks">here</a>.</p>
+
+<p>Also Douglas Hall has done a nice implementation using linked lists instead of
+slices. You can find his gist <a href="https://gist.github.com/bemasher/1777766">here</a>.</p>
+
+			</div>
+			<div class="post-comments">
+				
+			</div>
+			<div class="push"></div>
+		</div>
+		<footer class="footer text-center">
+  <p>Copyright &copy; 2016  -
+    <span class="credit">
+      This site is <a target="_blank"
+      href="https://github.com/tcharding/tobin.cc">open source</a>.
+      Powered by 
+      <a target="_blank" href="https://gohugo.io">Hugo</a>
+      and 
+      <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+    </span>
+  </p>
+</footer>
+
+	</body>

@@ -82,6 +82,20 @@
 				<li>
 					<div class="post-list-item">
 						<div class="post-header">
+							<h4 class="post-link"><a href="/blog/stack/">Stack Data Structure in Golang</a></h4>
+							<h4 class="post-date">Oct 17, 2016</h4>
+						</div>
+						<div class="post-summary"><p>A stack is a data structure defined by the operations push, pop, peek, and empty. A full description of stacks can be found in this book. A stack of any of Go&rsquo;s basic data types can be easily implemented in Go using using slices.
+stack of integers // stack of integers package stack type Stack []int // IsEmpty: check if stack is empty func (s *Stack) IsEmpty() bool { return len(*s) == 0 } // Push a new integer onto the stack func (s *Stack) Push(x int) { *s = append(*s, x) } // Pop: remove and return top element of stack, return false if stack is empty func (s *Stack) Pop() (int, bool) { if s....</p></div>
+						<div class="post-list-footer text-center">
+							<a href="/blog/stack/">Read More</a>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<div class="post-list-item">
+						<div class="post-header">
 							<h4 class="post-link"><a href="/blog/initial-commit/">initial commit</a></h4>
 							<h4 class="post-date">Oct 11, 2016</h4>
 						</div>

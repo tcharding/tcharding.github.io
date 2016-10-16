@@ -6,8 +6,113 @@
     <description>Recent content in Blog-rsses on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Oct 2016 22:10:57 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 17 Oct 2016 08:28:17 +1100</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Stack Data Structure in Golang</title>
+      <link>/blog/stack/</link>
+      <pubDate>Mon, 17 Oct 2016 08:28:17 +1100</pubDate>
+      
+      <guid>/blog/stack/</guid>
+      <description>
+
+&lt;p&gt;A stack is a data structure defined by the operations push, pop, peek, and
+empty. A full description of stacks can be found in
+&lt;a href=&#34;http://opendatastructures.org&#34;&gt;this&lt;/a&gt; book. A stack of any of Go&amp;rsquo;s basic data
+types can be easily implemented in Go using using slices.&lt;/p&gt;
+
+&lt;h2 id=&#34;stack-of-integers&#34;&gt;stack of integers&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// stack of integers
+package stack
+
+type Stack []int
+
+// IsEmpty: check if stack is empty
+func (s *Stack) IsEmpty() bool {
+	return len(*s) == 0
+}
+
+// Push a new integer onto the stack
+func (s *Stack) Push(x int) {
+	*s = append(*s, x)
+}
+
+// Pop: remove and return top element of stack, return false if stack is empty
+func (s *Stack) Pop() (int, bool) {
+	if s.IsEmpty() {
+		return 0, false
+	}
+
+	i := len(*s) - 1
+	x := (*s)[i]
+	*s = (*s)[:i]
+
+	return x, true
+}
+
+// Peek: return top element of stack, return false if stack is empty
+func (s *Stack) Peek() (int, bool) {
+	if s.IsEmpty() {
+		return 0, false
+	}
+
+	i := len(*s) - 1
+	x := (*s)[i]
+
+	return x, true
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can then use our stack of integers like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func fn() {
+    var stack Stack
+
+    stack.Push(1)
+    stack.Push(2)
+    stack.Push(3)
+
+    x := stack.Peek()  // x == 3
+    x = stack.Pop()    // x == 3
+    x = stack.Peek()   // x == 2
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is trivial to replace integers with any other of Go&amp;rsquo;s basic data types
+(&lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks/string&#34;&gt;string&lt;/a&gt;, float64, etc).&lt;/p&gt;
+
+&lt;h2 id=&#34;stack-of-anything&#34;&gt;stack of anything&lt;/h2&gt;
+
+&lt;p&gt;One downside to the above method is that a new stack needs to be written for
+each data type. An alternative is to use the empty interface to allow stacks of
+anything.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// All types satisfy the empty interface, so we can store anything here.
+type Stack []interface{}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then any time we pop or peek at an item from the stack we use a type
+assertion.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var stack Stack
+stack.Push(&amp;quot;this&amp;quot;)
+
+item := stack.Pop()
+fmt.Printf(&amp;quot;%s\n&amp;quot;, item.(string))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This comes with the usual warnings that using the empty type interface reduces
+the ability of the compiler to catch type errors, one of the benefits of using a
+strongly typed language.&lt;/p&gt;
+
+&lt;p&gt;Full source code is available &lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also Douglas Hall has done a nice implementation using linked lists instead of
+slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1777766&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>initial commit</title>
