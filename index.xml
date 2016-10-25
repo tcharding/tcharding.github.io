@@ -6,8 +6,79 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Oct 2016 08:28:17 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 26 Oct 2016 09:54:21 +1100</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Queue Data Structure in Golang</title>
+      <link>/blog/queue/</link>
+      <pubDate>Wed, 26 Oct 2016 09:54:21 +1100</pubDate>
+      
+      <guid>/blog/queue/</guid>
+      <description>
+
+&lt;p&gt;A queue is a container that supports retrieval by first-in, first-out (FIFO)
+order. The &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;put&lt;/em&gt; operations for a queue are usually called &lt;em&gt;enqueue&lt;/em&gt; and
+&lt;em&gt;dequeue&lt;/em&gt;, other operations may include &lt;em&gt;isEmpty&lt;/em&gt;. A full description of
+queues can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Queue&amp;rsquo;s minimise the maximum time spent waiting, however the average wait time
+will be the same whether a LIFO or a FIFO is used.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;A queue can be easily implemented in Go using slices.&lt;/p&gt;
+
+&lt;h2 id=&#34;queue-of-integers&#34;&gt;queue of integers&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;package queue
+
+type Queue []int
+
+func (q *Queue) Enqueue(x int) {
+	*q = append(*q, x)
+}
+
+func (q *Queue) Dequeue() (int, bool) {
+	if q.isEmpty() {
+		return 0, false
+	}
+
+	x := (*q)[0]
+	*q = (*q)[1:]
+	return x, true
+}
+
+func (q *Queue) isEmpty() bool {
+	return len(*q) == 0
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can then use our queue of integers like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func fn() {
+    var q Queue
+
+    q.Enque(1)
+    q.Enque(2)
+    q.Enque(3)
+
+    x := q.Dequeue()  // x = 1
+    x = q.Dequeue()   // x = 2
+    x = q.Dequeue()   // x = 3
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
+
+&lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
+[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein&lt;br /&gt;
+[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Stack Data Structure in Golang</title>

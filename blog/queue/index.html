@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 
 	<head>
-		<title> Blogs &middot; Tobin Harding </title>
+		<title> Queue Data Structure in Golang &middot; Tobin Harding </title>
 
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -72,61 +72,76 @@
 </header>
 
 		<div class="container wrapper">
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<h1 id=>Blogs</h1>
-				</div>
+			<h1><a href="/blog/queue/">Queue Data Structure in Golang</a></h1>
+			<span class="post-date">Oct 26, 2016 </span>
+			<div class="post-content">
+				
+
+<p>A queue is a container that supports retrieval by first-in, first-out (FIFO)
+order. The <em>get</em> and <em>put</em> operations for a queue are usually called <em>enqueue</em> and
+<em>dequeue</em>, other operations may include <em>isEmpty</em>. A full description of
+queues can be found online <a href="http://opendatastructures.org">here</a>.</p>
+
+<p>Queue&rsquo;s minimise the maximum time spent waiting, however the average wait time
+will be the same whether a LIFO or a FIFO is used.</p>
+
+<!-- more -->
+
+<p>A queue can be easily implemented in Go using slices.</p>
+
+<h2 id="queue-of-integers">queue of integers</h2>
+
+<pre><code>package queue
+
+type Queue []int
+
+func (q *Queue) Enqueue(x int) {
+	*q = append(*q, x)
+}
+
+func (q *Queue) Dequeue() (int, bool) {
+	if q.isEmpty() {
+		return 0, false
+	}
+
+	x := (*q)[0]
+	*q = (*q)[1:]
+	return x, true
+}
+
+func (q *Queue) isEmpty() bool {
+	return len(*q) == 0
+}
+</code></pre>
+
+<p>We can then use our queue of integers like this</p>
+
+<pre><code>func fn() {
+    var q Queue
+
+    q.Enque(1)
+    q.Enque(2)
+    q.Enque(3)
+
+    x := q.Dequeue()  // x = 1
+    x = q.Dequeue()   // x = 2
+    x = q.Dequeue()   // x = 3
+}
+</code></pre>
+
+<hr />
+
+<h4 id="bibliography">Bibliography:</h4>
+
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+[Cor09] - <strong>Introduction to Algorithms</strong>, Thomas H. Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein<br />
+[Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
+
 			</div>
-			<ul id="post-list">
+			<div class="post-comments">
 				
-				<li>
-					<div class="post-list-item">
-						<div class="post-header">
-							<h4 class="post-link"><a href="/blog/queue/">Queue Data Structure in Golang</a></h4>
-							<h4 class="post-date">Oct 26, 2016</h4>
-						</div>
-						<div class="post-summary"><p>A queue is a container that supports retrieval by first-in, first-out (FIFO) order. The get and put operations for a queue are usually called enqueue and dequeue, other operations may include isEmpty. A full description of queues can be found online here.
-Queue&rsquo;s minimise the maximum time spent waiting, however the average wait time will be the same whether a LIFO or a FIFO is used.
-A queue can be easily implemented in Go using slices....</p></div>
-						<div class="post-list-footer text-center">
-							<a href="/blog/queue/">Read More</a>
-						</div>
-					</div>
-				</li>
-				
-				<li>
-					<div class="post-list-item">
-						<div class="post-header">
-							<h4 class="post-link"><a href="/blog/stack/">Stack Data Structure in Golang</a></h4>
-							<h4 class="post-date">Oct 17, 2016</h4>
-						</div>
-						<div class="post-summary"><p><p>A stack is a container that supports retrieval by last-in, first-out (LIFO)
-order. The <em>get</em> and <em>put</em> operations for stacks are usually called <em>push</em> and
-<em>pop</em>, other operations may include <em>peek</em> and <em>isEmpty</em>. A full description of
-stacks can be found online <a href="http://opendatastructures.org">here</a>.</p>
-
-<p></p>...</p></div>
-						<div class="post-list-footer text-center">
-							<a href="/blog/stack/">Read More</a>
-						</div>
-					</div>
-				</li>
-				
-				<li>
-					<div class="post-list-item">
-						<div class="post-header">
-							<h4 class="post-link"><a href="/blog/initial-commit/">initial commit</a></h4>
-							<h4 class="post-date">Oct 11, 2016</h4>
-						</div>
-						<div class="post-summary"><p>According to Apprenticeship Patterns by Bavid H. Hoover and Adewale Oshineye, in order to become a journeyman one must learn to explain their craft to others. This is one apprentices effort to learn these skills....</p></div>
-						<div class="post-list-footer text-center">
-							<a href="/blog/initial-commit/">Read More</a>
-						</div>
-					</div>
-				</li>
-				
-
-			</ul>
+			</div>
 			<div class="push"></div>
 		</div>
 		<footer class="footer text-center">
@@ -143,4 +158,3 @@ stacks can be found online <a href="http://opendatastructures.org">here</a>.</p>
 </footer>
 
 	</body>
-</html>
