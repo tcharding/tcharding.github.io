@@ -15,12 +15,17 @@
       <pubDate>Mon, 17 Oct 2016 08:28:17 +1100</pubDate>
       
       <guid>/blog/stack/</guid>
-      <description>&lt;p&gt;A stack is a data structure defined by the operations push, pop, peek, and
-empty. A full description of stacks can be found in
-&lt;a href=&#34;http://opendatastructures.org&#34;&gt;this&lt;/a&gt; book. A stack of any of Go&amp;rsquo;s basic data
-types can be easily implemented in Go using using slices.&lt;/p&gt;
+      <description>&lt;p&gt;A stack is a container that supports retrieval by last-in, first-out (LIFO)
+order. The &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;put&lt;/em&gt; operations for stacks are usually called &lt;em&gt;push&lt;/em&gt; and
+&lt;em&gt;pop&lt;/em&gt;, other operations may include &lt;em&gt;peek&lt;/em&gt; and &lt;em&gt;isEmpty&lt;/em&gt;. A full description of
+stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Stacks are simple to implement and very efficient. For this reason, stacks are
+probably the right container to use when retrieval order doesn&amp;rsquo;t matter [Ski08]&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A stack can be easily implemented in Go using slices.&lt;/p&gt;
 
 &lt;h2 id=&#34;stack-of-integers&#34;&gt;stack of integers&lt;/h2&gt;
 
@@ -74,14 +79,15 @@ func (s *Stack) Peek() (int, bool) {
     stack.Push(2)
     stack.Push(3)
 
-    x := stack.Peek()  // x == 3
-    x = stack.Pop()    // x == 3
-    x = stack.Peek()   // x == 2
+    x := stack.Peek()  // x = 3
+    x = stack.Pop()    // x = 3
+    x = stack.Peek()   // x = 2
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It is trivial to replace integers with any other of Go&amp;rsquo;s basic data types
-(&lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks/string&#34;&gt;string&lt;/a&gt;, float64, etc).&lt;/p&gt;
+&lt;p&gt;It is trivial to replace integers with any other type
+(&lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks/string&#34;&gt;string&lt;/a&gt;,
+struct, etc).&lt;/p&gt;
 
 &lt;h2 id=&#34;stack-of-anything&#34;&gt;stack of anything&lt;/h2&gt;
 
@@ -109,8 +115,17 @@ strongly typed language.&lt;/p&gt;
 
 &lt;p&gt;Full source code is available &lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Also Douglas Hall has done a nice implementation using linked lists instead of
-slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1777766&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+&lt;p&gt;Also Douglas Hall has done a nice stack implementation using linked lists instead of
+slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1777766&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
+
+&lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
+[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein&lt;br /&gt;
+[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
     </item>
     
     <item>

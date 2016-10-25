@@ -75,12 +75,17 @@
 			<h1><a href="/blog/stack/">Stack Data Structure in Golang</a></h1>
 			<span class="post-date">Oct 17, 2016 </span>
 			<div class="post-content">
-				<p>A stack is a data structure defined by the operations push, pop, peek, and
-empty. A full description of stacks can be found in
-<a href="http://opendatastructures.org">this</a> book. A stack of any of Go&rsquo;s basic data
-types can be easily implemented in Go using using slices.</p>
+				<p>A stack is a container that supports retrieval by last-in, first-out (LIFO)
+order. The <em>get</em> and <em>put</em> operations for stacks are usually called <em>push</em> and
+<em>pop</em>, other operations may include <em>peek</em> and <em>isEmpty</em>. A full description of
+stacks can be found online <a href="http://opendatastructures.org">here</a>.</p>
 
 <p></p>
+
+<p><em>Stacks are simple to implement and very efficient. For this reason, stacks are
+probably the right container to use when retrieval order doesn&rsquo;t matter [Ski08]</em></p>
+
+<p>A stack can be easily implemented in Go using slices.</p>
 
 <h2 id="stack-of-integers">stack of integers</h2>
 
@@ -134,14 +139,15 @@ func (s *Stack) Peek() (int, bool) {
     stack.Push(2)
     stack.Push(3)
 
-    x := stack.Peek()  // x == 3
-    x = stack.Pop()    // x == 3
-    x = stack.Peek()   // x == 2
+    x := stack.Peek()  // x = 3
+    x = stack.Pop()    // x = 3
+    x = stack.Peek()   // x = 2
 }
 </code></pre>
 
-<p>It is trivial to replace integers with any other of Go&rsquo;s basic data types
-(<a href="https://github.com/tcharding/types/tree/master/stacks/string">string</a>, float64, etc).</p>
+<p>It is trivial to replace integers with any other type
+(<a href="https://github.com/tcharding/types/tree/master/stacks/string">string</a>,
+struct, etc).</p>
 
 <h2 id="stack-of-anything">stack of anything</h2>
 
@@ -169,8 +175,17 @@ strongly typed language.</p>
 
 <p>Full source code is available <a href="https://github.com/tcharding/types/tree/master/stacks">here</a>.</p>
 
-<p>Also Douglas Hall has done a nice implementation using linked lists instead of
+<p>Also Douglas Hall has done a nice stack implementation using linked lists instead of
 slices. You can find his gist <a href="https://gist.github.com/bemasher/1777766">here</a>.</p>
+
+<hr />
+
+<h4 id="bibliography">Bibliography:</h4>
+
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+[Cor09] - <strong>Introduction to Algorithms</strong>, Thomas H. Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein<br />
+[Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
 			</div>
 			<div class="post-comments">
 				
