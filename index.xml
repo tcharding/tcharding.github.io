@@ -15,9 +15,7 @@
       <pubDate>Wed, 26 Oct 2016 09:54:21 +1100</pubDate>
       
       <guid>/blog/queue/</guid>
-      <description>
-
-&lt;p&gt;A queue is a container that supports retrieval by first-in, first-out (FIFO)
+      <description>&lt;p&gt;A queue is a container that supports retrieval by first-in, first-out (FIFO)
 order. The &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;put&lt;/em&gt; operations for a queue are usually called &lt;em&gt;enqueue&lt;/em&gt; and
 &lt;em&gt;dequeue&lt;/em&gt;, other operations may include &lt;em&gt;isEmpty&lt;/em&gt;. A full description of
 queues can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -25,7 +23,7 @@ queues can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt
 &lt;p&gt;Queue&amp;rsquo;s minimise the maximum time spent waiting, however the average wait time
 will be the same whether a LIFO or a FIFO is used.&lt;/p&gt;
 
-&lt;!-- more --&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;A queue can be easily implemented in Go using slices.&lt;/p&gt;
 
@@ -76,8 +74,7 @@ func (q *Queue) isEmpty() bool {
 &lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
 [Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein&lt;br /&gt;
-[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;
-</description>
+[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
     </item>
     
     <item>
