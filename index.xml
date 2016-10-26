@@ -6,8 +6,143 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Oct 2016 09:54:21 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 26 Oct 2016 10:49:04 +1100</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bag Data Structure in Golang</title>
+      <link>/blog/bag/</link>
+      <pubDate>Wed, 26 Oct 2016 10:49:04 +1100</pubDate>
+      
+      <guid>/blog/bag/</guid>
+      <description>
+
+&lt;p&gt;A bag is a container of non-unique items. Bags are defined by the following
+operations &lt;em&gt;Length&lt;/em&gt;, &lt;em&gt;Add&lt;/em&gt;, &lt;em&gt;Delete&lt;/em&gt; and &lt;em&gt;Find&lt;/em&gt;. Bags often also need to support
+&lt;em&gt;FindAll&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bags can be ordered or un-ordered. This post will be discussing un-ordered
+bags. Bags are useful when one needs to store a bunch of things and later check
+if a certain thing is present. For example, storing the characters of a string
+(and perhaps, the frequency count).&lt;/p&gt;
+
+&lt;p&gt;A bag can be easily implemented in Go using a map.&lt;/p&gt;
+
+&lt;h2 id=&#34;bag-of-integers&#34;&gt;bag of integers&lt;/h2&gt;
+
+&lt;p&gt;For the sake of simplicity, we will first cover a bag of integers, then move
+onto a bag of characters (including some useful functions on such a bag).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package bag
+
+type count int
+
+type Bag map[int]count
+
+func (b *Bag) Len() int {
+	sum := 0
+	for _, v := range *b {
+		sum += int(v)
+	}
+	return sum
+}
+
+func (b *Bag) Add(x int) {
+	(*b)[x]++
+}
+
+func (b *Bag) Delete(x int) {
+	_, ok := (*b)[x]
+	if ok {
+		(*b)[x]--
+	}
+}
+
+func (b *Bag) Find(x int) (int, bool) {
+	count, ok := (*b)[x]
+	return int(count), ok
+}
+
+func (b *Bag) FindAll(x int) (int, bool) {
+	return b.Find(x) // not useful for this implementation
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A bag of integers can then be use as such&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func fn() {
+    bag := make(Bag)
+
+	// add some values to bag
+	for i := 0; i &amp;lt; 5; i++ {
+		bag.Add(i)
+    }
+
+    // check if we have a &#39;2&#39;
+    x, ok := bag.Find(2)  // x = 1 (one &#39;2&#39; in bag), ok = true
+
+    // check if we have a &#39;10&#39;
+    x, ok = bag.Find(10)  // ok = false (no &#39;10&#39; in bag)
+
+    // add a second &#39;2&#39; and check we now have two of them in bag 
+    bag.Add(2)
+    x, ok := bag.Find(2)  // x = 2 (two 2&#39;s in bag), ok = true
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;bag-of-bytes&#34;&gt;bag of bytes&lt;/h2&gt;
+
+&lt;p&gt;A bag of bytes can be used to store such things as byte values for characters
+encoded using ASCII. This bag would not be very useful for storing text written
+in Greek but would be useful for some cryptography tasks.&lt;/p&gt;
+
+&lt;p&gt;The basic operations are similar to the above, except of course we replace
+occurences of &lt;code&gt;int&lt;/code&gt; with &lt;code&gt;byte&lt;/code&gt;. Also we add a helper function to create a bag
+from a string (ASCII values only remember).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Bag map[byte]int
+
+func makeBag(s string) Bag {
+	bag := make(Bag)
+	for i := 0; i &amp;lt; len(s); i++ {
+		bag.Add(s[i])
+	}
+	return bag
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can then write some other functions to operate on this bag&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func (b *Bag) difference(c Bag) Bag {
+	bag := make(Bag)
+	for k, vb := range *b {
+		vc, ok := c[k]
+		if ok {
+			if vb &amp;gt; vc {
+				bag[k] = vb - vc
+			}
+		} else {
+			bag[k] = vb
+		}
+	}
+	return bag
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Similarly, one can implement union, and intersection in the above manner. See
+Github for complete
+&lt;a href=&#34;https://github.com/tcharding/types/tree/master/bags&#34;&gt;source code&lt;/a&gt; and tests.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
+
+&lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
+[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein&lt;br /&gt;
+[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Queue Data Structure in Golang</title>
