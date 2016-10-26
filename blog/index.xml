@@ -70,7 +70,7 @@ func (b *Bag) FindAll(x int) (int, bool) {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;A bag of integers can then be use as such&lt;/p&gt;
+&lt;p&gt;We can then use our bag of integers like this&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;func fn() {
     bag := make(Bag)
