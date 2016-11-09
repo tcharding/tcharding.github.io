@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title> Heap Data Structure in Golang &middot; Tobin Harding </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.13" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+ 
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+	</head>
+
+	<body>
+		<header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@eros ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li >
+					<a href="/about-me">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/blog">~/blog</a>
+				</li>
+				
+				
+				<li >
+					<a href="/reading-list">~/books</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+		<div class="container wrapper">
+			<h1><a href="/blog/heap/">Heap Data Structure in Golang</a></h1>
+			<span class="post-date">Nov 10, 2016 </span>
+			<div class="post-content">
+				<p>A heap is a data structure that supports the operations <em>insert</em> and
+<em>extract</em>. Heaps typically come in two varieties, <em>min heap</em> (for extracting the
+minimum value) and <em>max heap</em>. A heap is built using a binary tree where each
+node is said to <em>dominate</em> the nodes below it. The meaning of dominate depends
+on the type of heap being implemented, for a <em>min heap</em> the key of each node is
+<em>less</em> than the keys of both of child nodes.</p>
+
+<p></p>
+
+<p>From here on, without loss of generality, we will talk about a heap of integers
+(keys) ignoring satellite data that may or may not be associated with each
+integer key. <em>Node</em> and <em>key</em> will therefore be used interchangeably.</p>
+
+<p>Like a binary search tree a heap can be implemented using a linked data
+structure. There is however, a nifty method of implementing a heap using an
+array, thereby reducing the memory requirements since there are no pointers to
+store. We store the data as an array of keys and use the index of the keys to
+implicitly satisfy the role of pointers.</p>
+
+<p><strong>The root node is stored at index 1 and all operations are 1-indexed</strong>.</p>
+
+<p>For node at index <em>k</em> the left child can be found at index <em>2k</em> and the
+right child at index <em>2k + 1</em>. (Quite clearly, checks must be made prior to
+access that an index lies within the underlying array).</p>
+
+<p>One additional limitation must be placed on the tree, that it is <em>complete</em>, i.e
+all levels of the tree are full with the possible exception of the last level,
+and if the last level is not full all nodes are as far to the left as
+possible. This limitation results in an array with no holes in it.</p>
+
+<p>A heap as just described may be defined in Go as such;</p>
+
+<pre><code>type heap struct {
+	xs []int
+}
+</code></pre>
+
+<p>We wrap the array inside a struct to abstract the implementation and limit
+access to the functions that we define. Care must be taken
+to remember that the heap is 1-indexed.</p>
+
+<pre><code>func (h *heap) Len() int {
+	return len(h.xs) - 1 // heap is 1-indexed
+}
+</code></pre>
+
+<p>Insertion of a key into a heap can be achieved by adding the key to the end of
+the underlying array. Whilst maintaining the structure of the heap this may
+violate the <em>heap property</em> of the parent of the newly inserted key, namely the
+parent of the newly inserted key may not be dominant. The heap property for the
+parent node can be restored by swapping the newly inserted child node with the
+parent. This may in turn, result in the parent above violating the heap
+property. We can continue this <em>bubbling</em> of a node to successively higher nodes
+until the heap property is restored. When swapping a node with the parent node
+we need not consider the sibling node since if a node dominates the parent then
+by definition it dominates the other sibling also.</p>
+
+<pre><code>// Insert x into the heap
+func (h *heap) Insert(x int) {
+	(*h).xs = append(h.xs, x)
+	h.bubbleUp(len(h.xs) - 1)
+}
+</code></pre>
+
+<p>Note that parenthesis are required to dereference the heap pointer in order to save the
+return value of <code>append()</code>.</p>
+
+<pre><code>func (h *heap) bubbleUp(k int) {
+	p, ok := parent(k)
+	if !ok {
+		return // k is root node
+	}
+	if h.xs[p] &gt; h.xs[k] {
+		h.xs[k], h.xs[p] = h.xs[p], h.xs[k]
+		h.bubbleUp(p)
+	}
+}
+</code></pre>
+
+<p>The function terminates when either the node is in place or it has reached the
+root position.</p>
+
+<p>We define functions for manipulating indices as described above;</p>
+
+<pre><code>// get index of parent of node at index k
+func parent(k int) (int, bool) {
+	if k == 1 {
+		return 0, false
+	}
+	return k / 2, true
+}
+
+// get index of left child of node at index k
+func left(k int) int {
+	return 2 * k
+}
+
+// get index of right child of node at index k
+func right(k int) int {
+	return 2*k + 1
+}
+</code></pre>
+
+<p>We are now ready to extract the key for which our heap was designed (minimum
+or maximum). This key is clearly at index 1, extracting this key however, leaves a hole which
+must be filled. Swapping the last key of the array into the hole restores the
+heap structure but once again may violate the <em>heap property</em>. In a similar
+fashion to insertion we can restore the heap property by bubbling this node down
+the tree until it is either a leaf node or no longer violates the heap
+property. In doing this we must consider both child nodes and swap any
+non-dominant parent node with the child node that is <em>most</em> dominant in order for
+the heap property of these three nodes to be maintained.</p>
+
+<pre><code>// ExtractMin: get minimum value of heap
+// and remove value from heap
+func (h *heap) ExtractMin() (int, bool) {
+	if h.Len() == 0 {
+		return 0, false
+	}
+	v := h.xs[1]
+	h.xs[1] = h.xs[h.Len()]
+	(*h).xs = h.xs[:h.Len()]
+	h.bubbleDown(1)
+	return v, true
+}
+    
+func (h *heap) bubbleDown(k int) {
+	min := k
+	c := left(k)
+
+	// find index of minimum value (k, k's left child, k's right child)
+	for i := 0; i &lt; 2; i++ {
+		if (c + i) &lt;= h.Len() {
+			if h.xs[min] &gt; h.xs[c+i] {
+				min = c + i
+			}
+		}
+	}
+	if min != k {
+		h.xs[k], h.xs[min] = h.xs[min], h.xs[k]
+		h.bubbleDown(min)
+	}
+}
+</code></pre>
+
+<p>Caution is again needed here since the array indexing and loop conditionals are
+unusual because of the 1-indexing.</p>
+
+<p>See Github for complete
+<a href="https://github.com/tcharding/types/tree/master/heaps/minInt">source code</a> and tests.</p>
+
+<h3 id="final-note">Final Note</h3>
+
+<p>This implementation is based on the text <em>The Algorithm Design
+Manual</em> [Ski08]. In this, the author Steven S. Skiena makes an interesting
+observation on the construction of a heap. At first glance one may think to
+construct a heap by repeated calls to <code>insert()</code>. Inserting into a heap (like
+any balanced tree) takes O(log <em>n</em>)), so heap construction in this manner has
+worst case running time of O(<em>n</em> log <em>n</em>). We can do better, Skiena notes, if we
+observe that a <em>full</em>, <em>complete</em> tree of <em>n</em> nodes has <em>n/2</em> leaf nodes. These
+leaf nodes may be considered as sub-trees that maintain the heap property (since
+they have only a single node). If then, we base a heap on any array we need only
+<em>bubble up</em> <em>n/2</em> nodes in order to achieve a heap for which the heap property
+holds. This still gives an <em>upper bound</em> of O(<em>n</em> log <em>n</em>), however Skiena goes
+on to show that this leads to a <em>not quite geometric</em> series that he then
+assures us quickly converges to linear. He does however, caution us that this
+benefit may not be that useful if the algorithm we plan to use our heap for is
+not governed by the construction (i.e heapsort will still run in O(<em>n</em> log
+<em>n</em>)).</p>
+
+<hr />
+
+<h4 id="bibliography">Bibliography:</h4>
+
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena</p>
+			</div>
+			<div class="post-comments">
+				
+			</div>
+			<div class="push"></div>
+		</div>
+		<footer class="footer text-center">
+  <p>Copyright &copy; 2016  -
+    <span class="credit">
+      This site is <a target="_blank"
+      href="https://github.com/tcharding/tobin.cc">open source</a>.
+      Powered by 
+      <a target="_blank" href="https://gohugo.io">Hugo</a>
+      and 
+      <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+    </span>
+  </p>
+</footer>
+
+	</body>
