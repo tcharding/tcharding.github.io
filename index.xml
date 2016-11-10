@@ -446,7 +446,7 @@ definition for the relation between the keys of a BST&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;The keys in a binary search tree are always sorted. Let x be a node in a binary
 search tree. If y is a node in the left subtree of x, then y.key &amp;lt; x.key. If y
-is a node in the right subtree of x, then y.key &amp;gt;= x.key&lt;/em&gt; [Cor09]&lt;/p&gt;
+is a node in the right subtree of x, then y.key &amp;gt;= x.key&lt;/em&gt; [CLRS09]&lt;/p&gt;
 
 &lt;p&gt;the node with the maximum key value will be found in the right-most leaf of the
 tree&lt;/p&gt;
@@ -480,7 +480,7 @@ omitted but full source code can be found
 &lt;h2 id=&#34;insertion-and-deletion&#34;&gt;Insertion and Deletion&lt;/h2&gt;
 
 &lt;p&gt;This section follows the algorithmic design outlined in &lt;em&gt;Introduction to
-Algorithms&lt;/em&gt; [Cor09]&lt;/p&gt;
+Algorithms&lt;/em&gt; [CLRS09]&lt;/p&gt;
 
 &lt;p&gt;Insertion into a BST is simply a matter of locating the correct position and
 inserting a new node. First we will create a new node with the requisite key&lt;/p&gt;
@@ -716,7 +716,7 @@ please feel free to email me or submit a pull request.&lt;/p&gt;
 &lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
 
 &lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
-[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein&lt;br /&gt;
 [Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
     </item>
@@ -852,7 +852,7 @@ Github for complete
 &lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
 
 &lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
-[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein&lt;br /&gt;
 [Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
     </item>
@@ -920,7 +920,7 @@ func (q *Queue) isEmpty() bool {
 &lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
 
 &lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
-[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein&lt;br /&gt;
 [Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
     </item>
@@ -1039,7 +1039,7 @@ slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1
 &lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
 
 &lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
-[Cor09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H. Cormen, Charles E. Leiserson,
+[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein&lt;br /&gt;
 [Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
     </item>
