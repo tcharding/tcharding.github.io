@@ -915,6 +915,59 @@ func (q *Queue) isEmpty() bool {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;queue-of-structs&#34;&gt;queue of structs&lt;/h2&gt;
+
+&lt;p&gt;Today I found a nice implementation of a Queue in the
+&lt;a href=&#34;https://github.com/gonum/graph/blob/master/internal/linear/linear.go&#34;&gt;graph&lt;/a&gt;
+package by the people at &lt;a href=&#34;https://github.com/gonum&#34;&gt;Gonum&lt;/a&gt;. I have stripped it
+down to a queue of structs&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Queue implements a FIFO queue.
+type Queue struct {
+	head int
+	data []item
+}
+
+// Item: real implementation would have something useful here.
+type item struct {
+	data string
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;head&lt;/code&gt; is the index of the head of the queue. Length of the queue is then the
+length of the data slice less the index of the head item.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Len returns the number of items in the queue.
+func (q *Queue) Len() int { return len(q.data) - q.head }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In order to reuse the underlying array, when an item is enqueued, if there is
+room at the front of the queue then we copy the current queue contents back to
+the start of the array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Enqueue adds the node n to the back of the queue.
+func (q *Queue) Enqueue(n item) {
+	if len(q.data) == cap(q.data) &amp;amp;&amp;amp; q.head &amp;gt; 0 {
+		ln := q.Len()
+		copy(q.data, q.data[q.head:])
+		q.head = 0
+		q.data = append(q.data[:ln], n)
+	} else {
+		q.data = append(q.data, n)
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that arguments to copy may be overlapping, Go&amp;rsquo;s built in &lt;code&gt;copy&lt;/code&gt; allows
+this. This is a nice efficiency tweak over the simple implementation given at
+the start of this post. We now reduce the number of times that a new underlying
+array is created.&lt;/p&gt;
+
+&lt;p&gt;The memory usage of this implementation is quite different from the simple
+queue. Like as is often the case with data structures, different data structures
+may perform differently under different workloads, one is not necessarily better
+than another.&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
