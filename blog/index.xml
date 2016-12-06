@@ -6,8 +6,175 @@
     <description>Recent content in Blog-rsses on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Nov 2016 08:29:33 +1100</lastBuildDate>
+    <lastBuildDate>Tue, 06 Dec 2016 11:14:39 +1100</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HackerRank: First milestone reached.</title>
+      <link>/blog/hackerrank1/</link>
+      <pubDate>Tue, 06 Dec 2016 11:14:39 +1100</pubDate>
+      
+      <guid>/blog/hackerrank1/</guid>
+      <description>&lt;p&gt;&lt;em&gt;To appreciate programming as an intellectual activity in its own right &amp;hellip; you
+must read and write computer programs - many of them.&lt;/em&gt;[ASS96]&lt;/p&gt;
+
+&lt;p&gt;For the past nine weeks I have been working on programming questions at
+&lt;a href=&#34;http://hackerrank.com&#34;&gt;HackerRank&lt;/a&gt; completing questions in the &amp;lsquo;practice area&amp;rsquo; i.e I have
+not competed in any competitive programming competitions offered by the
+site. Today I reached the first milestone I had set, namely, to get a top 1000
+ranking (96th percentile) in the algorithms sub domain.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;hackerrank-com&#34;&gt;HackerRank.com&lt;/h3&gt;
+
+&lt;p&gt;First a brief introduction to HackerRank (1). The site is one of many
+competitive programming sites available currently. This is not, in any way, a
+post about the merits of one site vs another. As such I do not intend to compare
+HackerRank to any of its competitors.&lt;/p&gt;
+
+&lt;p&gt;HackerRank is divided into two areas. One is the competitive programming
+competitions and the other is the practice arena, an area of the site listing
+multiple discrete programming questions divided into domains. This post is
+concerning the practice arena. I will not be mentioning the competitions again
+and may at times take the liberty of referring to the practice arena as &amp;lsquo;the
+site&amp;rsquo; in general without further specification.&lt;/p&gt;
+
+&lt;p&gt;The site (I did warn you), is divided into domains. The three &amp;lsquo;big&amp;rsquo; ones are
+algorithms, artificial intelligence, and functional programming. Each domain is
+separate in terms of score and rank. For each domain a user will have score (of
+points for completed questions) and a rank (of all users of that domain). Each
+domain is also divided into sub domains, such as sorting, graph theory
+etc. Questions are rated easy, medium, hard etc and allotted a maximum
+score. Partial solutions garner partial scores and multiple submissions are of
+course allowed. Also statistics on success rates of completion are listed for
+each question.&lt;/p&gt;
+
+&lt;h3 id=&#34;statistics&#34;&gt;Statistics&lt;/h3&gt;
+
+&lt;p&gt;I focused on the algorithms domain. I used Golang for all questions. As stated
+above my first milestone was to get into the top 1000. During the nine weeks it
+took me to do this I was aided by the texts listed in the bibliography
+below. The primary aim of completing this milestone was to become a better
+programmer and more specifically to become a better programmer in Go.&lt;/p&gt;
+
+&lt;p&gt;Without further ado;&lt;/p&gt;
+
+&lt;p&gt;150 hours over nine weeks&lt;br /&gt;
+140 questions attempted&lt;br /&gt;
+12 000 lines of code&lt;/p&gt;
+
+&lt;h3 id=&#34;what-i-learned&#34;&gt;What I learned&lt;/h3&gt;
+
+&lt;p&gt;All solutions must be complete i.e no libraries, so data structures and algorithms must be
+written from scratch. This means that I learned thoroughly, for example, how to
+implement and traverse a graph.&lt;/p&gt;
+
+&lt;p&gt;The importance of data structures quickly becomes very clear, most used were; queue, stack, tree
+(binary search tree, ordered statistical tree, n-ary tree), graph
+(directed/undirected, weighted/unweighted).&lt;/p&gt;
+
+&lt;p&gt;All questions read input from standard in and expect output on standard out. For
+simplicity I tended to use &lt;code&gt;fmt.Fscanf&lt;/code&gt;. However on occasion IO
+was found to be a bottleneck and I learned that &lt;code&gt;bufio.Scanner&lt;/code&gt; is faster.&lt;/p&gt;
+
+&lt;p&gt;To test each solution I used a trick from Donovan and Kernighan [DK16]. In the
+main file we declare two global variables &lt;code&gt;in&lt;/code&gt; and &lt;code&gt;out&lt;/code&gt;. Also &lt;code&gt;main()&lt;/code&gt; is
+simply a call to another function;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var (
+	in  io.Reader = os.Stdin
+	out io.Writer = os.Stdout
+)
+
+func main() {
+	solve()
+}
+
+func solve() {
+    // ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then in the test file, using &lt;a href=&#34;https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go&#34;&gt;table driven testing&lt;/a&gt;, we override &lt;code&gt;in&lt;/code&gt; and &lt;code&gt;out&lt;/code&gt; in
+order to supply test cases and check the output.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func Tes(t *testing.T) {
+	var tests = []struct {
+		input string
+		want  string
+	}{
+	        {&amp;quot;1 2 3\n&amp;quot;, &amp;quot;10\n&amp;quot;},
+    		{&amp;quot;5 6 7\n&amp;quot;, &amp;quot;11\n&amp;quot;},
+	}
+
+	for _, test := range tests {
+		out = new(bytes.Buffer)
+		in = bytes.NewBufferString(test.input)
+		solve()
+
+		if got := out.(*bytes.Buffer).String(); got != test.want {
+			t.Errorf(&amp;quot;input: %s\n got: %s\n want: %s\n&amp;quot;,
+				test.input, got, test.want)
+		}
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Generally speaking the easy questions are solvable with an O(N^2) algorithm. Once
+onto the medium questions however typically an O(NlogN) solution is
+required. Often it suffices to look over the solution and change the algorithm
+as needed but at times bench marking is helpful. I learned that Go&amp;rsquo;s built in
+benchmark facilities are quick and easy to use and provided all one needs to get
+the running times down on trickier questions.&lt;/p&gt;
+
+&lt;p&gt;Bench marking can be implemented (assuming the question is coded as above) in
+Golang by simply adding to a test file the following function;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func BenchmarkSolve(b *testing.B) {
+	for i := 0; i &amp;lt; b.N; i++ {
+		input := &amp;quot;1 2 3\n&amp;quot;
+		out = new(bytes.Buffer)
+		in = bytes.NewBufferString(input)
+		solve()
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A Bench mark file can be produced with &lt;code&gt;$ go test -run=None -bench=Solve
+-cpuprofile=cpu.out&lt;/code&gt;. One can then view the output using &lt;code&gt;go tool pprof -text
+-nodecount=20 ./prog.test cpu.out&lt;/code&gt;. Where &lt;code&gt;prog.test&lt;/code&gt; is the executable that &lt;code&gt;go
+test&lt;/code&gt; saves by default using the program name and the suffix &lt;code&gt;.test&lt;/code&gt;. The
+&lt;code&gt;-run=None&lt;/code&gt; flag stops all other tests from being run during the bench mark.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;I found HackerRank to be well written, both the content and the site
+operations. The questions were well paced and progressed in difficulty at a nice rate. There
+are ample questions and a nice little dopamine release generated
+by each score increase to keep you coming back. A text book or two on data
+structures and algorithms is surely advisable. I found Golang to be very
+suitable and pleasant to work with even though it can be verbose at times. If
+you would like to deepen your understanding and quicken your algorithmic output
+I can wholeheartedly recommend a few weeks spent on HackerRank.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;notes&#34;&gt;Notes:&lt;/h4&gt;
+
+&lt;p&gt;(1) &lt;strong&gt;I am not affiliated in any way with hackerrank.com&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
+
+&lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
+[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein&lt;br /&gt;
+[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;br /&gt;
+[ASS96] - &lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt;, Harold Abelson
+andGerald Jay Sussman with Julie Sussman.&lt;br /&gt;
+[DK16] - &lt;strong&gt;The GO Programming Language&lt;/strong&gt;, Alan A. A. Donovan, Brian
+W. Kernighan.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Heap Data Structure in Golang</title>
