@@ -6,8 +6,130 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Dec 2016 11:14:39 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2016 21:00:43 +1100</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Resume</title>
+      <link>/resume/</link>
+      <pubDate>Sat, 17 Dec 2016 21:00:43 +1100</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. Contributed to various open source projects. &lt;strong&gt;18 months&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;97th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees  in computer science.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of Central Coast Linux Users Group (LUG).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;code-written-in-the-last-12-months&#34;&gt;Code Written in the last 12 months&lt;/h2&gt;
+
+&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;140+ algorithmic problems on HackerRank.com.&lt;/li&gt;
+&lt;li&gt;Data structures. Implementations and blog posts.&lt;/li&gt;
+&lt;li&gt;Exercises from The Go Programming Language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;haskell&#34;&gt;Haskell&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;50+ problems from &lt;a href=&#34;https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems&#34;&gt;Ninety-Nine Haskell&lt;/a&gt; Problems.&lt;/li&gt;
+&lt;li&gt;Approximately 20 problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;scheme&#34;&gt;Scheme&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Guile patch modifying compiler output (in C and Scheme).&lt;/li&gt;
+&lt;li&gt;Worked all Exercises from SICP (upto exercise 4.71).&lt;/li&gt;
+&lt;li&gt;Exercises from The Scheme Programming Language.&lt;/li&gt;
+&lt;li&gt;Worked The Little Schemer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;armv4t&#34;&gt;ARMv4T&lt;/h3&gt;
+
+&lt;p&gt;Toolchain: gcc and the GNU Assembler.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Exercises from ARM Assembly Language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;linux-kernel&#34;&gt;Linux Kernel&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Updated &lt;a href=&#34;https://github.com/tcharding/ldd3-examples-4.6&#34;&gt;source code&lt;/a&gt; from &lt;a href=&#34;https://lwn.net/Kernel/LDD3/&#34;&gt;ldd3&lt;/a&gt; to kernel version 4.6.0.&lt;/li&gt;
+&lt;li&gt;A few trivial Kernel patches into &lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/gregkh/staging.git/log/?qt=grep&amp;amp;q=Tobin+C+Harding&#34;&gt;GregKH staging&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Initial challenges from &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;The Eudyptula Challenge&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Contributed to the &lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server&#34;&gt;Open Bazaar&lt;/a&gt; project.&lt;/li&gt;
+&lt;li&gt;Completed first four sets from the &lt;a href=&#34;https://cryptopals.com/&#34;&gt;Matasano Cryptography Challenges&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;30+ problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;c&#34;&gt;C&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All exercise upto chapter 47 of The Linux Programming Interface&lt;/li&gt;
+&lt;li&gt;All exercises from UNIX Network Programming.&lt;/li&gt;
+&lt;li&gt;All exercises from Advanced Programming in the UNIX Environment.&lt;/li&gt;
+&lt;li&gt;Majority of exercises from UNIX Systems Programming.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All code is open source and hosted on &lt;a href=&#34;https://github.com/tcharding/self_learning&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+
+&lt;h3 id=&#34;self-learning&#34;&gt;Self Learning&lt;/h3&gt;
+
+&lt;p&gt;For the last 18 months I have worked assiduously on becoming a comptent
+programmer. I have &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logged&lt;/a&gt; hours and topics worked. Topic outline for the last 12
+months can be seen above. During this time I have studied numerous texts on
+topics related to software development. See &lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt;
+for full listing, highlights include;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Art of Computer Programming&lt;/strong&gt; (volumes 1 and 2) Donald E. Knuth&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Applied Cryptography&lt;/strong&gt; Bruce Schneier&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt; Robert C. Martin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UNIX Network Programming&lt;/strong&gt; W. Richard Stevens, Bill Fenner, Andrew M. Rudoff&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt; W. Richard Stevens, Stephen A. Rag&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;graduate-diploma-in-computer-science&#34;&gt;Graduate Diploma in Computer Science&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Pass with High Distinction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;University of New England, Australia (completed 2014).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parallel and Distributed Computing.&lt;/li&gt;
+&lt;li&gt;Computer Architecture and Assembler.&lt;/li&gt;
+&lt;li&gt;C++ Programming.&lt;/li&gt;
+&lt;li&gt;Programming Languages for Artificial Intelligence.&lt;/li&gt;
+&lt;li&gt;Web and Internet Programming.&lt;/li&gt;
+&lt;li&gt;Information Technology Project (patient management application written in Objective C).&lt;/li&gt;
+&lt;li&gt;Graduate Diploma in Computer Science Project (UNIX shell written in C).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;bachelor-of-science&#34;&gt;Bachelor of Science&lt;/h3&gt;
+
+&lt;p&gt;University of Sydney, Australia (completed 2008).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Awarded Bachelor of Science majoring in computer science.&lt;/li&gt;
+&lt;li&gt;Completed double major, software development and computer networking.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>HackerRank: First milestone reached.</title>
@@ -1311,9 +1433,6 @@ Jon Bently&lt;/p&gt;
 
 &lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;The Go Programming Language&lt;/strong&gt;
-Alan A. A. Donovan, Brian W. Kernighan&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;Discrete and Combinatorial Mathematics&lt;/strong&gt;
 Ralph P. Grimaldi&lt;/p&gt;
 
@@ -1327,6 +1446,9 @@ Thomas H. Cormen, Charles C. Leiserson, Ronald L. Rivest, Clifford Stein&lt;/p&g
 Steven S Skiena&lt;/p&gt;
 
 &lt;h1 id=&#34;past&#34;&gt;Past&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;The Go Programming Language&lt;/strong&gt;
+Alan A. A. Donovan, Brian W. Kernighan&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Apprenticeship Patterns&lt;/strong&gt; Guidance for the Aspiring Software Craftsman -
 David H. Hoover and Adewale Oshineye &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
