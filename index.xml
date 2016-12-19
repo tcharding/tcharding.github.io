@@ -18,10 +18,65 @@
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. Contributed to various open source projects. &lt;strong&gt;18 months&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;97th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. &lt;strong&gt;18 months&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees  in computer science.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;97th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of Central Coast Linux Users Group (LUG).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;open-source-experience&#34;&gt;Open Source Experience&lt;/h2&gt;
+
+&lt;p&gt;I have made open source contributions to the following projects;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;gonum/&lt;a href=&#34;https://github.com/gonum/graph/graphs/contributors&#34;&gt;graph&lt;/a&gt; (Go)&lt;/li&gt;
+&lt;li&gt;gyuho/&lt;a href=&#34;https://github.com/gyuho/goraph/graphs/contributors&#34;&gt;gograph&lt;/a&gt; (Go)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server/graphs/contributors&#34;&gt;OpenBazaar-Server&lt;/a&gt; (Python)&lt;/li&gt;
+&lt;li&gt;Guile Scheme (Scheme, C)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/gregkh/staging.git/log/?qt=grep&amp;amp;q=Tobin+C+Harding&#34;&gt;Linux Kernel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+
+&lt;h3 id=&#34;self-learning&#34;&gt;Self Learning&lt;/h3&gt;
+
+&lt;p&gt;For the last 18 months I have worked assiduously on becoming a competent
+programmer. I have &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logged&lt;/a&gt; hours and
+topics worked. For more detail see below ‘code written in last 12
+months’. During this time I have studied numerous texts on topics related to
+software development. See &lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt; for full
+listing, highlights include;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Art of Computer Programming&lt;/strong&gt; (volumes 1 and 2) Donald E. Knuth&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Applied Cryptography&lt;/strong&gt; Bruce Schneier&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt; Robert C. Martin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UNIX Network Programming&lt;/strong&gt; W. Richard Stevens, Bill Fenner, Andrew M. Rudoff&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt; W. Richard Stevens, Stephen A. Rag&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;graduate-diploma-in-computer-science-pass-with-high-distinction&#34;&gt;Graduate Diploma in Computer Science (Pass with High Distinction)&lt;/h3&gt;
+
+&lt;p&gt;University of New England, Australia (completed 2014).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parallel and Distributed Computing.&lt;/li&gt;
+&lt;li&gt;Computer Architecture and Assembler.&lt;/li&gt;
+&lt;li&gt;C++ Programming.&lt;/li&gt;
+&lt;li&gt;Programming Languages for Artificial Intelligence.&lt;/li&gt;
+&lt;li&gt;Web and Internet Programming.&lt;/li&gt;
+&lt;li&gt;Information Technology Project (patient management application written in Objective C).&lt;/li&gt;
+&lt;li&gt;Graduate Diploma in Computer Science Project (UNIX shell written in C).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;bachelor-of-science&#34;&gt;Bachelor of Science&lt;/h3&gt;
+
+&lt;p&gt;University of Sydney, Australia (completed 2008).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Awarded Bachelor of Science majoring in computer science.&lt;/li&gt;
+&lt;li&gt;Completed double major, software development and computer networking.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;code-written-in-the-last-12-months&#34;&gt;Code Written in the last 12 months&lt;/h2&gt;
@@ -83,50 +138,6 @@
 &lt;li&gt;All exercises from UNIX Network Programming.&lt;/li&gt;
 &lt;li&gt;All exercises from Advanced Programming in the UNIX Environment.&lt;/li&gt;
 &lt;li&gt;Majority of exercises from UNIX Systems Programming.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
-
-&lt;h3 id=&#34;self-learning&#34;&gt;Self Learning&lt;/h3&gt;
-
-&lt;p&gt;For the last 18 months I have worked assiduously on becoming a competent
-programmer. I have &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logged&lt;/a&gt; hours and topics worked. Topic outline for the last 12
-months can be seen above. During this time I have studied numerous texts on
-topics related to software development. See &lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt;
-for full listing, highlights include;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Art of Computer Programming&lt;/strong&gt; (volumes 1 and 2) Donald E. Knuth&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Applied Cryptography&lt;/strong&gt; Bruce Schneier&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt; Robert C. Martin&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;UNIX Network Programming&lt;/strong&gt; W. Richard Stevens, Bill Fenner, Andrew M. Rudoff&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt; W. Richard Stevens, Stephen A. Rag&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;graduate-diploma-in-computer-science&#34;&gt;Graduate Diploma in Computer Science&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Pass with High Distinction&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;University of New England, Australia (completed 2014).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Parallel and Distributed Computing.&lt;/li&gt;
-&lt;li&gt;Computer Architecture and Assembler.&lt;/li&gt;
-&lt;li&gt;C++ Programming.&lt;/li&gt;
-&lt;li&gt;Programming Languages for Artificial Intelligence.&lt;/li&gt;
-&lt;li&gt;Web and Internet Programming.&lt;/li&gt;
-&lt;li&gt;Information Technology Project (patient management application written in Objective C).&lt;/li&gt;
-&lt;li&gt;Graduate Diploma in Computer Science Project (UNIX shell written in C).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;bachelor-of-science&#34;&gt;Bachelor of Science&lt;/h3&gt;
-
-&lt;p&gt;University of Sydney, Australia (completed 2008).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Awarded Bachelor of Science majoring in computer science.&lt;/li&gt;
-&lt;li&gt;Completed double major, software development and computer networking.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
