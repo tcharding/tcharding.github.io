@@ -6,8 +6,274 @@
     <description>Recent content in Blog-rsses on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Dec 2016 11:14:39 +1100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jan 2017 10:08:31 +1100</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Graph Data Structures in Golang</title>
+      <link>/blog/graph/</link>
+      <pubDate>Thu, 05 Jan 2017 10:08:31 +1100</pubDate>
+      
+      <guid>/blog/graph/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&amp;hellip; understand just how astonishingly commonplace (and important) graph problems are&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;they should be part of every working programmer&amp;rsquo;s toolkit.&lt;/em&gt;
+    - &lt;a href=&#34;http://steve-yegge.blogspot.com.au/2008/03/get-that-job-at-google.html&#34;&gt;Stevey&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The graph data structure is of high utility across the field of computer
+science. Graph problems come in many shapes and sizes but once modeled can
+typically be represented by a limited number of graph data type variants.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Writing a general purpose graph library is no mean feat. This post is not about creating a
+general purpose graph library, if you are after such a library there is a nice
+general purpose graph library written in Go by the
+&lt;a href=&#34;https://github.com/gonum/graph&#34;&gt;gonum&lt;/a&gt; team.&lt;/p&gt;
+
+&lt;p&gt;This post will lay the foundation for further exploration of graph algorithms in
+Go. As such we will discuss the basic structure of various graphs. These details
+will allow us to further build on these structures when faced with a particular
+problem or when attempting to implement a particular well known graph algorithm.&lt;/p&gt;
+
+&lt;h2 id=&#34;unweighted-graph&#34;&gt;Unweighted Graph&lt;/h2&gt;
+
+&lt;p&gt;One of the most simple graphs is an unweighted graph with &lt;code&gt;N&lt;/code&gt; nodes labelled
+&lt;code&gt;0..N-1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Graph struct {
+	NumNodes int
+	Edges    [][]int
+}
+
+// NewGraph: Create graph with n nodes.
+func NewGraph(n int) *Graph {
+	return &amp;amp;Graph{
+		NumNodes: n,
+		Edges:    make([][]int, n),
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since the nodes are sequentially numbered we can store all edges in a slice
+indexed by the source node. For an edge from &lt;code&gt;u&lt;/code&gt; to &lt;code&gt;v&lt;/code&gt; (&lt;code&gt;u -&amp;gt; v&lt;/code&gt;) we append &lt;code&gt;v&lt;/code&gt;
+to the slice at &lt;code&gt;Edges[u]&lt;/code&gt;. We then have a slice of slices representing all
+edges in the graph, with each slice &lt;code&gt;Edges[n]&lt;/code&gt; representing all nodes adjacent
+to node labelled &lt;code&gt;n&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The graph thus far is &lt;em&gt;undirected&lt;/em&gt;, an edge &lt;code&gt;u -&amp;gt; v&lt;/code&gt; does not imply an edge &lt;code&gt;v
+-&amp;gt; u&lt;/code&gt;. If the problem we are modelling requires an undirected graph it is simply a
+matter of adding an edge &lt;code&gt;v -&amp;gt; u&lt;/code&gt; any time we add edge &lt;code&gt;u -&amp;gt; v&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// AddEdge: Add an edge from u to v.
+func (g *Graph) AddEdge(u, v int) {
+	g.Edges[u] = append(g.Edges[u], v)
+
+	// For undirected graph add edge from v to u.
+	// g.Edges[v] = append(g.Edges[v], u)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We have the graph data structure implemented and are able to build a graph to
+model the problem at hand. Depending on the problem we will need to access the
+graph data in various ways. One common operation used, among other things, in
+graph traversal is to iterate all nodes adjacent to node &lt;code&gt;n&lt;/code&gt;. This is easily
+achieved with the current implementation by iterating the slice at
+&lt;code&gt;Edges[n]&lt;/code&gt;. To process all edges in the graph one simply uses a nested loop to
+iterate over &lt;code&gt;Edges&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func (g *Graph) adjacentEdgesExample() {
+	u := 0 // Example node label.
+
+	fmt.Printf(&amp;quot;Printing all edges adjacent to Node: %d\n&amp;quot;, u)
+	for _, v := range g.Edges[u] {
+		// Edge exists from u to v.
+		fmt.Printf(&amp;quot;Edge: %d -&amp;gt; %d\n&amp;quot;, u, v)
+	}
+
+	fmt.Println(&amp;quot;Printing all edges in graph.&amp;quot;)
+	for u, adjacent := range g.Edges { // Nodes are labelled 0 to N-1.
+		for _, v := range adjacent {
+			// Edge exists from u to v.
+			fmt.Printf(&amp;quot;Edge: %d -&amp;gt; %d\n&amp;quot;, u, v)
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;weighted-graph&#34;&gt;Weighted Graph&lt;/h2&gt;
+
+&lt;p&gt;The next level of complexity that we may wish to add to a graph is edge
+weight. This can be achieved by defining an &lt;code&gt;Edge&lt;/code&gt; type then storing all &lt;code&gt;Edge&lt;/code&gt;
+instances in a slice in a similar fashion to the unweighted graph above. We
+choose to store the &lt;code&gt;From&lt;/code&gt; node label in the &lt;code&gt;Edge&lt;/code&gt; type even though it is
+redundant (since &lt;code&gt;Edges&lt;/code&gt; is inedexed by source node label). This often leads to
+code that is easier to write and read. There is obviously a space cost to this
+design choice.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Graph struct {
+	NumNodes int
+	Edges    [][]Edge
+}
+
+type Edge struct {
+	From   int
+	To     int
+	Weight int
+}
+
+// NewGraph: Create graph with n nodes.
+func NewGraph(n int) *Graph {
+	return &amp;amp;Graph{
+		NumNodes: n,
+		Edges:    make([][]Edge, n),
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Edges are added to the graph thus&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// AddEdge: Add an edge from u to v.
+func (g *Graph) AddEdge(u, v, w int) {
+	g.Edges[u] = append(g.Edges[u], Edge{From: u, To: v, Weight: w})
+
+	// For undirected graph add edge from v to u.
+	// g.Edges[v] = append(g.Edges[v], Edge{From: v, To: u, Weight: w})
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And edges may be processed simply using slice iteration.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func (g *Graph) adjacentEdgesExample() {
+	u := 0 // Example node label.
+
+	fmt.Printf(&amp;quot;Printing all edges adjacent to %d\n&amp;quot;, u)
+	for _, e := range g.Edges[u] {
+		fmt.Printf(&amp;quot;Edge: %d -&amp;gt; %d (%d)\n&amp;quot;, e.From, e.To, e.Weight)
+	}
+
+	fmt.Println(&amp;quot;Printing all edges in graph.&amp;quot;)
+	for _, adjacent := range g.Edges {
+		for _, e := range adjacent {
+			fmt.Printf(&amp;quot;Edge: %d -&amp;gt; %d (%d)\n&amp;quot;, e.From, e.To, e.Weight)
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;arbitrary-node-labels&#34;&gt;Arbitrary Node Labels&lt;/h2&gt;
+
+&lt;p&gt;Graph nodes will not always be labelled sequentially. If we require a graph with
+arbitrary graph labels we will likely use a &lt;code&gt;map&lt;/code&gt; instead of a slice to store
+edges. This provides flexibility at the cost of efficiency. Although map access
+is said to be have constant time cost, I have found that on large data sets use
+of maps is noticeably slower than use of slices. If efficiency is critical
+you may like to consider remodelling your problem to use sequential node labels
+if at all possible. The code using maps is similar to the code above, here we
+will show an unweighted graph. Edge weights may be added as they were for
+sequential node labels above.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Herein we use a type definition to abstract away the node label type.&lt;/strong&gt; Also we
+now refer interchangeably to node label or node id.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type ID int
+
+type Graph struct {
+	Nodes map[ID]struct{}
+	Edges map[ID]map[ID]struct{}
+}
+
+// NewGraph: Create graph.
+func NewGraph() *Graph {
+	return &amp;amp;Graph{
+		Nodes: make(map[ID]struct{}),
+		Edges: make(map[ID]map[ID]struct{}),
+	}
+}
+
+// AddNode: Add node id to graph, return true if added (ID&#39;s are unique).
+func (g *Graph) AddNode(id ID) bool {
+	if _, ok := g.Nodes[id]; ok {
+		return false
+	}
+	g.Nodes[id] = struct{}{}
+	return true
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we add the constraint that node labels are unique. We use the Go idiom of
+mapping an integer (node label) to an empty object &lt;code&gt;struct{}{}&lt;/code&gt;. While making the
+code longer this makes explicit our intention that only the map key is of utility.&lt;/p&gt;
+
+&lt;p&gt;Edges may be added thus.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// AddEdge: Add an edge from u to v.
+func (g *Graph) AddEdge(u, v ID) {
+	if _, ok := g.Nodes[u]; !ok {
+		g.AddNode(u)
+	}
+	if _, ok := g.Nodes[v]; !ok {
+		g.AddNode(v)
+	}
+
+	if _, ok := g.Edges[u]; !ok {
+		g.Edges[u] = make(map[ID]struct{})
+	}
+	g.Edges[u][v] = struct{}{}
+
+	// For undirected graph add edge from v to u.
+	// if _, ok := g.Edges[v]; !ok {
+	// 	g.Edges[v] = make(map[ID]struct{})
+	// }
+	// g.Edges[v][u] = struct{}{}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Prior to adding an edge we access the inner map to verify that it is available
+and create it if not. Once again we use an empty struct to make explicit that
+the key value is the only value of utility. An undirected graph is created by
+adding an edge in the reverse direction as previously discussed.&lt;/p&gt;
+
+&lt;p&gt;Edge processing proceeds accordingly.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func (g *Graph) adjacentEdgesExample() {
+	u := ID(0) // example node ID.
+
+	fmt.Printf(&amp;quot;Printing all edges adjacent to %d\n&amp;quot;, u)
+	for v := range g.Edges[u] {
+		// Edge exists from u to v.
+		fmt.Printf(&amp;quot;Edge: %d -&amp;gt; %d\n&amp;quot;, u, v)
+	}
+
+	fmt.Println(&amp;quot;Printing all edges.&amp;quot;)
+	for u, m := range g.Edges {
+		for v := range m {
+			// Edge exists from u to v.
+			fmt.Printf(&amp;quot;Edge: %d -&amp;gt; %d\n&amp;quot;, u, v)
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Experienced Go programmers may pause at the use of a single variable &lt;code&gt;v&lt;/code&gt; above when
+iterating a &lt;code&gt;map&lt;/code&gt;. Note that this refers to edge &lt;code&gt;v&lt;/code&gt; not the usual idiom &lt;code&gt;k, v :=
+range m&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Graphs are an essential data structure. Implementing them in Go is both
+enjoyable and educational. We have presented a simple method of implementing
+graphs here but with just this much work we have a data structure which allows us to
+do traversal, path finding, minimum spanning tree and much more.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
+
+&lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
+[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
+Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>HackerRank: First milestone reached.</title>
