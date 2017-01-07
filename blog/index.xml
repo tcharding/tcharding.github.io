@@ -140,10 +140,16 @@ func (fen *Fenwick) Size() int {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;In conclusion, then Fenwick tree is a very nifty data structure. Hats off to
-Paul Fenwick for his incite. Fenwick trees are used, according to Wikipedia, in
+&lt;p&gt;All code available on &lt;a href=&#34;https://github.com/tcharding/types/tree/master/trees/fenwick/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Fenwick trees are used, according to Wikipedia, in
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Arithmetic_coding&#34;&gt;arithmetic coding&lt;/a&gt;. They also
 find use in counting integer inversion in an array.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, the Fenwick tree is a nifty little data structure. Hats off to its
+creator.&lt;/p&gt;
 
 &lt;hr /&gt;
 
