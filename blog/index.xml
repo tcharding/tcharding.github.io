@@ -6,8 +6,152 @@
     <description>Recent content in Blog-rsses on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jan 2017 10:08:31 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jan 2017 11:21:35 +1100</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Fenwick Trees in Golang</title>
+      <link>/blog/fenwick/</link>
+      <pubDate>Sat, 07 Jan 2017 11:21:35 +1100</pubDate>
+      
+      <guid>/blog/fenwick/</guid>
+      <description>&lt;p&gt;A Fenwick tree is a data structure that holds an ordered collection and supports
+the operations &lt;code&gt;sum&lt;/code&gt; and &lt;code&gt;update&lt;/code&gt;, both in &lt;em&gt;O(log n)&lt;/em&gt; time.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;In its most basic form the tree stores an array of integers. &lt;code&gt;Sum&lt;/code&gt; calculates
+the cumulative total of the first &lt;em&gt;n&lt;/em&gt; integers and &lt;code&gt;update&lt;/code&gt; modifies an element. Theoretically one is not limited to addition of integers when using
+Fenwick trees. We can however limit the discussion of Fenwick trees, without
+loss of generality, to trees involving integers and summing/updating using
+addition&lt;em&gt;[1]&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;See this Github
+&lt;a href=&#34;https://github.com/tcharding/types/tree/master/trees/fenwick/fenwick-mul&#34;&gt;repository&lt;/a&gt;
+for an implementation using multiplication.&lt;/p&gt;
+
+&lt;h2 id=&#34;problem-statement&#34;&gt;Problem Statement&lt;/h2&gt;
+
+&lt;p&gt;Design a data structure that supports cumulative accumulation of values and also supports
+modification of the values.&lt;/p&gt;
+
+&lt;h2 id=&#34;naive-solution&#34;&gt;Naive Solution&lt;/h2&gt;
+
+&lt;p&gt;A naive approach to designing such a data structure may choose to store the values in an array
+&lt;code&gt;[1, 2, 3, 4, 5]&lt;/code&gt;. Summation is then achieved by iterating the array and runs in
+&lt;em&gt;O(n)&lt;/em&gt;. Updating a value in the array is done via indexing and quite clearly
+runs in &lt;em&gt;O(1)&lt;/em&gt; or &lt;em&gt;constant&lt;/em&gt; time.&lt;/p&gt;
+
+&lt;p&gt;Perhaps we may choose to optimize for cumulative summation. This may be done by instead of
+storing the values, storing the cumulative totals &lt;code&gt;[1, 3, 6, 10, 15]&lt;/code&gt;.
+Summation is now a matter of indexing and runs in &lt;em&gt;0(1)&lt;/em&gt; time. However in order to update a value we must
+traverse the array from the updated value to the end of the array updating each
+value as we go. This is, once again &lt;em&gt;0(n)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;fenwick-tree-solution&#34;&gt;Fenwick Tree Solution&lt;/h2&gt;
+
+&lt;p&gt;The problem that a Fenwick tree solves is the ability to both sum a series and modify
+it in less that &lt;em&gt;O(n)&lt;/em&gt; running time.&lt;/p&gt;
+
+&lt;p&gt;According to &lt;a href=&#34;https://en.wikipedia.org/wiki/Fenwick_tree&#34;&gt;Wikipedia&lt;/a&gt; Paul
+Fenwick proposed the data structure in 1994. How Mr Fenwick came up with this
+structure I have no idea but in order to do so he made some very interesting
+observations. Let us start with a binary search tree with the nodes
+positioned in such a way that an &lt;em&gt;inorder&lt;/em&gt; tree traversal would give the same
+order as the collection we wish to store. Each node has an associated &lt;code&gt;value&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first observation is that we can update a node by setting the nodes &lt;code&gt;value&lt;/code&gt;
+and then &lt;em&gt;bubble&lt;/em&gt; the new value up the tree updating each internal node&amp;rsquo;s &lt;code&gt;value&lt;/code&gt;
+&lt;em&gt;iff&lt;/em&gt; that node was reached via it&amp;rsquo;s &lt;em&gt;right&lt;/em&gt; child.&lt;/p&gt;
+
+&lt;p&gt;Doing so maintains a tree that supports the calculation of
+cumulative total by using a similar technique, namely; when finding the sum for a
+node we start with the nodes &lt;code&gt;value&lt;/code&gt; then traverse up the tree, adding the internal nodes &lt;code&gt;value&lt;/code&gt;
+as we pass if the node was reached by its &lt;em&gt;left&lt;/em&gt; child.&lt;/p&gt;
+
+&lt;p&gt;Further explanation can be found in this very nice
+&lt;a href=&#34;http://cs.stackexchange.com/questions/10538/bit-what-is-the-intuition-behind-a-binary-indexed-tree-and-how-was-it-thought-a&#34;&gt;StackExchange&lt;/a&gt;
+post.&lt;/p&gt;
+
+&lt;p&gt;The second observation is that if we take the &lt;em&gt;inorder&lt;/em&gt;  node position as the
+node &lt;code&gt;id&lt;/code&gt; we can store the tree in an array using the &lt;code&gt;id&lt;/code&gt; as the index. It can
+then be observed that by a feat of &lt;em&gt;bit twiddling&lt;/em&gt; genius involving adding and
+removing the least significant bit we can traverse &lt;em&gt;up&lt;/em&gt; the tree. Not only can
+we traverse up the tree, at each node we can ascertain from which child we
+arrived. See the above link for a more thorough explanation.&lt;/p&gt;
+
+&lt;h2 id=&#34;fenwick-tree-in-go&#34;&gt;Fenwick Tree in Go&lt;/h2&gt;
+
+&lt;p&gt;Without further ado&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Fenwick struct {
+	tree []int
+}
+
+// NewFenwick: Build Fenwick tree to hold n values.
+func NewFenwick(n int) *Fenwick {
+	fen := &amp;amp;Fenwick{
+		tree: make([]int, n),
+	}
+	return fen
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we abstract the data with a &lt;code&gt;struct&lt;/code&gt;. This prevents inadvertent
+modification of the deceivingly subtle data that makes up the tree. Also, in my
+opinion, it makes the slice access in later code cleaner since we need not use
+pointer indirection to index into the array as is sometimes required &lt;code&gt;(*ptr)[i]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Sum all values upto and including index.
+func (fen *Fenwick) Sum(index int) int {
+	sum := 0
+	index++
+	for index &amp;gt; 0 {
+		sum += fen.tree[index-1]
+		index -= lsb(index)
+	}
+	return sum
+}
+
+// lsb: Least Significant Bit
+func lsb(x int) int {
+	return x &amp;amp; -x
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I would love to have gone straight from an understanding of this data structure
+to the code, however this is not the case. I merely translated the C code from
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Fenwick_tree&#34;&gt;Wikipedia&lt;/a&gt; into Go code. Even then, it took a while for me to implement the
+&lt;a href=&#34;https://github.com/tcharding/types/tree/master/trees/fenwick/fenwick-mul&#34;&gt;test&lt;/a&gt;
+cases thoroughly enough that I understood what was going on.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Update using addition index by value.
+func (fen *Fenwick) Update(index, value int) {
+	index++
+	for index &amp;lt;= fen.Size() {
+		fen.tree[index-1] += value
+		index += lsb(index)
+	}
+}
+
+// Size: Number of values stored by tree.
+func (fen *Fenwick) Size() int {
+	return len(fen.tree)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In conclusion, then Fenwick tree is a very nifty data structure. Hats off to
+Paul Fenwick for his incite. Fenwick trees are used, according to Wikipedia, in
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Arithmetic_coding&#34;&gt;arithmetic coding&lt;/a&gt;. They also
+find use in counting integer inversion in an array.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;notes&#34;&gt;Notes:&lt;/h4&gt;
+
+&lt;p&gt;[1] Fenwick trees are not limited to integers and addition. Any binary operation may
+be used. Any data type which implements the binary operation may be stored in the tree.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Graph Data Structures in Golang</title>
@@ -15,7 +159,7 @@
       <pubDate>Thu, 05 Jan 2017 10:08:31 +1100</pubDate>
       
       <guid>/blog/graph/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&amp;hellip; understand just how astonishingly commonplace (and important) graph problems are,&lt;/em&gt;&lt;br /&gt;
+      <description>&lt;p&gt;&lt;em&gt;&amp;hellip; understand just how astonishingly commonplace (and important) graph problems are&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;they should be part of every working programmer&amp;rsquo;s toolkit.&lt;/em&gt;
     - &lt;a href=&#34;http://steve-yegge.blogspot.com.au/2008/03/get-that-job-at-google.html&#34;&gt;Stevey&lt;/a&gt;&lt;/p&gt;
 

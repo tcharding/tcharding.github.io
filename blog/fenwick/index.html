@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title> Fenwick Trees in Golang &middot; Tobin Harding </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.13" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+ 
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+	</head>
+
+	<body>
+		<header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@eros ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li >
+					<a href="/about-me">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/blog">~/blog</a>
+				</li>
+				
+				
+				<li >
+					<a href="/reading-list">~/books</a>
+				</li>
+				
+				
+				<li >
+					<a href="/resume">~/resume</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+		<div class="container wrapper">
+			<h1><a href="/blog/fenwick/">Fenwick Trees in Golang</a></h1>
+			<span class="post-date">Jan 7, 2017 </span>
+			<div class="post-content">
+				<p>A Fenwick tree is a data structure that holds an ordered collection and supports
+the operations <code>sum</code> and <code>update</code>, both in <em>O(log n)</em> time.</p>
+
+<p></p>
+
+<p>In its most basic form the tree stores an array of integers. <code>Sum</code> calculates
+the cumulative total of the first <em>n</em> integers and <code>update</code> modifies an element. Theoretically one is not limited to addition of integers when using
+Fenwick trees. We can however limit the discussion of Fenwick trees, without
+loss of generality, to trees involving integers and summing/updating using
+addition<em>[1]</em>.</p>
+
+<p>See this Github
+<a href="https://github.com/tcharding/types/tree/master/trees/fenwick/fenwick-mul">repository</a>
+for an implementation using multiplication.</p>
+
+<h2 id="problem-statement">Problem Statement</h2>
+
+<p>Design a data structure that supports cumulative accumulation of values and also supports
+modification of the values.</p>
+
+<h2 id="naive-solution">Naive Solution</h2>
+
+<p>A naive approach to designing such a data structure may choose to store the values in an array
+<code>[1, 2, 3, 4, 5]</code>. Summation is then achieved by iterating the array and runs in
+<em>O(n)</em>. Updating a value in the array is done via indexing and quite clearly
+runs in <em>O(1)</em> or <em>constant</em> time.</p>
+
+<p>Perhaps we may choose to optimize for cumulative summation. This may be done by instead of
+storing the values, storing the cumulative totals <code>[1, 3, 6, 10, 15]</code>.
+Summation is now a matter of indexing and runs in <em>0(1)</em> time. However in order to update a value we must
+traverse the array from the updated value to the end of the array updating each
+value as we go. This is, once again <em>0(n)</em>.</p>
+
+<h2 id="fenwick-tree-solution">Fenwick Tree Solution</h2>
+
+<p>The problem that a Fenwick tree solves is the ability to both sum a series and modify
+it in less that <em>O(n)</em> running time.</p>
+
+<p>According to <a href="https://en.wikipedia.org/wiki/Fenwick_tree">Wikipedia</a> Paul
+Fenwick proposed the data structure in 1994. How Mr Fenwick came up with this
+structure I have no idea but in order to do so he made some very interesting
+observations. Let us start with a binary search tree with the nodes
+positioned in such a way that an <em>inorder</em> tree traversal would give the same
+order as the collection we wish to store. Each node has an associated <code>value</code>.</p>
+
+<p>The first observation is that we can update a node by setting the nodes <code>value</code>
+and then <em>bubble</em> the new value up the tree updating each internal node&rsquo;s <code>value</code>
+<em>iff</em> that node was reached via it&rsquo;s <em>right</em> child.</p>
+
+<p>Doing so maintains a tree that supports the calculation of
+cumulative total by using a similar technique, namely; when finding the sum for a
+node we start with the nodes <code>value</code> then traverse up the tree, adding the internal nodes <code>value</code>
+as we pass if the node was reached by its <em>left</em> child.</p>
+
+<p>Further explanation can be found in this very nice
+<a href="http://cs.stackexchange.com/questions/10538/bit-what-is-the-intuition-behind-a-binary-indexed-tree-and-how-was-it-thought-a">StackExchange</a>
+post.</p>
+
+<p>The second observation is that if we take the <em>inorder</em>  node position as the
+node <code>id</code> we can store the tree in an array using the <code>id</code> as the index. It can
+then be observed that by a feat of <em>bit twiddling</em> genius involving adding and
+removing the least significant bit we can traverse <em>up</em> the tree. Not only can
+we traverse up the tree, at each node we can ascertain from which child we
+arrived. See the above link for a more thorough explanation.</p>
+
+<h2 id="fenwick-tree-in-go">Fenwick Tree in Go</h2>
+
+<p>Without further ado</p>
+
+<pre><code>type Fenwick struct {
+	tree []int
+}
+
+// NewFenwick: Build Fenwick tree to hold n values.
+func NewFenwick(n int) *Fenwick {
+	fen := &amp;Fenwick{
+		tree: make([]int, n),
+	}
+	return fen
+}
+</code></pre>
+
+<p>Here we abstract the data with a <code>struct</code>. This prevents inadvertent
+modification of the deceivingly subtle data that makes up the tree. Also, in my
+opinion, it makes the slice access in later code cleaner since we need not use
+pointer indirection to index into the array as is sometimes required <code>(*ptr)[i]</code>.</p>
+
+<pre><code>// Sum all values upto and including index.
+func (fen *Fenwick) Sum(index int) int {
+	sum := 0
+	index++
+	for index &gt; 0 {
+		sum += fen.tree[index-1]
+		index -= lsb(index)
+	}
+	return sum
+}
+
+// lsb: Least Significant Bit
+func lsb(x int) int {
+	return x &amp; -x
+}
+</code></pre>
+
+<p>I would love to have gone straight from an understanding of this data structure
+to the code, however this is not the case. I merely translated the C code from
+<a href="https://en.wikipedia.org/wiki/Fenwick_tree">Wikipedia</a> into Go code. Even then, it took a while for me to implement the
+<a href="https://github.com/tcharding/types/tree/master/trees/fenwick/fenwick-mul">test</a>
+cases thoroughly enough that I understood what was going on.</p>
+
+<pre><code>// Update using addition index by value.
+func (fen *Fenwick) Update(index, value int) {
+	index++
+	for index &lt;= fen.Size() {
+		fen.tree[index-1] += value
+		index += lsb(index)
+	}
+}
+
+// Size: Number of values stored by tree.
+func (fen *Fenwick) Size() int {
+	return len(fen.tree)
+}
+</code></pre>
+
+<p>In conclusion, then Fenwick tree is a very nifty data structure. Hats off to
+Paul Fenwick for his incite. Fenwick trees are used, according to Wikipedia, in
+<a href="https://en.wikipedia.org/wiki/Arithmetic_coding">arithmetic coding</a>. They also
+find use in counting integer inversion in an array.</p>
+
+<hr />
+
+<h4 id="notes">Notes:</h4>
+
+<p>[1] Fenwick trees are not limited to integers and addition. Any binary operation may
+be used. Any data type which implements the binary operation may be stored in the tree.</p>
+			</div>
+			<div class="post-comments">
+				
+			</div>
+			<div class="push"></div>
+		</div>
+		<footer class="footer text-center">
+  <p>Copyright &copy; 2017  -
+    <span class="credit">
+      This site is <a target="_blank"
+      href="https://github.com/tcharding/tobin.cc">open source</a>.
+      Powered by 
+      <a target="_blank" href="https://gohugo.io">Hugo</a>
+      and 
+      <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+    </span>
+  </p>
+</footer>
+
+	</body>
