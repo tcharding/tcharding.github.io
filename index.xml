@@ -6,8 +6,68 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2017 11:21:35 +1100</lastBuildDate>
+    <lastBuildDate>Thu, 02 Feb 2017 11:38:39 +1100</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linux Kernel Selftest Framework</title>
+      <link>/blog/kselftests/</link>
+      <pubDate>Thu, 02 Feb 2017 11:38:39 +1100</pubDate>
+      
+      <guid>/blog/kselftests/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Kselftest is an effort to enable a developer-focused unit test
+framework in the kernel to ensure the quality of new kernel
+releases.&lt;/em&gt;&lt;br /&gt;
+    - Shua Khan&lt;/p&gt;
+
+&lt;p&gt;Install and run Linux kernel selftests on Ubuntu 16.04&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Presentation &lt;a href=&#34;reference:
+http://www.elinux.org/images/6/61/Linux_Kernel_Selftest_Framework_-_Quality_Control_for_New_Releases.pdf&#34;&gt;slides&lt;/a&gt;
+by Shua Khan on self test framework.&lt;br /&gt;
+Git &lt;a href=&#34;git: https://git.kernel.org/cgit/linux/kernel/git/shuah/linux-kselftest.git&#34;&gt;repository&lt;/a&gt; for the project.&lt;/p&gt;
+
+&lt;h2 id=&#34;test-machine&#34;&gt;Test machine&lt;/h2&gt;
+
+&lt;p&gt;Product: Intel&amp;reg; Core&amp;trade; i5-4590 CPU @ 3.30GHz&lt;br /&gt;
+Description:    Ubuntu 16.04.1 LTS&lt;br /&gt;
+Kernel: Linux 4.10.0-rc6+ x86_64 GNU/Linux&lt;/p&gt;
+
+&lt;h2 id=&#34;build-on-ubuntu&#34;&gt;Build on Ubuntu&lt;/h2&gt;
+
+&lt;p&gt;The following packages are required&lt;/p&gt;
+
+&lt;p&gt;libcap-ng-dev&lt;br /&gt;
+libnuma-dev&lt;br /&gt;
+libcap-dev&lt;br /&gt;
+libpopt-dev&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ KTREE = /path/to/kernel/tree  
+$ cd $KTREE/tools/testing/selftests  
+$ make  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run&#34;&gt;Run&lt;/h2&gt;
+
+&lt;p&gt;Some tests require root privileges to run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo make run_tests
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your machine may appear to die as the tests start.
+Tests run in approx 10 minutes on this machine, your results may vary.&lt;/p&gt;
+
+&lt;p&gt;Test targets may be specified using&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo make TARGETS=&#39;size&#39; run_tests
+$ sudo make TARGETS=&#39;net networking&#39; run_tests
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Single or multiple targets are accepted. Target names come from
+directory names under tools/testing/selftests.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Fenwick Trees in Golang</title>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title> Linux Kernel Selftest Framework &middot; Tobin Harding </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.13" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+ 
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+	</head>
+
+	<body>
+		<header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@eros ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li >
+					<a href="/about-me">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/blog">~/blog</a>
+				</li>
+				
+				
+				<li >
+					<a href="/reading-list">~/books</a>
+				</li>
+				
+				
+				<li >
+					<a href="/resume">~/resume</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+		<div class="container wrapper">
+			<h1><a href="/blog/kselftests/">Linux Kernel Selftest Framework</a></h1>
+			<span class="post-date">Feb 2, 2017 </span>
+			<div class="post-content">
+				<p><em>Kselftest is an effort to enable a developer-focused unit test
+framework in the kernel to ensure the quality of new kernel
+releases.</em><br />
+    - Shua Khan</p>
+
+<p>Install and run Linux kernel selftests on Ubuntu 16.04</p>
+
+<p></p>
+
+<p>Presentation <a href="reference:
+http://www.elinux.org/images/6/61/Linux_Kernel_Selftest_Framework_-_Quality_Control_for_New_Releases.pdf">slides</a>
+by Shua Khan on self test framework.<br />
+Git <a href="git: https://git.kernel.org/cgit/linux/kernel/git/shuah/linux-kselftest.git">repository</a> for the project.</p>
+
+<h2 id="test-machine">Test machine</h2>
+
+<p>Product: Intel&reg; Core&trade; i5-4590 CPU @ 3.30GHz<br />
+Description:    Ubuntu 16.04.1 LTS<br />
+Kernel: Linux 4.10.0-rc6+ x86_64 GNU/Linux</p>
+
+<h2 id="build-on-ubuntu">Build on Ubuntu</h2>
+
+<p>The following packages are required</p>
+
+<p>libcap-ng-dev<br />
+libnuma-dev<br />
+libcap-dev<br />
+libpopt-dev</p>
+
+<pre><code>$ KTREE = /path/to/kernel/tree  
+$ cd $KTREE/tools/testing/selftests  
+$ make  
+</code></pre>
+
+<h2 id="run">Run</h2>
+
+<p>Some tests require root privileges to run</p>
+
+<pre><code>$ sudo make run_tests
+</code></pre>
+
+<p>Your machine may appear to die as the tests start.
+Tests run in approx 10 minutes on this machine, your results may vary.</p>
+
+<p>Test targets may be specified using</p>
+
+<pre><code>$ sudo make TARGETS='size' run_tests
+$ sudo make TARGETS='net networking' run_tests
+</code></pre>
+
+<p>Single or multiple targets are accepted. Target names come from
+directory names under tools/testing/selftests.</p>
+			</div>
+			<div class="post-comments">
+				
+			</div>
+			<div class="push"></div>
+		</div>
+		<footer class="footer text-center">
+  <p>Copyright &copy; 2017  -
+    <span class="credit">
+      This site is <a target="_blank"
+      href="https://github.com/tcharding/tobin.cc">open source</a>.
+      Powered by 
+      <a target="_blank" href="https://gohugo.io">Hugo</a>
+      and 
+      <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+    </span>
+  </p>
+</footer>
+
+	</body>
