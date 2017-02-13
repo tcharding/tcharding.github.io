@@ -42,7 +42,8 @@ Kernel: Linux 4.10.0-rc6+ x86_64 GNU/Linux&lt;/p&gt;
 &lt;p&gt;libcap-ng-dev&lt;br /&gt;
 libnuma-dev&lt;br /&gt;
 libcap-dev&lt;br /&gt;
-libpopt-dev&lt;/p&gt;
+libpopt-dev&lt;br /&gt;
+libmount-dev&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ KTREE = /path/to/kernel/tree  
 $ cd $KTREE/tools/testing/selftests  
