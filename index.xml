@@ -496,7 +496,7 @@ Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. &lt;strong&gt;18 months&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees  in computer science.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;97th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of Central Coast Linux Users Group (LUG).&lt;/li&gt;
 &lt;/ul&gt;
@@ -506,16 +506,18 @@ Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
 &lt;p&gt;I have made open source contributions to the following projects;&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;Linux Kernel (&lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/log/?qt=grep&amp;amp;q=me%40tobin.cc&#34;&gt;mainline patches&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;gonum/&lt;a href=&#34;https://github.com/gonum/graph/graphs/contributors&#34;&gt;graph&lt;/a&gt; (Go)&lt;/li&gt;
 &lt;li&gt;gyuho/&lt;a href=&#34;https://github.com/gyuho/goraph/graphs/contributors&#34;&gt;gograph&lt;/a&gt; (Go)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server/graphs/contributors&#34;&gt;OpenBazaar-Server&lt;/a&gt; (Python)&lt;/li&gt;
 &lt;li&gt;Guile Scheme (Scheme, C)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/gregkh/staging.git/log/?qt=grep&amp;amp;q=Tobin+C+Harding&#34;&gt;Linux Kernel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
 
 &lt;h3 id=&#34;self-learning&#34;&gt;Self Learning&lt;/h3&gt;
+
+&lt;p&gt;I am currently focused on operating system development.&lt;/p&gt;
 
 &lt;p&gt;For the last 18 months I have worked assiduously on becoming a competent
 programmer. I have &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logged&lt;/a&gt; hours and
@@ -1922,28 +1924,33 @@ Stuart Russell and Peter Norvig&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Coders At Work&lt;/strong&gt; Reflections on the craft of programming -
 Peter Seibel&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Algorithms in C&lt;/strong&gt; Part 5 -
+&lt;p&gt;&lt;strong&gt;Algorithms in C&lt;/strong&gt; Parts 1 - 5
 Robert Sedgewick&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Clean Coder&lt;/strong&gt; A Code of Conduct for Professional Programmers -
 Robert C. Martin&lt;/p&gt;
 
-&lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;Algorithms in C&lt;/strong&gt; Parts 1-4 -
-Robert Sedgewick&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt;
 Steve McConnell&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Programming Pearls&lt;/strong&gt;
-Jon Bently&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Discrete and Combinatorial Mathematics&lt;/strong&gt;
 Ralph P. Grimaldi&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Open Data Structures&lt;/strong&gt;
-Pat Morin&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Programming Pearls&lt;/strong&gt;
+Jon Bently&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux Kernel Networking&lt;/strong&gt; Implementation and Theory - Rami Rosen&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Design of the Unix Operating System&lt;/strong&gt;
+Maurice J. Bach&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Art of Linux Kernel Design&lt;/strong&gt; Illustrating the Operating System
+  Design Principle and Implementation - Lixiang Yang&lt;/p&gt;
+
+&lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Modern Operating Systems&lt;/strong&gt;
+Andrew S. Tanenbaum&lt;/p&gt;
 
 &lt;h1 id=&#34;past&#34;&gt;Past&lt;/h1&gt;
 
@@ -1953,6 +1960,18 @@ Pat Morin&lt;/p&gt;
 a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m = &lt;strong&gt;most&lt;/strong&gt;, n= &lt;strong&gt;none&lt;/strong&gt;, - = &lt;strong&gt;not applicable&lt;/strong&gt; (i.e no exercises in text).&lt;/p&gt;
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Essential Linux Device Drivers&lt;/strong&gt;
+Sreekrishnan Venkateswaran &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux Device Drivers&lt;/strong&gt;
+Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux Kernel Develop&lt;/strong&gt;
+Robert Love &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Open Data Structures&lt;/strong&gt;
+Pat Morin &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;
 Thomas H. Cormen, Charles C. Leiserson, Ronald L. Rivest, Clifford Stein &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
@@ -1983,15 +2002,6 @@ Daniel P. Friedman, Matthias Felleisen &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;ARM Assembly Language&lt;/strong&gt;
 William Hohl &lt;em&gt;(a,m)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Essential Linux Device Drivers&lt;/strong&gt;
-Sreekrishnan Venkateswaran &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Linux Device Drivers&lt;/strong&gt;
-Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Linux Kernel Develop&lt;/strong&gt;
-Robert Love &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Linux Programming Interface&lt;/strong&gt;
 Michael Kerrisk &lt;em&gt;(m,m)&lt;/em&gt;&lt;/p&gt;
