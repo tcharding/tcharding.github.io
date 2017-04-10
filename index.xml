@@ -495,10 +495,11 @@ Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. &lt;strong&gt;18 months&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. &lt;strong&gt;2 years&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;97th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of Central Coast Linux Users Group (LUG).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;70 patches&lt;/strong&gt; merged into the &lt;strong&gt;Linux kernel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;98th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of The Central Coast Linux Users Group (LUG).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;open-source-experience&#34;&gt;Open Source Experience&lt;/h2&gt;
@@ -506,11 +507,12 @@ Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
 &lt;p&gt;I have made open source contributions to the following projects;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Linux Kernel (&lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/log/?qt=grep&amp;amp;q=me%40tobin.cc&#34;&gt;mainline patches&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;gonum/&lt;a href=&#34;https://github.com/gonum/graph/graphs/contributors&#34;&gt;graph&lt;/a&gt; (Go)&lt;/li&gt;
-&lt;li&gt;gyuho/&lt;a href=&#34;https://github.com/gyuho/goraph/graphs/contributors&#34;&gt;gograph&lt;/a&gt; (Go)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server/graphs/contributors&#34;&gt;OpenBazaar-Server&lt;/a&gt; (Python)&lt;/li&gt;
-&lt;li&gt;Guile Scheme (Scheme, C)&lt;/li&gt;
+&lt;li&gt;Linux Kernel &lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/log/?qt=grep&amp;amp;q=me%40tobin.cc&#34;&gt;mainline&lt;/a&gt; drivers/staging, arch/PowerPC ( C ).&lt;/li&gt;
+&lt;li&gt;gonum/&lt;a href=&#34;https://github.com/gonum/graph/graphs/contributors&#34;&gt;graph&lt;/a&gt; (Go).&lt;/li&gt;
+&lt;li&gt;gyuho/&lt;a href=&#34;https://github.com/gyuho/goraph/graphs/contributors&#34;&gt;gograph&lt;/a&gt; (Go).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server/graphs/contributors&#34;&gt;OpenBazaar-Server&lt;/a&gt; (Python).&lt;/li&gt;
+&lt;li&gt;Guile Scheme (Scheme, C).&lt;/li&gt;
+&lt;li&gt;Binutils, GNU Assembler (Documentation).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
@@ -519,7 +521,7 @@ Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
 
 &lt;p&gt;I am currently focused on operating system development.&lt;/p&gt;
 
-&lt;p&gt;For the last 18 months I have worked assiduously on becoming a competent
+&lt;p&gt;For the last 24 months I have worked assiduously on becoming a competent
 programmer. I have &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logged&lt;/a&gt; hours and
 topics worked. For more detail see below ‘code written in last 12
 months’. During this time I have studied numerous texts on topics related to
@@ -562,6 +564,14 @@ listing, highlights include;&lt;/p&gt;
 
 &lt;p&gt;All code is open source and hosted on &lt;a href=&#34;https://github.com/tcharding/self_learning&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
+&lt;h3 id=&#34;linux-kernel&#34;&gt;Linux Kernel&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;70 patches into the Linux Kernel. Mainly focusing on device drivers
+(drivers/staging). Some work also on PowerPC code (arch/PowerPC).&lt;/li&gt;
+&lt;li&gt;Currently working on challenges from &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;The Eudyptula Challenge&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -594,29 +604,12 @@ listing, highlights include;&lt;/p&gt;
 &lt;li&gt;Exercises from ARM Assembly Language.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;linux-kernel&#34;&gt;Linux Kernel&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Updated &lt;a href=&#34;https://github.com/tcharding/ldd3-examples-4.6&#34;&gt;source code&lt;/a&gt; from &lt;a href=&#34;https://lwn.net/Kernel/LDD3/&#34;&gt;ldd3&lt;/a&gt; to kernel version 4.6.0.&lt;/li&gt;
-&lt;li&gt;A few trivial Kernel patches into &lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/gregkh/staging.git/log/?qt=grep&amp;amp;q=Tobin+C+Harding&#34;&gt;GregKH staging&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Initial challenges from &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;The Eudyptula Challenge&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Contributed to the &lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server&#34;&gt;Open Bazaar&lt;/a&gt; project.&lt;/li&gt;
 &lt;li&gt;Completed first four sets from the &lt;a href=&#34;https://cryptopals.com/&#34;&gt;Matasano Cryptography Challenges&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;30+ problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;c&#34;&gt;C&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;All exercise upto chapter 47 of The Linux Programming Interface&lt;/li&gt;
-&lt;li&gt;All exercises from UNIX Network Programming.&lt;/li&gt;
-&lt;li&gt;All exercises from Advanced Programming in the UNIX Environment.&lt;/li&gt;
-&lt;li&gt;Majority of exercises from UNIX Systems Programming.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
