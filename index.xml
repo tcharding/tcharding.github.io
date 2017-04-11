@@ -497,7 +497,7 @@ Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. &lt;strong&gt;2 years&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;70 patches&lt;/strong&gt; merged into the &lt;strong&gt;Linux kernel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;70+ patches&lt;/strong&gt; merged into the &lt;strong&gt;Linux kernel&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;98th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of The Central Coast Linux Users Group (LUG).&lt;/li&gt;
 &lt;/ul&gt;
@@ -567,8 +567,9 @@ listing, highlights include;&lt;/p&gt;
 &lt;h3 id=&#34;linux-kernel&#34;&gt;Linux Kernel&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;70 patches into the Linux Kernel. Mainly focusing on device drivers
-(drivers/staging). Some work also on PowerPC code (arch/PowerPC).&lt;/li&gt;
+&lt;li&gt;70+ patches into the Linux Kernel.&lt;/li&gt;
+&lt;li&gt;Main focus on device drivers (drivers/staging).&lt;/li&gt;
+&lt;li&gt;Some work also on PowerPC (arch/PowerPC).&lt;/li&gt;
 &lt;li&gt;Currently working on challenges from &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;The Eudyptula Challenge&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
