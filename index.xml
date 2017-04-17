@@ -6,8 +6,193 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Feb 2017 11:38:39 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 17 Apr 2017 21:00:43 +1100</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Resume of Tobin Harding: Linux Programmer</title>
+      <link>/resume/</link>
+      <pubDate>Mon, 17 Apr 2017 21:00:43 +1100</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Apprenticeship, &lt;strong&gt;2 years&lt;/strong&gt; full time programming.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;100+ patches&lt;/strong&gt; merged into the &lt;strong&gt;Linux kernel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;98th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of The Central Coast Linux Users Group (LUG).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;open-source-experience&#34;&gt;Open Source Experience&lt;/h2&gt;
+
+&lt;p&gt;Open source contributions made to the following projects, among others:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux Kernel
+&lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/log/?qt=grep&amp;amp;q=me%40tobin.cc&#34;&gt;mainline&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Gonum graph library (Go).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server/graphs/contributors&#34;&gt;OpenBazaar-Server&lt;/a&gt; (Python).&lt;/li&gt;
+&lt;li&gt;Guile Scheme (Scheme, C).&lt;/li&gt;
+&lt;li&gt;Binutils, GNU Assembler (Documentation).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Primarily interested in layer 2 networking code within the Linux
+kernel. 100+ patches merged into the kernel. Focus on the KS7010 Wi-Fi
+driver (drivers/staging/ks7010). While resolving PowerPC kernel issues
+contributed documentation patches to the GNU Assembler, as well as an
+assembly code patch series within the kernel powerpc code. Also minor
+bug fixes and clean up patches to the PowerPC tree as well as trivial
+cleanup patches into the kernel core (net, purgatory, mm).&lt;/p&gt;
+
+&lt;p&gt;While studying data structures and algorithms contributed code, and
+design test implementation, to the Gonum graph library written in
+Golang. Utilized graph library as reference while implementing
+solutions to graph problems on HackerRank.&lt;/p&gt;
+
+&lt;p&gt;Contributed to the Free Software Foundation Guile project. Interacted
+with Guile community via public mailing list. Iterated multiple
+revisions in order to assimilate a personal fix into a patch that was
+acceptable by the community. Produced a solution to a known
+outstanding issue requiring a multi-language patch set in C and
+Scheme.&lt;/p&gt;
+
+&lt;p&gt;Two months focused work on OpenBazaar Server code in Python. First
+non-company contributor to the project. Most patches were unit testing
+and code refactoring. Some work on the command line interface and
+interoperability between operating systems.&lt;/p&gt;
+
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+
+&lt;h3 id=&#34;apprenticeship&#34;&gt;Apprenticeship&lt;/h3&gt;
+
+&lt;p&gt;24 month software development apprenticeship. Worked assiduously on becoming a
+competent, professional programmer. Maintained a minimum 40 working week
+(typically 50+).
+&lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;Logged&lt;/a&gt; hours and topics
+worked. Topics include; computer architecture,
+programming languages and theory, operating systems, data structures
+and algorithms, professional software development methodology and practices. See
+below ‘code written in last 12 months’ and
+&lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt;. Text highlights include;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The Art of Computer Programming&lt;/strong&gt; (volumes 1 and 2) Donald E. Knuth&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt; W. Richard Stevens, Stephen A. Rag&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Applied Cryptography&lt;/strong&gt; Bruce Schneier&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt; Robert C. Martin&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;graduate-diploma-in-computer-science-pass-with-high-distinction&#34;&gt;Graduate Diploma in Computer Science [Pass with High Distinction]&lt;/h3&gt;
+
+&lt;p&gt;University of New England, Australia (completed 2014).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parallel and Distributed Computing.&lt;/li&gt;
+&lt;li&gt;Computer Architecture and Assembler.&lt;/li&gt;
+&lt;li&gt;C++ Programming.&lt;/li&gt;
+&lt;li&gt;Programming Languages for Artificial Intelligence.&lt;/li&gt;
+&lt;li&gt;Web and Internet Programming.&lt;/li&gt;
+&lt;li&gt;Information Technology Project (dentist patient management application in Objective C).&lt;/li&gt;
+&lt;li&gt;Graduate Diploma in Computer Science Project (UNIX shell written in C).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;bachelor-of-science&#34;&gt;Bachelor of Science&lt;/h3&gt;
+
+&lt;p&gt;University of Sydney, Australia (completed 2008).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Awarded Bachelor of Science majoring in computer science.&lt;/li&gt;
+&lt;li&gt;Completed double major, software development and computer networking.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;outside-experience&#34;&gt;Outside Experience&lt;/h2&gt;
+
+&lt;p&gt;Founded the Central Coast Linux Users Group of New South Wales in
+February 2014. Announced the intent prior, at Linux open source
+conference, Linux.conf.au. Lead role in organizing and administering
+the group. Set up a unincorporated association for
+governance. Acquired sponsorship of venue to hold monthly
+meetings. Financially supported the group for the first three years.&lt;/p&gt;
+
+&lt;h2 id=&#34;motivation-for-writing-code&#34;&gt;Motivation for Writing Code&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Continually learning and refining skills and technique.&lt;/li&gt;
+&lt;li&gt;The social interaction of programming on a project together with others.&lt;/li&gt;
+&lt;li&gt;How good ‘clean code’ looks on the screen.&lt;/li&gt;
+&lt;li&gt;The feeling when an insurmountable problem dissolves.&lt;/li&gt;
+&lt;li&gt;Constantly chasing perfection, efficiency of space and time, beauty of code.&lt;/li&gt;
+&lt;li&gt;Programming craftsmanship.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;code-written-in-the-last-12-months&#34;&gt;Code Written in the last 12 months&lt;/h2&gt;
+
+&lt;p&gt;All code is open source and hosted on
+&lt;a href=&#34;https://github.com/tcharding/self_learning&#34;&gt;Github&lt;/a&gt;. Unless
+explicitly requested otherwise (i.e Project Euler, Eudyptula Challenge).&lt;/p&gt;
+
+&lt;h3 id=&#34;linux-kernel&#34;&gt;Linux Kernel&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;100+ patches into the Linux Kernel.&lt;/li&gt;
+&lt;li&gt;Focus on device drivers (drivers/staging).&lt;/li&gt;
+&lt;li&gt;Minor patches to PowerPC (arch/PowerPC).&lt;/li&gt;
+&lt;li&gt;Currently working on challenges from &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;The Eudyptula Challenge&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;140+ algorithmic problems on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Data structures. Implementations and &lt;a href=&#34;http://tobin.cc/blog/&#34;&gt;blog&lt;/a&gt;
+posts.&lt;/li&gt;
+&lt;li&gt;Contributions to the Gonum graph library.&lt;/li&gt;
+&lt;li&gt;Exercises from The Go Programming Language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;haskell&#34;&gt;Haskell&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;50+ problems from &lt;a href=&#34;https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems&#34;&gt;Ninety-Nine Haskell Problems&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Approximately 20 problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;scheme&#34;&gt;Scheme&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Guile patch modifying compiler output (in C and Scheme).&lt;/li&gt;
+&lt;li&gt;Worked all Exercises from SICP (upto exercise 4.71).&lt;/li&gt;
+&lt;li&gt;Exercises from The Scheme Programming Language.&lt;/li&gt;
+&lt;li&gt;Worked The Little Schemer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;assembler-armv4t&#34;&gt;Assembler (ARMv4T)&lt;/h3&gt;
+
+&lt;p&gt;Toolchain: gcc and the GNU Assembler.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Exercises from ARM Assembly Language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Contributed to the &lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server&#34;&gt;Open Bazaar&lt;/a&gt; project.&lt;/li&gt;
+&lt;li&gt;Completed first four sets from the &lt;a href=&#34;https://cryptopals.com/&#34;&gt;Matasano Cryptography Challenges&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;30+ problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;buzz-words&#34;&gt;Buzz Words&lt;/h2&gt;
+
+&lt;p&gt;ARM, x86_64, MIPS, PowerPC
+Linux, Ubuntu, Emacs, Zsh, Mutt, Git
+Haskell, Scheme Lisp, Assembler, C, Go, Python, Perl, Java, C++,  Objective-C, Prolog, Bash&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Linux Kernel Selftest Framework</title>
@@ -484,135 +669,6 @@ do traversal, path finding, minimum spanning tree and much more.&lt;/p&gt;
 &lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
 [CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Resume</title>
-      <link>/resume/</link>
-      <pubDate>Sat, 17 Dec 2016 21:00:43 +1100</pubDate>
-      
-      <guid>/resume/</guid>
-      <description>
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;. &lt;strong&gt;2 years&lt;/strong&gt; full time programming (&lt;strong&gt;self study&lt;/strong&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;70+ patches&lt;/strong&gt; merged into the &lt;strong&gt;Linux kernel&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;98th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of The Central Coast Linux Users Group (LUG).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;open-source-experience&#34;&gt;Open Source Experience&lt;/h2&gt;
-
-&lt;p&gt;I have made open source contributions to the following projects;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Linux Kernel &lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/log/?qt=grep&amp;amp;q=me%40tobin.cc&#34;&gt;mainline&lt;/a&gt; drivers/staging, arch/PowerPC ( C ).&lt;/li&gt;
-&lt;li&gt;gonum/&lt;a href=&#34;https://github.com/gonum/graph/graphs/contributors&#34;&gt;graph&lt;/a&gt; (Go).&lt;/li&gt;
-&lt;li&gt;gyuho/&lt;a href=&#34;https://github.com/gyuho/goraph/graphs/contributors&#34;&gt;gograph&lt;/a&gt; (Go).&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server/graphs/contributors&#34;&gt;OpenBazaar-Server&lt;/a&gt; (Python).&lt;/li&gt;
-&lt;li&gt;Guile Scheme (Scheme, C).&lt;/li&gt;
-&lt;li&gt;Binutils, GNU Assembler (Documentation).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
-
-&lt;h3 id=&#34;self-learning&#34;&gt;Self Learning&lt;/h3&gt;
-
-&lt;p&gt;I am currently focused on operating system development.&lt;/p&gt;
-
-&lt;p&gt;For the last 24 months I have worked assiduously on becoming a competent
-programmer. I have &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logged&lt;/a&gt; hours and
-topics worked. For more detail see below ‘code written in last 12
-months’. During this time I have studied numerous texts on topics related to
-software development. See &lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt; for full
-listing, highlights include;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Art of Computer Programming&lt;/strong&gt; (volumes 1 and 2) Donald E. Knuth&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Applied Cryptography&lt;/strong&gt; Bruce Schneier&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt; Robert C. Martin&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;UNIX Network Programming&lt;/strong&gt; W. Richard Stevens, Bill Fenner, Andrew M. Rudoff&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt; W. Richard Stevens, Stephen A. Rag&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;graduate-diploma-in-computer-science-pass-with-high-distinction&#34;&gt;Graduate Diploma in Computer Science (Pass with High Distinction)&lt;/h3&gt;
-
-&lt;p&gt;University of New England, Australia (completed 2014).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Parallel and Distributed Computing.&lt;/li&gt;
-&lt;li&gt;Computer Architecture and Assembler.&lt;/li&gt;
-&lt;li&gt;C++ Programming.&lt;/li&gt;
-&lt;li&gt;Programming Languages for Artificial Intelligence.&lt;/li&gt;
-&lt;li&gt;Web and Internet Programming.&lt;/li&gt;
-&lt;li&gt;Information Technology Project (patient management application written in Objective C).&lt;/li&gt;
-&lt;li&gt;Graduate Diploma in Computer Science Project (UNIX shell written in C).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;bachelor-of-science&#34;&gt;Bachelor of Science&lt;/h3&gt;
-
-&lt;p&gt;University of Sydney, Australia (completed 2008).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Awarded Bachelor of Science majoring in computer science.&lt;/li&gt;
-&lt;li&gt;Completed double major, software development and computer networking.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;code-written-in-the-last-12-months&#34;&gt;Code Written in the last 12 months&lt;/h2&gt;
-
-&lt;p&gt;All code is open source and hosted on &lt;a href=&#34;https://github.com/tcharding/self_learning&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;linux-kernel&#34;&gt;Linux Kernel&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;70+ patches into the Linux Kernel.&lt;/li&gt;
-&lt;li&gt;Main focus on device drivers (drivers/staging).&lt;/li&gt;
-&lt;li&gt;Some work also on PowerPC (arch/PowerPC).&lt;/li&gt;
-&lt;li&gt;Currently working on challenges from &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;The Eudyptula Challenge&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;140+ algorithmic problems on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Data structures. Implementations and &lt;a href=&#34;http://tobin.cc/blog/&#34;&gt;blog&lt;/a&gt; posts.&lt;/li&gt;
-&lt;li&gt;Exercises from The Go Programming Language.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;haskell&#34;&gt;Haskell&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;50+ problems from &lt;a href=&#34;https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems&#34;&gt;Ninety-Nine Haskell Problems&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Approximately 20 problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;scheme&#34;&gt;Scheme&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Guile patch modifying compiler output (in C and Scheme).&lt;/li&gt;
-&lt;li&gt;Worked all Exercises from SICP (upto exercise 4.71).&lt;/li&gt;
-&lt;li&gt;Exercises from The Scheme Programming Language.&lt;/li&gt;
-&lt;li&gt;Worked The Little Schemer.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;armv4t&#34;&gt;ARMv4T&lt;/h3&gt;
-
-&lt;p&gt;Toolchain: gcc and the GNU Assembler.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Exercises from ARM Assembly Language.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Contributed to the &lt;a href=&#34;https://github.com/OpenBazaar/OpenBazaar-Server&#34;&gt;Open Bazaar&lt;/a&gt; project.&lt;/li&gt;
-&lt;li&gt;Completed first four sets from the &lt;a href=&#34;https://cryptopals.com/&#34;&gt;Matasano Cryptography Challenges&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;30+ problems from &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
     </item>
     
     <item>
