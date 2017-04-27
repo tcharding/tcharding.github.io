@@ -1984,8 +1984,7 @@ Rami Rosen&lt;/p&gt;
 
 &lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt;
-Steve McConnell&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt; Steve McConnell&lt;/p&gt;
 
 &lt;h1 id=&#34;past&#34;&gt;Past&lt;/h1&gt;
 
@@ -1996,11 +1995,11 @@ a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m =
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Linux Device Drivers 3rd Edition (read twice)&lt;/strong&gt;
-Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Linux Device Drivers 3rd Edition&lt;/strong&gt;
+Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman &lt;em&gt;(a,-)&lt;/em&gt; (read twice)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Refactoring&lt;/strong&gt; Improving the Design of Existing Code -
-Martin Fowler&lt;/p&gt;
+Martin Fowler &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Design of the Unix Operating System&lt;/strong&gt;
 Maurice J. Bach &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
