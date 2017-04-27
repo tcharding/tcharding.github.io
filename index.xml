@@ -1984,12 +1984,6 @@ Rami Rosen&lt;/p&gt;
 
 &lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Linux Device Drivers 3rd Edition (second reading)&lt;/strong&gt;
-Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Refactoring&lt;/strong&gt; Improving the Design of Existing Code -
-Martin Fowler&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt;
 Steve McConnell&lt;/p&gt;
 
@@ -2001,6 +1995,12 @@ Steve McConnell&lt;/p&gt;
 a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m = &lt;strong&gt;most&lt;/strong&gt;, n= &lt;strong&gt;none&lt;/strong&gt;, - = &lt;strong&gt;not applicable&lt;/strong&gt; (i.e no exercises in text).&lt;/p&gt;
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux Device Drivers 3rd Edition (read twice)&lt;/strong&gt;
+Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Refactoring&lt;/strong&gt; Improving the Design of Existing Code -
+Martin Fowler&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Design of the Unix Operating System&lt;/strong&gt;
 Maurice J. Bach &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
