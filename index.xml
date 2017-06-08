@@ -1995,6 +1995,9 @@ a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m =
 
 &lt;hr /&gt;
 
+&lt;p&gt;&lt;strong&gt;802.11 Wireless Networks&lt;/strong&gt; The Definitive Guide -
+Matthew S. Gast &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Linux Device Drivers 3rd Edition&lt;/strong&gt;
 Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman &lt;em&gt;(a,-)&lt;/em&gt; (read twice)&lt;/p&gt;
 
@@ -2012,9 +2015,6 @@ Andrew S. Tanenbaum &lt;em&gt;(m,)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Essential Linux Device Drivers&lt;/strong&gt;
 Sreekrishnan Venkateswaran &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Linux Device Drivers 3rd Edition&lt;/strong&gt;
-Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Linux Kernel Develop&lt;/strong&gt;
 Robert Love &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
