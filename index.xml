@@ -1971,20 +1971,16 @@ Peter Seibel&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Algorithms in C&lt;/strong&gt; Parts 1 - 5
 Robert Sedgewick&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Programming Pearls&lt;/strong&gt;
-Jon Bently&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;Linux Kernel Networking&lt;/strong&gt; Implementation and Theory -
 Rami Rosen&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Art of Linux Kernel Design&lt;/strong&gt; Illustrating the Operating System
   Design Principle and Implementation - Lixiang Yang&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Pro Git&lt;/strong&gt; Scott Chacon&lt;/p&gt;
-
 &lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt; Steve McConnell&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Programming Pearls&lt;/strong&gt;
+Jon Bentley&lt;/p&gt;
 
 &lt;h1 id=&#34;past&#34;&gt;Past&lt;/h1&gt;
 
@@ -1994,6 +1990,8 @@ Rami Rosen&lt;/p&gt;
 a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m = &lt;strong&gt;most&lt;/strong&gt;, n= &lt;strong&gt;none&lt;/strong&gt;, - = &lt;strong&gt;not applicable&lt;/strong&gt; (i.e no exercises in text).&lt;/p&gt;
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt; Steve McConnell &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;802.11 Wireless Networks&lt;/strong&gt; The Definitive Guide -
 Matthew S. Gast &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
@@ -2021,6 +2019,8 @@ Robert Love &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Open Data Structures&lt;/strong&gt;
 Pat Morin &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Git&lt;/strong&gt; Scott Chacon &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;
 Thomas H. Cormen, Charles C. Leiserson, Ronald L. Rivest, Clifford Stein &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
