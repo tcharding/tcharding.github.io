@@ -6,8 +6,225 @@
     <description>Recent content in Blog-rsses on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Feb 2017 11:38:39 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jul 2017 10:28:42 +1000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Getting Started with Linux Kernel Development - Part 1: First Patch.</title>
+      <link>/blog/kernel-dev-1/</link>
+      <pubDate>Wed, 19 Jul 2017 10:28:42 +1000</pubDate>
+      
+      <guid>/blog/kernel-dev-1/</guid>
+      <description>&lt;p&gt;This is the first in a series of posts about getting started in Linux
+kernel development. Most of what is written in this post is already
+available on the web. It is provided here for completeness and as a pre-amble to the next post in the series.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;The aim of this series is to outline &lt;em&gt;one&lt;/em&gt; way of getting started with
+Linux kernel development. It is by no means the only way and it is
+quite possibly not even the &lt;em&gt;best&lt;/em&gt; way.&lt;/p&gt;
+
+&lt;h4 id=&#34;assumptions&#34;&gt;Assumptions&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You are inherently interested in how the Linux kernel works.&lt;/li&gt;
+&lt;li&gt;You know the C programming language &lt;em&gt;well&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;You know how to use git.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Good luck.&lt;/p&gt;
+
+&lt;h2 id=&#34;first-patch&#34;&gt;First Patch&lt;/h2&gt;
+
+&lt;p&gt;This post will describe steps you may take in order to get your first
+patch merged into the mainline kernel.&lt;/p&gt;
+
+&lt;p&gt;Do not submit patches to any part of the kernel outside of
+drivers/staging whilst getting started with kernel development.&lt;/p&gt;
+
+&lt;h3 id=&#34;1-set-up-your-tools&#34;&gt;1. Set up your tools&lt;/h3&gt;
+
+&lt;h4 id=&#34;editor&#34;&gt;Editor&lt;/h4&gt;
+
+&lt;p&gt;The kernel uses a specific coding style, you may like to configure
+your editor to support this.&lt;/p&gt;
+
+&lt;h4 id=&#34;email&#34;&gt;Email&lt;/h4&gt;
+
+&lt;p&gt;All kernel development is done in the open, this means via mailing
+lists. Get comfortable with your email client. Do not use HTML when
+sending email to kernel mailing lists.&lt;/p&gt;
+
+&lt;h4 id=&#34;git&#34;&gt;Git&lt;/h4&gt;
+
+&lt;p&gt;Configure git with your email address and name.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[user]
+    email = joe@email.com
+    name = Joe Developer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All kernel patches must contain a tag &lt;code&gt;Signed-off-by: Joe Developer &amp;lt;joe@email.com&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You may wish to add to your git config&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[format]
+    signOff = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; If you already have git configured with your GitHub username
+then add the real name configuration lines to the git config file
+within your kernel development tree (see task 3 below).&lt;/p&gt;
+
+&lt;h3 id=&#34;2-subscribe-to-mailing-lists&#34;&gt;2. Subscribe to mailing lists&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Kernel newbies: kernelnewbies@kernelnewbies.org&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Device drivers: driverdev-devel@linuxdriverproject.org&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Do not bother subscribing to LKML at this stage.&lt;/p&gt;
+
+&lt;p&gt;You may like to sort emails from mailing lists into
+separate mail boxes. Example regex for sorting;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;^List-ID:.*&amp;lt;driverdev-devel.linuxdriverproject.org&amp;gt;$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Always maintain the complete CC list when responding to email
+on a kernel mailing list.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-set-up-development-tree&#34;&gt;3. Set up development tree&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Clone Greg Kroah-Hartman&amp;rsquo;s tree&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git/&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up tracking branch on staging-next (or staging-testing)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At this stage you may like to limit your scope within the kernel tree to the following;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Documentation/process/*  
+drivers/staging/*  
+include/linux/*  
+include/uapi/*  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The reasoning is that it is very easy to get overwhelmed while
+learning a new system as large as the Linux kernel. Limiting scope is
+one tool useful in controlling the complexity of the task.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-fix-something&#34;&gt;4. Fix something&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Run checkpatch against drivers in staging until you find a warning
+that you feel you can fix.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ scripts/checkpatch.pl --terse --strict drivers/staging/foo/*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Do not fix line over 80 warnings.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Fix &lt;em&gt;all&lt;/em&gt; instances of the warning within the driver you have
+chosen. If a job is worth doing it is worth doing properly.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Commit your changes as a single commit, write a &lt;em&gt;correct&lt;/em&gt; git log
+for the commit. Read &lt;code&gt;Documentation/process/submitting-patches.rst&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Git log messages must be of a specific format and content. At
+first they are difficult and time consuming to write. You may even
+find you spend more time writing git logs at first than code. Keep
+at it, you will learn a lot from doing it thoroughly.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;5-create-a-patch&#34;&gt;5. Create a patch&lt;/h3&gt;
+
+&lt;p&gt;At this stage you have created a branch off of staging-next, edited
+the source and have a single commit containing the changes. The next
+step is to attempt to eliminate mistakes and then create the patch.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Check the commit is correct&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ git log --color=always --patch --reverse &amp;quot;HEAD~&amp;quot;.. | less&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Read through the diff, this is what reviewers will see. Make sure the
+changes are correct and nothing spurious has snuck into your patch.&lt;/p&gt;
+
+&lt;p&gt;Your commit should build without warnings. During development you may
+like to build the driver (without linking it) using&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;make M=drivers/staging/foo&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You may also like to build and link the kernel with extra warnings enabled.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;make -j9 EXTRA-CFLAGS=-W&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Output the patch&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ git format-patch HEAD~ -o path/to/put/patch&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check you patch applies&lt;/p&gt;
+
+&lt;p&gt;Kernel development moves fast, another patch may have been merged that
+touches the same lines of code. Apply and build your patch on the
+staging-testing branch of Greg Kroah-Hartman&amp;rsquo;s staging tree.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Work off of staging-next but make sure your patches apply
+to staging-testing before you submit them to the driver dev mailing list.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;5-submit-the-patch&#34;&gt;5. Submit the patch&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Check the TODO file for whom to send the patch to, or use&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ scripts/get_maintainer.pl XYZ.patch&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Submit the patch. You may like to use git&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git send-email
+    --to=&#39;Greg Kroah-Hartman &amp;lt;gregkh@*****.org&amp;gt;&#39;
+    --cc=&#39;Joe Maintainer &amp;lt;bar@baz.com&amp;gt;, driverdev-devel@*****.org&#39;
+    XYZ.patch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is a good idea to first send the patch to yourself to check you
+have everything correct.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Respond to feedback. If asked to do so, fix your patch and
+re-submit.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Wait at least two weeks before following up on any email
+sent to a kernel mailing list.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;At this stage, if all went successfully, you should get an email from
+Greg Kroah-Hartman saying that your patch was merged into
+staging-testing. From here your patch will automatically transition to
+staging-next then, when the next merge window opens, will by merged into
+Linus&amp;rsquo; mainline.&lt;/p&gt;
+
+&lt;h2 id=&#34;final-note&#34;&gt;Final Note&lt;/h2&gt;
+
+&lt;p&gt;You should now have a development environment set up suitable for
+Linux kernel development. There will of course be further tweaking to
+be done, especially in regards to your email setup. You have now seen some the
+custom tools used in kernel development, the &lt;code&gt;scripts&lt;/code&gt; directory
+contains many more. You should have learned a thing or two from reading the docs in
+&lt;code&gt;Documentation/process&lt;/code&gt;. Now is probably a good time to read
+everything in that directory. Don&amp;rsquo;t worry if it does not all sink in,
+you will need to read, and re-read, the docs many times yet.&lt;/p&gt;
+
+&lt;p&gt;Getting your first patch merged into the Linux kernel is an exciting
+event. Well done if you have got this far, your journey has but
+started.&lt;/p&gt;
+
+&lt;p&gt;Welcome to the Linux kernel and good luck.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux Kernel Selftest Framework</title>

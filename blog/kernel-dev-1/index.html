@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title> Getting Started with Linux Kernel Development - Part 1: First Patch. &middot; Tobin Harding </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.13" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+ 
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+	</head>
+
+	<body>
+		<header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@eros ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li >
+					<a href="/about-me">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/blog">~/blog</a>
+				</li>
+				
+				
+				<li >
+					<a href="/reading-list">~/books</a>
+				</li>
+				
+				
+				<li >
+					<a href="/resume">~/resume</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+		<div class="container wrapper">
+			<h1><a href="/blog/kernel-dev-1/">Getting Started with Linux Kernel Development - Part 1: First Patch.</a></h1>
+			<span class="post-date">Jul 19, 2017 </span>
+			<div class="post-content">
+				<p>This is the first in a series of posts about getting started in Linux
+kernel development. Most of what is written in this post is already
+available on the web. It is provided here for completeness and as a pre-amble to the next post in the series.</p>
+
+<p></p>
+
+<p>The aim of this series is to outline <em>one</em> way of getting started with
+Linux kernel development. It is by no means the only way and it is
+quite possibly not even the <em>best</em> way.</p>
+
+<h4 id="assumptions">Assumptions</h4>
+
+<ul>
+<li>You are inherently interested in how the Linux kernel works.</li>
+<li>You know the C programming language <em>well</em>.</li>
+<li>You know how to use git.</li>
+</ul>
+
+<p>Good luck.</p>
+
+<h2 id="first-patch">First Patch</h2>
+
+<p>This post will describe steps you may take in order to get your first
+patch merged into the mainline kernel.</p>
+
+<p>Do not submit patches to any part of the kernel outside of
+drivers/staging whilst getting started with kernel development.</p>
+
+<h3 id="1-set-up-your-tools">1. Set up your tools</h3>
+
+<h4 id="editor">Editor</h4>
+
+<p>The kernel uses a specific coding style, you may like to configure
+your editor to support this.</p>
+
+<h4 id="email">Email</h4>
+
+<p>All kernel development is done in the open, this means via mailing
+lists. Get comfortable with your email client. Do not use HTML when
+sending email to kernel mailing lists.</p>
+
+<h4 id="git">Git</h4>
+
+<p>Configure git with your email address and name.</p>
+
+<pre><code>[user]
+    email = joe@email.com
+    name = Joe Developer
+</code></pre>
+
+<p>All kernel patches must contain a tag <code>Signed-off-by: Joe Developer &lt;joe@email.com&gt;</code></p>
+
+<p>You may wish to add to your git config</p>
+
+<pre><code>[format]
+    signOff = true
+</code></pre>
+
+<p><strong>Pro Tip:</strong> If you already have git configured with your GitHub username
+then add the real name configuration lines to the git config file
+within your kernel development tree (see task 3 below).</p>
+
+<h3 id="2-subscribe-to-mailing-lists">2. Subscribe to mailing lists</h3>
+
+<ul>
+<li><p>Kernel newbies: kernelnewbies@kernelnewbies.org</p></li>
+
+<li><p>Device drivers: driverdev-devel@linuxdriverproject.org</p></li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Do not bother subscribing to LKML at this stage.</p>
+
+<p>You may like to sort emails from mailing lists into
+separate mail boxes. Example regex for sorting;</p>
+
+<pre><code>^List-ID:.*&lt;driverdev-devel.linuxdriverproject.org&gt;$
+</code></pre>
+
+<p><strong>Pro Tip:</strong> Always maintain the complete CC list when responding to email
+on a kernel mailing list.</p>
+
+<h3 id="3-set-up-development-tree">3. Set up development tree</h3>
+
+<ul>
+<li><p>Clone Greg Kroah-Hartman&rsquo;s tree</p>
+
+<p><a href="https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git/">https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git/</a></p></li>
+
+<li><p>Set up tracking branch on staging-next (or staging-testing)</p></li>
+</ul>
+
+<p>At this stage you may like to limit your scope within the kernel tree to the following;</p>
+
+<pre><code>Documentation/process/*  
+drivers/staging/*  
+include/linux/*  
+include/uapi/*  
+</code></pre>
+
+<p>The reasoning is that it is very easy to get overwhelmed while
+learning a new system as large as the Linux kernel. Limiting scope is
+one tool useful in controlling the complexity of the task.</p>
+
+<h3 id="4-fix-something">4. Fix something</h3>
+
+<ol>
+<li><p>Run checkpatch against drivers in staging until you find a warning
+that you feel you can fix.</p>
+
+<p><code>$ scripts/checkpatch.pl --terse --strict drivers/staging/foo/*</code></p>
+
+<p><strong>Pro Tip:</strong> Do not fix line over 80 warnings.</p></li>
+
+<li><p>Fix <em>all</em> instances of the warning within the driver you have
+chosen. If a job is worth doing it is worth doing properly.</p></li>
+
+<li><p>Commit your changes as a single commit, write a <em>correct</em> git log
+for the commit. Read <code>Documentation/process/submitting-patches.rst</code></p>
+
+<p>Git log messages must be of a specific format and content. At
+first they are difficult and time consuming to write. You may even
+find you spend more time writing git logs at first than code. Keep
+at it, you will learn a lot from doing it thoroughly.</p></li>
+</ol>
+
+<h3 id="5-create-a-patch">5. Create a patch</h3>
+
+<p>At this stage you have created a branch off of staging-next, edited
+the source and have a single commit containing the changes. The next
+step is to attempt to eliminate mistakes and then create the patch.</p>
+
+<ol>
+<li><p>Check the commit is correct</p>
+
+<p><code>$ git log --color=always --patch --reverse &quot;HEAD~&quot;.. | less</code></p>
+
+<p>Read through the diff, this is what reviewers will see. Make sure the
+changes are correct and nothing spurious has snuck into your patch.</p>
+
+<p>Your commit should build without warnings. During development you may
+like to build the driver (without linking it) using</p>
+
+<p><code>make M=drivers/staging/foo</code></p>
+
+<p>You may also like to build and link the kernel with extra warnings enabled.</p>
+
+<p><code>make -j9 EXTRA-CFLAGS=-W</code></p></li>
+
+<li><p>Output the patch</p>
+
+<p><code>$ git format-patch HEAD~ -o path/to/put/patch</code></p></li>
+
+<li><p>Check you patch applies</p>
+
+<p>Kernel development moves fast, another patch may have been merged that
+touches the same lines of code. Apply and build your patch on the
+staging-testing branch of Greg Kroah-Hartman&rsquo;s staging tree.</p>
+
+<p><strong>Pro Tip:</strong> Work off of staging-next but make sure your patches apply
+to staging-testing before you submit them to the driver dev mailing list.</p></li>
+</ol>
+
+<h3 id="5-submit-the-patch">5. Submit the patch</h3>
+
+<ol>
+<li><p>Check the TODO file for whom to send the patch to, or use</p>
+
+<p><code>$ scripts/get_maintainer.pl XYZ.patch</code></p></li>
+
+<li><p>Submit the patch. You may like to use git</p>
+
+<pre><code>$ git send-email
+    --to='Greg Kroah-Hartman &lt;gregkh@*****.org&gt;'
+    --cc='Joe Maintainer &lt;bar@baz.com&gt;, driverdev-devel@*****.org'
+    XYZ.patch
+</code></pre>
+
+<p>It is a good idea to first send the patch to yourself to check you
+have everything correct.</p></li>
+
+<li><p>Respond to feedback. If asked to do so, fix your patch and
+re-submit.</p>
+
+<p><strong>Pro Tip:</strong> Wait at least two weeks before following up on any email
+sent to a kernel mailing list.</p></li>
+</ol>
+
+<p>At this stage, if all went successfully, you should get an email from
+Greg Kroah-Hartman saying that your patch was merged into
+staging-testing. From here your patch will automatically transition to
+staging-next then, when the next merge window opens, will by merged into
+Linus&rsquo; mainline.</p>
+
+<h2 id="final-note">Final Note</h2>
+
+<p>You should now have a development environment set up suitable for
+Linux kernel development. There will of course be further tweaking to
+be done, especially in regards to your email setup. You have now seen some the
+custom tools used in kernel development, the <code>scripts</code> directory
+contains many more. You should have learned a thing or two from reading the docs in
+<code>Documentation/process</code>. Now is probably a good time to read
+everything in that directory. Don&rsquo;t worry if it does not all sink in,
+you will need to read, and re-read, the docs many times yet.</p>
+
+<p>Getting your first patch merged into the Linux kernel is an exciting
+event. Well done if you have got this far, your journey has but
+started.</p>
+
+<p>Welcome to the Linux kernel and good luck.</p>
+			</div>
+			<div class="post-comments">
+				
+			</div>
+			<div class="push"></div>
+		</div>
+		<footer class="footer text-center">
+  <p>Copyright &copy; 2017  -
+    <span class="credit">
+      This site is <a target="_blank"
+      href="https://github.com/tcharding/tobin.cc">open source</a>.
+      Powered by 
+      <a target="_blank" href="https://gohugo.io">Hugo</a>
+      and 
+      <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+    </span>
+  </p>
+</footer>
+
+	</body>
