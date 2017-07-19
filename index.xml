@@ -80,9 +80,10 @@ within your kernel development tree (see task 3 below).&lt;/p&gt;
 &lt;h3 id=&#34;2-subscribe-to-mailing-lists&#34;&gt;2. Subscribe to mailing lists&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Kernel newbies: kernelnewbies@kernelnewbies.org&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://lists.kernelnewbies.org/mailman/listinfo/kernelnewbies&#34;&gt;Kernel newbies&lt;/a&gt; mailing list.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Device drivers: driverdev-devel@linuxdriverproject.org&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://driverdev.linuxdriverproject.org/mailman/listinfo/driverdev-devel&#34;&gt;Device driver&lt;/a&gt;
+mailing list.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Do not bother subscribing to LKML at this stage.&lt;/p&gt;
