@@ -190,11 +190,11 @@ one tool useful in controlling the complexity of the task.</p>
 <li><p>Run checkpatch against drivers in staging until you find a warning
 that you feel you can fix.</p>
 
-<p><code>$ scripts/checkpatch.pl --terse --strict drivers/staging/foo/*</code></p>
+<p><code>$ scripts/checkpatch.pl -f --terse --strict --show-types drivers/staging/FOO/*.c</code></p>
 
 <p><strong>Pro Tip:</strong> Do not fix line over 80 warnings.</p></li>
 
-<li><p>Fix <em>all</em> instances of the warning within the driver you have
+<li><p>Fix <em>all</em> instances of the warning type within the driver you have
 chosen. If a job is worth doing it is worth doing properly.</p></li>
 
 <li><p>Commit your changes as a single commit, write a <em>correct</em> git log
