@@ -2613,20 +2613,11 @@ Paulo Coelho&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Gödel, Escher, Bach: an Eternal Golden Braid&lt;/strong&gt;
 Douglas R. Hofstadter&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Peopleware&lt;/strong&gt; Productive Projects and Teams -
-Tom DeMarco and Timothy Lister&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Mythical Man-Month&lt;/strong&gt;
-Frederick P. Brooks, Jr.&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;An Introduction to Functional Programming Systems Using Haskell&lt;/strong&gt;
 A J T Davie&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Purely Functional Data Structures&lt;/strong&gt;
 Chris Okasaki&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Mastering Regular Expressions&lt;/strong&gt;
-Jeffrey E.F. Friedl&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Hackers Delight&lt;/strong&gt;
 Henry S. Warren, Jr.&lt;/p&gt;
@@ -2648,17 +2639,21 @@ Rami Rosen&lt;/p&gt;
 
 &lt;h1 id=&#34;current&#34;&gt;Current&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Programming Pearls&lt;/strong&gt;
-Jon Bentley&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Peopleware&lt;/strong&gt; Productive Projects and Teams -
+Tom DeMarco and Timothy Lister&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mastering Regular Expressions&lt;/strong&gt;
+Jeffrey E.F. Friedl&lt;/p&gt;
+
+&lt;p&gt;(second reading) &lt;strong&gt;The Go Programming Language&lt;/strong&gt;
+Alan A. A. Donovan, Brian W. Kernighan &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;past&#34;&gt;Past&lt;/h1&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Programming Pearls&lt;/strong&gt; Jon Bentley &lt;em&gt;(a,n)&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Key: (x,x)&lt;/strong&gt; &lt;em&gt;(text read, exercises completed)&lt;/em&gt;&lt;br /&gt;
-a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m = &lt;strong&gt;most&lt;/strong&gt;, n= &lt;strong&gt;none&lt;/strong&gt;, - = &lt;strong&gt;not applicable&lt;/strong&gt; (i.e no exercises in text).&lt;/p&gt;
-
-&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;The Mythical Man-Month&lt;/strong&gt;
+Frederick P. Brooks, Jr. &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Code Complete&lt;/strong&gt; Steve McConnell &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
@@ -2697,9 +2692,6 @@ Thomas H. Cormen, Charles C. Leiserson, Ronald L. Rivest, Clifford Stein &lt;em&
 &lt;p&gt;&lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;
 Steven S Skiena &lt;em&gt;(a,n)&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;The Go Programming Language&lt;/strong&gt;
-Alan A. A. Donovan, Brian W. Kernighan &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;Apprenticeship Patterns&lt;/strong&gt; Guidance for the Aspiring Software Craftsman -
 David H. Hoover and Adewale Oshineye &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
@@ -2733,7 +2725,7 @@ Bruce Schneier &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Python Essential Reference&lt;/strong&gt;
 David M. Beazley &lt;em&gt;(m,-)&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Clean Code&lt;/strong&gt;, A Handbook of Agile Software Craftsmanship -
 Robert C. Martin &lt;em&gt;(a,-)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Python the Hard Way&lt;/strong&gt;
@@ -2807,6 +2799,9 @@ Abraham Silberschatz, Peter Baer Galvin, Greg Cagne &lt;em&gt;(a,-)&lt;/em&gt;&l
 
 &lt;p&gt;&lt;strong&gt;The C Programming Language&lt;/strong&gt;
 Brian W. Kernighan, Dennis Ritchie &lt;em&gt;(a,a)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key: (x,x)&lt;/strong&gt; &lt;em&gt;(text read, exercises completed)&lt;/em&gt;&lt;br /&gt;
+a = &lt;strong&gt;all&lt;/strong&gt;, s = &lt;strong&gt;some&lt;/strong&gt;, m = &lt;strong&gt;most&lt;/strong&gt;, n= &lt;strong&gt;none&lt;/strong&gt;, - = &lt;strong&gt;not applicable&lt;/strong&gt; (i.e no exercises in text).&lt;/p&gt;
 </description>
     </item>
     
