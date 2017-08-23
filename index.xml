@@ -16,13 +16,13 @@
       
       <guid>/talks/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tutorial: Hacking Device Drivers - How to get into kernel development&lt;/strong&gt;&lt;br /&gt;
-14th September 2017 - Open Source Summit North America
-(&lt;a href=&#34;http://github.com/tcharding/kernel&#34;&gt;git repo&lt;/a&gt;)&lt;br /&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tutorial: Hacking Device Drivers - How to get into kernel development&lt;/strong&gt; (&lt;a href=&#34;http://github.com/tcharding/kernel&#34;&gt;git repo&lt;/a&gt;)&lt;br /&gt;
+14th September 2017 - Open Source Summit North America&lt;br /&gt;
 23rd August 2017 - Central Coast Linux Users Group&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Talk: Getting Started With Linux Kernel Development&lt;/strong&gt;&lt;br /&gt;
-2nd August 2017 - Central Coast Linux Users Group (&lt;a href=&#34;http://tobin.cc/kernel-dev-intro.pdf&#34;&gt;slides&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Talk: Getting Started With Linux Kernel Development&lt;/strong&gt;
+(&lt;a href=&#34;http://tobin.cc/kernel-dev-intro.pdf&#34;&gt;slides&lt;/a&gt;)&lt;br /&gt;
+2nd August 2017 - Central Coast Linux Users Group&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Talk: Unix, Linux and Cryptography going into the Future&lt;/strong&gt;&lt;br /&gt;
 27th May 2015 - Australian Computer Society, Central Coast Chapter
