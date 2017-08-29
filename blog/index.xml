@@ -6,8 +6,109 @@
     <description>Recent content in Blog-rsses on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jul 2017 08:28:24 +1000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Aug 2017 20:20:12 +1000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Kubernetes Colorize Help</title>
+      <link>/blog/k8s-color-help/</link>
+      <pubDate>Tue, 29 Aug 2017 20:20:12 +1000</pubDate>
+      
+      <guid>/blog/k8s-color-help/</guid>
+      <description>&lt;p&gt;Recently I started hacking on the Kubernetes (k8s) project. The code base is in Golang and is super
+fun work on. Development is done via &lt;a href=&#34;https://github.com/kubernetes/&#34;&gt;GitHub&lt;/a&gt; and
+&lt;a href=&#34;https://kubernetes.slack.com&#34;&gt;Slack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Kubernetes is a complex project. It is not super big, in terms of line count, approximately 35 000
+at the time of writing. The project is moving quite fast, I read today that they are merging about
+30 pull requests a day. Development is divided among special interest groups (SIG). New developers
+are directed towards SIG/CLI. As you might guess this group takes care of the command line interface
+for Kubernetes. K8s clusters are administered via a command line tool called &lt;code&gt;kubectl&lt;/code&gt; (pronounced:
+&amp;lsquo;kube-c-t-l&amp;rsquo; or &amp;lsquo;kube control&amp;rsquo;).&lt;/p&gt;
+
+&lt;p&gt;Fast forward one month. I&amp;rsquo;ve been hacking away merrily now for a while on &lt;code&gt;kubectl&lt;/code&gt;. This has lead
+me to some interesting open source libraries. The &lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;cobra&lt;/a&gt; library,
+brought to you by the creators of &lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt; (the static web site
+generator that I am using to write this blog), is one of them.&lt;/p&gt;
+
+&lt;p&gt;So, my issue, and the reason I am writing this post, was that I was struggling to decipher the
+available options output by use of the &lt;code&gt;--help&lt;/code&gt; flag. Of course, first thing I did was throw a pull
+request at Kubernetes with a proposed solution. Turns out there may be a more simple solution (remember 50%
+of bug fixes introduce more bugs (Steve McConnel)). Introducing
+&lt;a href=&#34;https://github.com/garabik/grc&#34;&gt;generic colorizer&lt;/a&gt;. This awesome tool written by Radovan Garabík
+allows you to, as the name suggests, colorize anything.&lt;/p&gt;
+
+&lt;p&gt;It is written in Python, you can get install instructions in the repository, or if you are running a
+Debian based system just search the package manager for &lt;code&gt;grc&lt;/code&gt;. You will need a configuration file in
+&lt;code&gt;~/.grc/grc.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;While we are at it lets colorize &lt;code&gt;go test&lt;/code&gt; as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Go
+\bgo.* test\b
+conf.gotest
+
+# Kubernetes
+\bkubectl help\b
+conf.kubectlhelp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Colorization is then achieved via regular expressions. You will need a configuration file for each
+entry above. Here is &lt;code&gt;conf.kubectlhelp&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;regexp=  \#.*
+colour=blue
+-
+regexp=--.+?(?==)
+colour=yellow
+-
+regexp=^Other Commands
+colour=red
+-
+regexp=^Usage:
+color=cyan
+-
+regexp=^Examples:
+color=cyan
+-
+regexp=^Options:
+color=cyan
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;code&gt;conf.gotest&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;regexp==== RUN .*
+colour=blue
+-
+regexp=--- PASS: .*
+colour=green
+-
+regexp=^PASS$
+colour=green
+-
+regexp=^(ok|\?) .*
+colour=magenta
+-
+regexp=--- FAIL: .*
+colour=red
+-
+regexp=[^\s]+\.go(:\d+)?
+colour=cyan
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you like shell aliases you may like to define the following&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;alias kch=&#39;/usr/bin/grc kubectl help&#39;
+alias go=&#39;/usr/bin/grc go&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;voilà &lt;code&gt;kch&lt;/code&gt; now presents nice colorized output and you can easily discern the options for whichever
+Kubernetescommand you are investigating. Bonus points &lt;code&gt;go test&lt;/code&gt; is colorized too.&lt;/p&gt;
+
+&lt;p&gt;thanks&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Getting Started with Linux Kernel Development - Part 2: The Process.</title>
