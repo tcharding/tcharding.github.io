@@ -105,7 +105,7 @@ alias go=&#39;/usr/bin/grc go&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;voilà &lt;code&gt;kch&lt;/code&gt; now presents nice colorized output and you can easily discern the options for whichever
-Kubernetescommand you are investigating. Bonus points &lt;code&gt;go test&lt;/code&gt; is colorized too.&lt;/p&gt;
+Kubernetes command you are investigating. Bonus points: &lt;code&gt;go test&lt;/code&gt; is colorized too.&lt;/p&gt;
 
 &lt;p&gt;thanks&lt;/p&gt;</description>
     </item>
