@@ -812,12 +812,13 @@ started.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
-&lt;li&gt;Apprenticeship, &lt;strong&gt;2+ years&lt;/strong&gt; non-commercial Linux development experience.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;24 month&lt;/strong&gt; software apprenticeship.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;8 months&lt;/strong&gt; full time &lt;strong&gt;Linux kernel&lt;/strong&gt; development experience.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Linux kernel maintainer&lt;/strong&gt;, 100+ patches merged into the mainline.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; contributor.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;100+ patches&lt;/strong&gt; merged into the &lt;strong&gt;Linux kernel&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;98th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of The Central Coast Linux Users Group (LUG).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of Central Coast Linux Users Group&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;open-source-experience&#34;&gt;Open Source Experience&lt;/h2&gt;
@@ -825,58 +826,70 @@ started.&lt;/p&gt;
 &lt;p&gt;Open source contributions made to the following projects, among others:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+author%3Atcharding+kubernetes+&#34;&gt;Kubernetes&lt;/a&gt; (Go)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/log/?qt=grep&amp;amp;q=me%40tobin.cc&#34;&gt;Linux Kernel&lt;/a&gt;
 (C ).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+author%3Atcharding+zfs+&#34;&gt;ZFS&lt;/a&gt; (C ).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+author%3Atcharding+kubernetes+&#34;&gt;Kubernetes&lt;/a&gt; (Go)&lt;/li&gt;
 &lt;li&gt;Gonum graph library (Go).&lt;/li&gt;
 &lt;li&gt;OpenBazaar-Server (Python).&lt;/li&gt;
 &lt;li&gt;Guile Scheme (Scheme, C).&lt;/li&gt;
 &lt;li&gt;Binutils, GNU Assembler (Documentation).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Currently working on the Linux kernel and the Kubernetes project. Interested in filesystems,
-networking, and OCI runtime.&lt;/p&gt;
+&lt;p&gt;Currently working on the Linux kernel, primarily the Kernel Self Protection
+Project. Also interested in filesystems, networking, device drivers and
+security. Current Linux kernel maintainer of the leaking_addresses.pl
+script. 100+ patches merged into the mainline.&lt;/p&gt;
 
-&lt;p&gt;Previously worked on layer 2 networking code within the Linux kernel. 100+ patches merged into the
-mainline. Focus on the KS7010 Wi-Fi driver (drivers/staging/ks7010). While resolving PowerPC kernel
-issues contributed documentation patches to the GNU Assembler, as well as an assembly code patch
-series within the kernel powerpc code. Also minor bug fixes and clean up patches to the PowerPC tree
-as well as trivial cleanup patches into the kernel core (net, purgatory, mm).&lt;/p&gt;
+&lt;p&gt;Previously worked on layer 2 networking code within the Linux kernel. Focus on
+the KS7010 Wi-Fi driver (drivers/staging/ks7010).  Also some Power PC work.
+While resolving Power PC kernel issues contributed documentation patches to the
+GNU Assembler, as well as an assembly code patch series within the kernel
+PowerPC code.  Minor bug fixes and clean up patches to the Power PC tree as well
+as trivial cleanup patches into the kernel core (net, purgatory, mm).&lt;/p&gt;
 
-&lt;p&gt;While studying data structures and algorithms contributed code, and design test implementation, to
-the Gonum graph library written in Golang. Utilized graph library as reference while implementing
-solutions to graph problems on HackerRank.&lt;/p&gt;
+&lt;p&gt;While studying data structures and algorithms contributed code, and design test
+implementation, to the Gonum graph library written in Golang.  Utilized graph
+library as reference while implementing solutions to graph problems on
+HackerRank.&lt;/p&gt;
 
-&lt;p&gt;Contributed to the Free Software Foundation Guile project. Interacted with Guile community via
-public mailing list. Iterated multiple revisions in order to assimilate a personal fix into a patch
-that was acceptable by the community. Produced a solution to a known outstanding issue requiring a
-multi-language patch set in C and Scheme.&lt;/p&gt;
+&lt;p&gt;Contributed to the Free Software Foundation Guile project.  Interacted with
+Guile community via public mailing list.  Iterated multiple revisions in order
+to assimilate a personal fix into a patch that was acceptable by the community.
+Produced a solution to a known outstanding issue requiring a multi-language
+patch set in C and Scheme.&lt;/p&gt;
 
-&lt;p&gt;Two months focused work on OpenBazaar Server code in Python. First non-company contributor to the
-project. Most patches were unit testing and code refactoring. Some work on the command line
-interface and interoperability between operating systems.&lt;/p&gt;
+&lt;p&gt;Two months focused work on OpenBazaar Server code in Python.  First non-company
+contributor to the project.  Most patches were unit testing and code
+refactoring.  Some work on the command line interface and interoperability
+between operating systems.&lt;/p&gt;
 
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
 
 &lt;h3 id=&#34;apprenticeship&#34;&gt;Apprenticeship&lt;/h3&gt;
 
-&lt;p&gt;24 month software development apprenticeship. Worked assiduously on becoming a
-competent, professional programmer. Maintained a minimum 40 hour working week
+&lt;p&gt;24 month software development apprenticeship.  Worked assiduously on becoming a
+competent, professional programmer.  Maintained a minimum 40 hour working week
 (typically 50+).
-&lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;Logged&lt;/a&gt; hours and topics
-worked. Topics include; computer architecture,
+ &lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;Logged&lt;/a&gt; hours and topics
+worked.  Topics include; computer architecture,
 programming languages and theory, operating systems, data structures
-and algorithms, professional software development methodology and practices. See
+and algorithms, professional software development methodology and practices.  See
 below ‘code written in last 12 months’ and
-&lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt;. Text highlights include;&lt;/p&gt;
+&lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt;.  Text highlights include;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;The Art of Computer Programming&lt;/strong&gt; (volumes 1 and 2) Donald E. Knuth&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt; W. Richard Stevens, Stephen A. Rag&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt; Harold Abelson, Gerald
+Jay Sussman with Julie Sussman&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Applied Cryptography&lt;/strong&gt; Bruce Schneier&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Clean Code, A Handbook of Agile Software Craftsmanship&lt;/strong&gt; Robert C. Martin&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&#34;https://github.com/tcharding/self_learning&#34;&gt;Github&lt;/a&gt; repository for code
+written during apprenticeship.  All code worked on is open source unless
+explicitly requested otherwise (i.e Project Euler, Eudyptula Challenge).&lt;/p&gt;
 
 &lt;h3 id=&#34;graduate-diploma-in-computer-science-pass-with-high-distinction&#34;&gt;Graduate Diploma in Computer Science [Pass with High Distinction]&lt;/h3&gt;
 
@@ -904,28 +917,26 @@ below ‘code written in last 12 months’ and
 &lt;h2 id=&#34;outside-experience&#34;&gt;Outside Experience&lt;/h2&gt;
 
 &lt;p&gt;Founded the Central Coast Linux Users Group of New South Wales in
-February 2014. Announced the intent prior, at Linux open source
-conference, Linux.conf.au. Lead role in organizing and administering
-the group. Set up a unincorporated association for
-governance. Acquired sponsorship of venue to hold monthly
-meetings. Financially supported the group for the first three years.&lt;/p&gt;
+February 2014.  Announced the intent prior, at Linux open source
+conference, Linux.conf.au.  Lead role in organizing and administering
+the group.  Set up a unincorporated association for
+governance.  Acquired sponsorship of venue to hold monthly
+meetings.  Financially supported the group for the first three years.&lt;/p&gt;
+
+&lt;p&gt;Given presentations on software related topics at the Open Source Summit North
+America 2017, Central Coast Linux Users Group (multiple) and the Australian
+Computer Society (2015).&lt;/p&gt;
 
 &lt;h2 id=&#34;motivation-for-writing-code&#34;&gt;Motivation for Writing Code&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Continually learning and refining skills and technique.&lt;/li&gt;
 &lt;li&gt;The social interaction of programming on a project together with others.&lt;/li&gt;
+&lt;li&gt;Continually learning and refining skills and technique.&lt;/li&gt;
 &lt;li&gt;How good ‘clean code’ looks on the screen.&lt;/li&gt;
 &lt;li&gt;The feeling when an insurmountable problem dissolves.&lt;/li&gt;
 &lt;li&gt;Constantly chasing perfection, efficiency of space and time, beauty of code.&lt;/li&gt;
 &lt;li&gt;Programming craftsmanship.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;code-written-recently&#34;&gt;Code Written recently&lt;/h2&gt;
-
-&lt;p&gt;See &lt;a href=&#34;https://github.com/tcharding/self_learning&#34;&gt;Github&lt;/a&gt; repository for code written recently. All
-code worked on is open source unless explicitly requested otherwise (i.e Project Euler, Eudyptula
-Challenge).&lt;/p&gt;
 
 &lt;h2 id=&#34;buzz-words&#34;&gt;Buzz Words&lt;/h2&gt;
 
