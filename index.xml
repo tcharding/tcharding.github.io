@@ -6,8 +6,352 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Aug 2017 20:20:12 +1000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Dec 2017 16:01:57 +1100</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Software Apprenticeship</title>
+      <link>/blog/apprenticeship/</link>
+      <pubDate>Tue, 05 Dec 2017 16:01:57 +1100</pubDate>
+      
+      <guid>/blog/apprenticeship/</guid>
+      <description>
+
+&lt;p&gt;In 2015 I had the very fortunate opportunity to invest some time in my skill as
+a programmer. At this time I had an undergraduate degree (Bachelor of Science)
+double majoring in software and computer networks. I had also completed the
+first two thirds of a masters degree, also in computer science. I chose not to
+complete the thesis because I felt I did not have anything to add to the field,
+graduating with a diploma of Computer Science (pass with high distinction). It
+was during this decision that I became acutely aware of my lack of programming
+ability.&lt;/p&gt;
+
+&lt;p&gt;I picked up Kernighan and Ritchie [KnR12] and started from scratch. Herein
+started a two year apprenticeship of software development.&lt;/p&gt;
+
+&lt;p&gt;Why an &amp;lsquo;apprenticeship&amp;rsquo;? I did not start out with much of an idea of what I was
+trying to achieve. I just knew that if I was going to get any good at this
+programming business I needed more experience. My preferred style of learning is
+book reading, and I had done plenty of this at uni. But it was also self evident
+that you don&amp;rsquo;t learn to code by reading books. Well why not &lt;em&gt;actually&lt;/em&gt; do the
+exercises. Then, as long as I picked up the right books I would be assured
+success, right?&lt;/p&gt;
+
+&lt;p&gt;Over the next two years I would read the best part of 53 computer science text
+books and complete the majority of the exercises in any that had them. During
+this time I read a number of books and blog posts about software
+craftsmanship. Say what you will about the movement, the idea of an
+apprenticeship struck a chord with me and I started to view what I was doing as
+such. Text book authors were my masters and I was there to learn.&lt;/p&gt;
+
+&lt;p&gt;This post is intended for three people.&lt;/p&gt;
+
+&lt;p&gt;1) Software developers wishing to understand the path I chose.&lt;br /&gt;
+2) Potential employers, wishing to understand my experience.&lt;br /&gt;
+3) Family and friends, wishing to know what I was up to all that time locked
+away.&lt;/p&gt;
+
+&lt;p&gt;There are many ways to achieve ones goals, mine is but one. Each individual is
+different, we learn differently and we engage in different ways. I do not, in
+any way, suggest that this is the best path. It is simply the path I chose.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-beginning&#34;&gt;The Beginning&lt;/h2&gt;
+
+&lt;p&gt;As stated above the first text I pick up was KnR. To this day, in my opinion,
+this is one of the best technical books ever written. If there is perfection in
+printed text then KnR is it. My first obstacle was to be able to
+concentrate for long periods of time doing mentally taxing work. At first, if I
+remember correctly, I could only concentrate for a few hours each day. It was at
+least three months before I could complete a full work day and I still remember
+with glee my first 12 hour day.&lt;/p&gt;
+
+&lt;p&gt;During this stage I committed to organize my time as if I was a remote
+employee. I would endevour to work a &lt;em&gt;normal&lt;/em&gt; 40 work week and I would log work
+session times and topics. (Though during some of the more obsessive phases I was coding
+much more than this.) If you are interested the
+&lt;a href=&#34;https://github.com/tcharding/work-logs&#34;&gt;logs&lt;/a&gt; are all online. At first I
+started logging by hand. The logs from the start are incomplete. I believe that
+I worked on KnR from May 2015 through July. During this time I also separated
+from my wife. Be careful kids, too much coding can effect your social life :)
+During this time I also settled on a development environment. For the record the
+stack I settled on is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Emacs, Zsh, Terminator, Mutt, Firefox, git, and gcc.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I have used in the past Ubuntu, Debian, Slackware, and Arch. I now use Ubuntu.&lt;/p&gt;
+
+&lt;h2 id=&#34;unix-programming&#34;&gt;UNIX Programming&lt;/h2&gt;
+
+&lt;p&gt;The week before I started undergrad, in a fit of enthusiasm, I went to the store
+and bought a copy of Advance Programming in the UNIX Environment (APUE). This
+was the 2nd edition. Prior to starting university, my total computer experience
+was a term writing logo in year 9. A month or two writing a text based game in
+DOS and two months playing around on the internet (primarily on &amp;lsquo;hack this
+site&amp;rsquo;). Oh and there was the time I deleted my Mums C: drive when I was a kid,
+suffice to say I didn&amp;rsquo;t clock up any hours in front of the keyboard after
+that. To say that APUE was a little advanced for me is an understatement. I
+however had a number of attempts to read it over the years with varying amounts
+of success.&lt;/p&gt;
+
+&lt;p&gt;In August I commenced work on APUE for real (I even bought the new 3rd edition
+[SnR13]). In parallel I decided to work on another classic UNIX text, UNIX
+Systems Programming (USP) [SFR04]. By this stage I was routinely working 12
+hours a day stopping only for food breaks. I did this 4 days a week and played
+with my kids the other 3 days. It appears, from the logs, that I also started to
+read Knuth during this time. I included all reading in logged time as time
+worked.&lt;/p&gt;
+
+&lt;p&gt;On September 20 I picked up Learning Perl [RS11]. I clearly remember wanting to
+have something else to work on to break up the C systems programming. At this
+stage there were some low moments when things got rather arduous (SysV IPC I&amp;rsquo;m
+talking to you). On the 2nd of October I completed APUE [SnR13], every chapter
+and every exercise. I didn&amp;rsquo;t make it through the last section of USP [SFR04], I
+can&amp;rsquo;t remember why. As soon as those two were finished, and while still working
+on Perl stuff (moved onto Intermediate Perl [RS12]), I started UNIX Network
+Programming (UNP) [SFR04]. This is anther classic UNIX text, Stevens really is a
+heavy weight in the field.&lt;/p&gt;
+
+&lt;p&gt;October saw the end of Knuth volume 1 [Kn97v1]. It seems I started volume 2
+[Kn97v2], the logs don&amp;rsquo;t look like I finished it all in one go but I did finish
+it. When I say finish I mean my eyes passed over all the words, how much of it
+went in I cannot say :) Eventually I completed volume 2 and started volume 3, I
+never did make it far into volume 3 though.&lt;/p&gt;
+
+&lt;h2 id=&#34;security&#34;&gt;Security&lt;/h2&gt;
+
+&lt;p&gt;My next focus would be security and cryptography. Here I made my first of two
+attempts at the security programming challenges (previously called &amp;lsquo;Matasano&amp;rsquo;)
+now online at &lt;a href=&#34;https://www.cryptopals.com/&#34;&gt;cryptopals&lt;/a&gt;. First attempt was using
+Perl. Wednesday the 20th October I completed UNP [SFR04]. I picked up Schneier
+[BS15] and got cracking (no pun intended). By mid way through November I came to
+the conclusion that Python would be better suited to the security challenges and
+would also be a useful tool to have in my kit. I ordered Python Essential
+Reference [DB09] and started work on
+&lt;a href=&#34;https://www.learnpythonthehardway.org/&#34;&gt;Python the Hard Way&lt;/a&gt;. On the 23rd I
+restarted the cryptopals challenges from scratch in Python.&lt;/p&gt;
+
+&lt;p&gt;Enjoying the crypto challenges, in December, I started working in parallel on
+the &lt;a href=&#34;http://eudyptula-challenge.org/&#34;&gt;Eudyptula Challenge&lt;/a&gt;. I also threw up a
+few solutions on mathematical programming challenge site
+&lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;. In December I read Version Control
+with Git [LMC12] and Beginning Linux Programming [MnS09].&lt;/p&gt;
+
+&lt;h2 id=&#34;open-source-contribution&#34;&gt;Open Source Contribution&lt;/h2&gt;
+
+&lt;p&gt;From the look of the logs, January comprised a loss of direction. I read a book
+on Web development [RS13], continued cryptopals and made my first attempt at
+functional programming with The Little Schemer [FnF96] and The Scheme
+Programming Language [KD09]. January also hosted what turned out to be a pivotal
+text, Clean Code [RM09] by Uncle Bob. This book had a &lt;strong&gt;massive&lt;/strong&gt; effect on me
+and drives my software development to this day. If I had to pick one book from
+the whole apprenticeship to define as &lt;em&gt;essential&lt;/em&gt; this would be it. January also
+saw the start of my first ever open source contributions. This was to the Open
+Bazaar Server project, written in Python.&lt;/p&gt;
+
+&lt;p&gt;I spent a bit over a month solid working on Open Bazaar. Development was done
+via GitHub and I learned a lot from the experience.&lt;/p&gt;
+
+&lt;p&gt;Mid way through February I stopped working on Open Bazaar and commenced learning
+Golang via The Go Programming Language [DnK16]. During March I also read up on
+my shell of choice zsh in From Bash to Z Shell [KPS05]&lt;/p&gt;
+
+&lt;p&gt;It was during the months around this time that I thought it a good idea to touch
+up on my mathematics skill. I can&amp;rsquo;t say I was extremely successful (I measure
+success by having completed a large portion of a text) but I did attempt
+multiple texts from various branches of pure and applied mathematics and even
+learned a thing or two. With similar brain developmental ideas in mind I
+attempted to learn the violin. I practiced an hour a day for a few months
+eventually giving up on the idea along with the math study.&lt;/p&gt;
+
+&lt;h2 id=&#34;systems-programming&#34;&gt;Systems Programming&lt;/h2&gt;
+
+&lt;p&gt;On the 12th of March something drove me to pick up The Linux Programming
+Interface (TLPI) by Michael Kerrisk [MK10] and get back into systems programming
+in C. I should mention here that an undercurrent driving me since January 2013
+was a desire to be a Linux Kernel developer. This desire was born out of
+attendance of the conference &lt;a href=&#34;https://linux.conf.au/&#34;&gt;LinuxConfAu&lt;/a&gt; in
+Perth 2013. Since then I had hoped to become a competent enough programmer to
+try my hand at Kernel development. More on this later. This explains my choice
+to do more C coding even though the Kerrisk text is very similar in content to
+APUE, amusingly it was SysV IPC that stopped me in this text also. I completed
+every chapter and exercise up to, and including, chapter 44. Kerrisk is an
+extremely competent writer and I agree with those who say that the mantle has
+now passed from Stevens to Kerrisk when it comes to leaning systems programming
+in the *nix environment.&lt;/p&gt;
+
+&lt;p&gt;I continue working on TLPI until the end of April. Over the next few months I
+would read the following operating systems texts&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Modern Operating Systems [AT14]&lt;/li&gt;
+&lt;li&gt;Linux Device Drivers 3rd Edition [CRK05]&lt;/li&gt;
+&lt;li&gt;Essential Linux Device Drivers [SV08]&lt;/li&gt;
+&lt;li&gt;Linux Kernel Development [RL10]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In May I would add ARM Assembly Language [WH09] to the list of completed texts
+(including most, but not all, of the programming exercises).&lt;/p&gt;
+
+&lt;h2 id=&#34;functional-programming&#34;&gt;Functional Programming&lt;/h2&gt;
+
+&lt;p&gt;June 2016 would see the start of my second functional programming block. This
+included re-reading The Little Schemer [FnF96] and re-working all the code. I
+then started one of the highlights of the apprenticeship The Structure and
+Interpretation of Computer Programs [ASS96]. This text needs no introduction,
+and for very good reason. I make no excuse when I say that this book was tough
+going. The text is comprised of 5 chapters. I worked every exercise in the first
+4 chapters. Chapter 5 implements an interpreter but by the end of chapter 4 I
+was getting lost. I did not manage to complete chapter 5. During this phase I
+used GNU Guile Scheme and got a nice little patch accepted into the project. The
+patch was a fix to a known bug and removed an erroneous compiler warning that
+was emitted every time the REPL started. The patch was in C and Scheme.&lt;/p&gt;
+
+&lt;p&gt;August brought more functional programming with
+&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;Learn You a Haskell For Great Good&lt;/a&gt; and Real
+World Haskell [SGS09] although I did not complete Real World Haskell. Functional
+programming continued into September with work on
+&lt;a href=&#34;https://wiki.haskell.org/99_questions&#34;&gt;Ninety-Nine Haskell Problems&lt;/a&gt; and
+&lt;a href=&#34;http://www.seas.upenn.edu/~cis194/spring13/&#34;&gt;CIS194&lt;/a&gt;. It was during CIS194 that
+I hit a wall with functional programming and decided to move back to world of
+imperative codes.&lt;/p&gt;
+
+&lt;h2 id=&#34;algorithms&#34;&gt;Algorithms&lt;/h2&gt;
+
+&lt;p&gt;By the end of September I was writing Golang again, with a second reading of The
+Go Programming Language [DnK16] in unison with work on the very entertaining
+&lt;a href=&#34;http://hackerrank.com/&#34;&gt;HackerRank.com&lt;/a&gt;. I would spend the next three months doing
+algorithms problems on this site, eventually making it to the 98th percentile
+(of approx 600 000 coders). During this algorithms block I would read, the at
+times daunting, Introduction to Algorithms [CLRS09]. I also made study of The
+Algorithm Design Manual [SS12] and the online text
+&lt;a href=&#34;http://opendatastructures.org/&#34;&gt;Open Data Structures&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;and-on-into-the-kernel&#34;&gt;And on into the Kernel&lt;/h2&gt;
+
+&lt;p&gt;Mid January 2017 was linux.conf.au in Gelong. And, as was now customary,
+attendance got me super psyched on Kernel development. On returning from the
+conference I dropped work on algorithms and started Kernel programming. This
+included re-reading Linux Device Drivers [CRK05] and making a (short lived)
+attempt at writing a kernel from scratch.&lt;/p&gt;
+
+&lt;p&gt;January though to mid March saw various Kernel development tasks. I mistakenly
+did some, what I later learned were very rude, clean patches into the core
+kernel. PowerPC got to feel my newbie wrath with some clean up patches and also
+patches into the GNU Assembler for PPC assembly directives. Continued effort was
+applied to the Eudyptula challenge also.&lt;/p&gt;
+
+&lt;p&gt;At some stage I started to focus exclusively on the KS7010 Wi-Fi SDIO
+driver. During this time I started to share what I had learned about Kernel
+development with other upcoming newbies via the Kernel Newbies mailing
+list. Somewhere here I got a tutorial presentation on Kernel hacking accepted
+into Open Source Summit North America. It was these events and my continued work
+on the Kernel that lead me to the conclusion that my apprenticeship was at an
+end. But like it says in Apprenticeship Patterns [HO10] in was not until much
+later that I realized that these were the closing days.&lt;/p&gt;
+
+&lt;p&gt;There were numerous other books I read during this time that didn&amp;rsquo;t get a
+mention. Honourable mention goes to The Pragmatic Programmer [HnT99]. For a full
+reading list see &lt;a href=&#34;http://tobin.cc/reading-list&#34;&gt;~/books&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you got this far, thank you for your time. If this post is in anyway useful
+to you I am happy. May your days be full of hard, tractable problems.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
+
+&lt;p&gt;[ASS96] &lt;strong&gt;Structure and Interpretation of Computer Programs&lt;/strong&gt;
+Harold Abelson, Gerald Jay Sussman, Julie Sussman&lt;/p&gt;
+
+&lt;p&gt;[AT14] &lt;strong&gt;Modern Operating Systems&lt;/strong&gt;
+Andrew S. Tanenbaum&lt;/p&gt;
+
+&lt;p&gt;[BS15] &lt;strong&gt;Applied Cryptography&lt;/strong&gt;
+Bruce Schneier&lt;/p&gt;
+
+&lt;p&gt;[CLRS09] &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;
+Thomas H. Cormen, Charles C. Leiserson, Ronald L. Rivest, Clifford Stein&lt;/p&gt;
+
+&lt;p&gt;[CRK05] &lt;strong&gt;Linux Device Drivers 3rd Edition&lt;/strong&gt;
+Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman&lt;/p&gt;
+
+&lt;p&gt;[DB09] &lt;strong&gt;Python Essential Reference&lt;/strong&gt;
+David M. Beazley&lt;/p&gt;
+
+&lt;p&gt;[DnK16] &lt;strong&gt;The Go Programming Language&lt;/strong&gt;
+Alan A. A. Donovan, Brian W. Kernig&lt;/p&gt;
+
+&lt;p&gt;[FnF96] &lt;strong&gt;The Little Schemer&lt;/strong&gt;
+Daniel P. Friedman, Matthias Felleisen&lt;/p&gt;
+
+&lt;p&gt;[HnT99] &lt;strong&gt;The Pragmatic Programmer&lt;/strong&gt;
+Andrew Hunt, David Thomas&lt;/p&gt;
+
+&lt;p&gt;[HO10] &lt;strong&gt;Apprenticeship Patterns&lt;/strong&gt; Guidance for the Aspiring Software Craftsman -
+David H. Hoover and Adewale Oshineye&lt;/p&gt;
+
+&lt;p&gt;[KD09] &lt;strong&gt;The Scheme Programming Language&lt;/strong&gt;
+R. Kent Dybvig&lt;/p&gt;
+
+&lt;p&gt;[Kn97v1] &lt;strong&gt;The Art of Computer Programming (volume 1)&lt;/strong&gt; Fundamental Algorithms -
+Donald E. Knuth&lt;/p&gt;
+
+&lt;p&gt;[Kn97v2] &lt;strong&gt;The Art of Computer Programming (volume 2)&lt;/strong&gt; Seminumerical Algorithms -
+Donald E. Knuth&lt;/p&gt;
+
+&lt;p&gt;[KnR12] &lt;strong&gt;The C Programming Language&lt;/strong&gt;
+Brian W. Kernighan and Dennis M. Ritchie&lt;/p&gt;
+
+&lt;p&gt;[KPS05] &lt;strong&gt;From Bash to Z Shell&lt;/strong&gt; Conquering the Command -
+Oliver Kiddle, Jerry Peek, Peter Stephenson&lt;/p&gt;
+
+&lt;p&gt;[LMC12] &lt;strong&gt;Version Control with Git&lt;/strong&gt;
+Jon Loeliger, Matthew McCullough&lt;/p&gt;
+
+&lt;p&gt;[MK10] &lt;strong&gt;The Linux Programming Interface&lt;/strong&gt;
+Michael Kerrisk&lt;/p&gt;
+
+&lt;p&gt;[MnS04] &lt;strong&gt;Beginning Linux Programming&lt;/strong&gt;
+Neil Matthew, Richard Stones&lt;/p&gt;
+
+&lt;p&gt;[RL10] &lt;strong&gt;Linux Kernel Development&lt;/strong&gt;
+Robert Love&lt;/p&gt;
+
+&lt;p&gt;[RM09] &lt;strong&gt;Clean Code&lt;/strong&gt;, A Handbook of Agile Software Craftsmanship -
+Robert C. Martin&lt;/p&gt;
+
+&lt;p&gt;[RnR03] &lt;strong&gt;UNIX Systems Programming&lt;/strong&gt;
+Kay A. Robbins, Steven Robbins&lt;/p&gt;
+
+&lt;p&gt;[RS11] &lt;strong&gt;Learning Perl&lt;/strong&gt;
+Randal L. Schwartz, brian d foy, Tom Phoenix&lt;/p&gt;
+
+&lt;p&gt;[RS12] &lt;strong&gt;Intermediate Perl&lt;/strong&gt;
+Randal L. Schwartz, brian d foy, Tom Phoenix&lt;/p&gt;
+
+&lt;p&gt;[RS13] &lt;strong&gt;Programming the World Wide&lt;/strong&gt;
+Rebert W. Sebesta&lt;/p&gt;
+
+&lt;p&gt;[SFR04] &lt;strong&gt;UNIX Network Programming&lt;/strong&gt;
+W. Richard Stevens, Bill Fenner, Andrew M. Rudoff&lt;/p&gt;
+
+&lt;p&gt;[SGS09] &lt;strong&gt;Real World Haskell&lt;/strong&gt;
+Bryan O&amp;rsquo;Sullivan, John Goerzen and Don Stewart&lt;/p&gt;
+
+&lt;p&gt;[SnR13] &lt;strong&gt;Advanced Programming in the UNIX Environment&lt;/strong&gt;
+W. Richard Stevens, Stephen A. Rago&lt;/p&gt;
+
+&lt;p&gt;[SS12] &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;
+Steven S Skiena&lt;/p&gt;
+
+&lt;p&gt;[SV08] &lt;strong&gt;Essential Linux Device Drivers&lt;/strong&gt;
+Sreekrishnan Venkateswaran&lt;/p&gt;
+
+&lt;p&gt;[WH09] &lt;strong&gt;ARM Assembly Language&lt;/strong&gt;
+William Hohl&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Kubernetes Colorize Help</title>
@@ -2548,125 +2892,6 @@ array is created.&lt;/p&gt;
 queue. Like as is often the case with data structures, different data structures
 may perform differently under different workloads, one is not necessarily better
 than another.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&#34;bibliography&#34;&gt;Bibliography:&lt;/h4&gt;
-
-&lt;p&gt;[Ski08] - &lt;strong&gt;The Algorithm Design Manual&lt;/strong&gt;, Steven S. Skiena&lt;br /&gt;
-[CLRS09] - &lt;strong&gt;Introduction to Algorithms&lt;/strong&gt;, Thomas H.Cormen, Charles E. Leiserson,
-Ronald L. Rivest, Clifford Stein&lt;br /&gt;
-[Mor] - &lt;strong&gt;Open Data Structures&lt;/strong&gt;, Pat Morin, Edition 0.1&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Stack Data Structure in Golang</title>
-      <link>/blog/stack/</link>
-      <pubDate>Mon, 17 Oct 2016 08:28:17 +1100</pubDate>
-      
-      <guid>/blog/stack/</guid>
-      <description>&lt;p&gt;A stack is a container that supports retrieval by last-in, first-out (LIFO)
-order. The &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;put&lt;/em&gt; operations for stacks are usually called &lt;em&gt;push&lt;/em&gt; and
-&lt;em&gt;pop&lt;/em&gt;, other operations may include &lt;em&gt;peek&lt;/em&gt; and &lt;em&gt;isEmpty&lt;/em&gt;. A full description of
-stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Stacks are simple to implement and very efficient. For this reason, stacks are
-probably the right container to use when retrieval order doesn&amp;rsquo;t matter [Ski08]&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;A stack can be easily implemented in Go using slices.&lt;/p&gt;
-
-&lt;h2 id=&#34;stack-of-integers&#34;&gt;stack of integers&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;// stack of integers
-package stack
-
-type Stack []int
-
-// IsEmpty: check if stack is empty
-func (s *Stack) IsEmpty() bool {
-	return len(*s) == 0
-}
-
-// Push a new integer onto the stack
-func (s *Stack) Push(x int) {
-	*s = append(*s, x)
-}
-
-// Pop: remove and return top element of stack, return false if stack is empty
-func (s *Stack) Pop() (int, bool) {
-	if s.IsEmpty() {
-		return 0, false
-	}
-
-	i := len(*s) - 1
-	x := (*s)[i]
-	*s = (*s)[:i]
-
-	return x, true
-}
-
-// Peek: return top element of stack, return false if stack is empty
-func (s *Stack) Peek() (int, bool) {
-	if s.IsEmpty() {
-		return 0, false
-	}
-
-	i := len(*s) - 1
-	x := (*s)[i]
-
-	return x, true
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can then use our stack of integers like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func fn() {
-    var stack Stack
-
-    stack.Push(1)
-    stack.Push(2)
-    stack.Push(3)
-
-    x := stack.Peek()  // x = 3
-    x = stack.Pop()    // x = 3
-    x = stack.Peek()   // x = 2
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It is trivial to replace integers with any other type
-(&lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks/string&#34;&gt;string&lt;/a&gt;,
-struct, etc).&lt;/p&gt;
-
-&lt;h2 id=&#34;stack-of-anything&#34;&gt;stack of anything&lt;/h2&gt;
-
-&lt;p&gt;One downside to the above method is that a new stack needs to be written for
-each data type. An alternative is to use the empty interface to allow stacks of
-anything.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// All types satisfy the empty interface, so we can store anything here.
-type Stack []interface{}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then any time we pop or peek at an item from the stack we use a type
-assertion.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var stack Stack
-stack.Push(&amp;quot;this&amp;quot;)
-
-item := stack.Pop()
-fmt.Printf(&amp;quot;%s\n&amp;quot;, item.(string))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This comes with the usual warnings that using the empty type interface reduces
-the ability of the compiler to catch type errors, one of the benefits of using a
-strongly typed language.&lt;/p&gt;
-
-&lt;p&gt;Full source code is available &lt;a href=&#34;https://github.com/tcharding/types/tree/master/stacks&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Also Douglas Hall has done a nice stack implementation using linked lists instead of
-slices. You can find his gist &lt;a href=&#34;https://gist.github.com/bemasher/1777766&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;hr /&gt;
 
