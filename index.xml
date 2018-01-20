@@ -463,6 +463,10 @@ Kubernetes command you are investigating. Bonus points: &lt;code&gt;go test&lt;/
       
       <guid>/talks/</guid>
       <description>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Talk: Intro to Kernel Hacking - finding things to work on&lt;/strong&gt;
+(&lt;a href=&#34;http://tobin.cc/kernel-dev-finding-work.pdf&#34;&gt;slides&lt;/a&gt;)&lt;br /&gt;
+22nd January 2018 - Linux.conf.au&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Tutorial: Hacking Device Drivers - How to get into kernel development&lt;/strong&gt; (&lt;a href=&#34;http://github.com/tcharding/kernel&#34;&gt;git repo&lt;/a&gt;)&lt;br /&gt;
 14th September 2017 - Open Source Summit North America
 (&lt;a href=&#34;http://tobin.cc/kernel-dev-tutorial.pdf&#34;&gt;slides&lt;/a&gt;)&lt;br /&gt;
