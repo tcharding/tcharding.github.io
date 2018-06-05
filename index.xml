@@ -1161,15 +1161,34 @@ started.&lt;/p&gt;
       <description>
 
 &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Three years&lt;/strong&gt; software development experience.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Linux kernel maintainer&lt;/strong&gt; (scripts/leaking_addresses.pl).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Undergraduate&lt;/strong&gt; and &lt;strong&gt;postgraduate&lt;/strong&gt; degrees in computer science.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;24 month&lt;/strong&gt; software apprenticeship.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;8 months&lt;/strong&gt; full time &lt;strong&gt;Linux kernel&lt;/strong&gt; development experience.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Linux kernel maintainer&lt;/strong&gt;, 100+ patches merged into the mainline.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;24 month&lt;/strong&gt; software apprenticeship.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; contributor.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;98th percentile&lt;/strong&gt; in algorithms on &lt;a href=&#34;https://www.hackerrank.com/tcharding&#34;&gt;HackerRank&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;12 years&lt;/strong&gt; experience using &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Founder&lt;/strong&gt; of Central Coast Linux Users Group&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;current-position&#34;&gt;Current Position&lt;/h2&gt;
+
+&lt;p&gt;Currently working at AppOrbit on the AppSwitch project.  From the project documentation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AppSwitch performs service discovery, access control and traffic management
+functions on behalf of the applications by transparently taking over the
+applications network API calls. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Role involves writing Golang and C (kernel space and user space).  AppSwitch
+includes a Linux kernel driver to intercept system calls and also provides the
+same functionality in user space using BPF.&lt;/p&gt;
+
+&lt;p&gt;Testing done in C, Golang, and Bash.  Vagrant used to manage virtual machines
+for end to end (e2e) testing.&lt;/p&gt;
+
+&lt;p&gt;Position held since January 2018.&lt;/p&gt;
 
 &lt;h2 id=&#34;open-source-experience&#34;&gt;Open Source Experience&lt;/h2&gt;
 
@@ -1186,10 +1205,10 @@ started.&lt;/p&gt;
 &lt;li&gt;Binutils, GNU Assembler (Documentation).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Currently working on the Linux kernel, primarily the Kernel Self Protection
-Project. Also interested in filesystems, networking, device drivers and
-security. Current Linux kernel maintainer of the leaking_addresses.pl
-script. 100+ patches merged into the mainline.&lt;/p&gt;
+&lt;p&gt;Occasionally work on the Linux kernel, primarily the Kernel Self Protection
+Project and netdev. Also interested in filesystems, networking, device drivers
+and security. Current Linux kernel maintainer of the leaking_addresses.pl
+script.&lt;/p&gt;
 
 &lt;p&gt;Previously worked on layer 2 networking code within the Linux kernel. Focus on
 the KS7010 Wi-Fi driver (drivers/staging/ks7010).  Also some Power PC work.
@@ -1280,19 +1299,12 @@ Computer Society (2015).&lt;/p&gt;
 &lt;h2 id=&#34;motivation-for-writing-code&#34;&gt;Motivation for Writing Code&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;The social interaction of programming on a project together with others.&lt;/li&gt;
-&lt;li&gt;Continually learning and refining skills and technique.&lt;/li&gt;
+&lt;li&gt;Collaborating with others to produce the best possible codebase/project.&lt;/li&gt;
+&lt;li&gt;Continually learning and refining skills and technique (the craft).&lt;/li&gt;
 &lt;li&gt;How good ‘clean code’ looks on the screen.&lt;/li&gt;
 &lt;li&gt;The feeling when an insurmountable problem dissolves.&lt;/li&gt;
-&lt;li&gt;Constantly chasing perfection, efficiency of space and time, beauty of code.&lt;/li&gt;
-&lt;li&gt;Programming craftsmanship.&lt;/li&gt;
+&lt;li&gt;Constantly refining.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;buzz-words&#34;&gt;Buzz Words&lt;/h2&gt;
-
-&lt;p&gt;ARM, x86_64, MIPS, PowerPC,&lt;br /&gt;
-Linux, Ubuntu, Emacs, Zsh, Mutt, Git,&lt;br /&gt;
-Haskell, Scheme Lisp, Assembler, C, Go, Python, Perl, Java, C++, Objective-C, Prolog, Bash&lt;/p&gt;
 </description>
     </item>
     
