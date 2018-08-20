@@ -11,7 +11,13 @@ body {
 	height: 100%;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.5em;
+	padding-top: 70px;
 }
+
+img {
+ 	max-width: 100%;
+}
+
 
 #green-terminal {
 	color: #00ff00;
@@ -29,6 +35,9 @@ nav {
 	font-size: 1.5em;
 }
 
+.dropdown-menu li {
+	font-size: 1.5em;
+}
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Concert One', cursive;
@@ -36,6 +45,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #user-name {
 	font-size: 5em;
+	text-transform: uppercase;
 }
 
 .user-description {
@@ -46,6 +56,10 @@ h1,h2,h3,h4,h5,h6 {
 	margin-bottom: 1em;
 	padding: 15px;
 	font-size: initial;
+}
+
+.user-profile {
+	padding: 0;
 }
 
 .user-picture {
@@ -106,7 +120,6 @@ i {
 .wrapper {
 	min-height: 100%;
 	margin: 0 auto -50px;
-	padding-top: 50px;
 }
 
 .footer {

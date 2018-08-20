@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
-    <head>
-        <title> Linux Kernel Selftest Framework &middot; Tobin Harding </title>
+	<head>
+		<title> Tags &middot; Tobin Harding </title>
 
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="generator" content="Hugo 0.46-DEV" />
 
@@ -28,10 +28,10 @@
 
 
 
-    </head>
+	</head>
 
-    <body>
-        <header>
+	<body>
+		<header>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -91,72 +91,22 @@
 </nav>
 </header>
 
-        <div class="container wrapper">
-            <h1><a href="/blog/kselftests/">Linux Kernel Selftest Framework</a></h1>
-            <span class="post-date">Feb 2, 2017 </span>
-            <div class="post-content">
-                <p><em>Kselftest is an effort to enable a developer-focused unit test
-framework in the kernel to ensure the quality of new kernel
-releases.</em><br />
-    - Shua Khan</p>
-
-<p>Install and run Linux kernel selftests on Ubuntu 16.04</p>
-
-<p></p>
-
-<p>Presentation <a href="reference:
-http://www.elinux.org/images/6/61/Linux_Kernel_Selftest_Framework_-_Quality_Control_for_New_Releases.pdf">slides</a>
-by Shua Khan on self test framework.<br />
-Git <a href="git: https://git.kernel.org/cgit/linux/kernel/git/shuah/linux-kselftest.git">repository</a> for the project.</p>
-
-<h2 id="test-machine">Test machine</h2>
-
-<p>Product: Intel&reg; Core&trade; i5-4590 CPU @ 3.30GHz<br />
-Description:    Ubuntu 16.04.1 LTS<br />
-Kernel: Linux 4.10.0-rc6+ x86_64 GNU/Linux</p>
-
-<h2 id="build-on-ubuntu">Build on Ubuntu</h2>
-
-<p>The following packages are required</p>
-
-<p>libcap-ng-dev<br />
-libnuma-dev<br />
-libcap-dev<br />
-libpopt-dev<br />
-libmount-dev</p>
-
-<pre><code>$ KTREE = /path/to/kernel/tree  
-$ cd $KTREE/tools/testing/selftests  
-$ make  
-</code></pre>
-
-<h2 id="run">Run</h2>
-
-<p>Some tests require root privileges to run</p>
-
-<pre><code>$ sudo make run_tests
-</code></pre>
-
-<p>Your machine may appear to die as the tests start.
-Tests run in approx 10 minutes on this machine, your results may vary.</p>
-
-<p>Test targets may be specified using</p>
-
-<pre><code>$ sudo make TARGETS='size' run_tests
-$ sudo make TARGETS='net networking' run_tests
-</code></pre>
-
-<p>Single or multiple targets are accepted. Target names come from
-directory names under tools/testing/selftests.</p>
-            </div>
+		<div class="container wrapper">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h1 id=>Tags</h1>
+				</div>
+			</div>
+			<ul id="post-list">
+                	
+			</ul>
             
-            <div class="post-comments">
-                
-            </div>
-            
-            <div class="push"></div>
-        </div>
-        <footer class="footer text-center">
+
+
+
+			<div class="push"></div>
+		</div>
+		<footer class="footer text-center">
 <p>Copyright &copy; 2018 Tobin Harding -
 <span class="credit">
   This site is <a target="_blank"
@@ -169,4 +119,5 @@ directory names under tools/testing/selftests.</p>
 </p>
 </footer>
 
-    </body>
+	</body>
+</html>
