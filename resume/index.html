@@ -99,39 +99,16 @@
 
 <ul>
 <li><strong>Undergraduate</strong> and <strong>postgraduate</strong> degrees in computer science.</li>
-<li><strong>3+ years</strong> software development experience.</li>
-<li><strong>Linux kernel maintainer</strong>.</li>
-<li>Commercial <strong>Golang</strong> development experience.</li>
+<li><strong>3+ years</strong> software development <strong>experience</strong>.</li>
+<li>9 months commercial <strong>Golang</strong> experience.</li>
+<li><strong>Linux kernel maintainer</strong>
+(<a href="https://git.kernel.org/pub/scm/linux/kernel/git/tobin/leaks.git/">scripts/leaking_addresses.pl</a>).</li>
+<li>Upstream <strong>kernel</strong> contributor  since 2016.</li>
 <li>24 month software apprenticeship.</li>
-<li>98th percentile in algorithms on <a href="https://www.hackerrank.com/tcharding">HackerRank</a>.</li>
 <li><strong>12 years experience</strong> using Linux.</li>
 <li>Founder of Central Coast Linux Users Group.</li>
 <li>Founder of Crowd Coded Pty Ltd.</li>
 </ul>
-
-<h2 id="current-position">Current Position</h2>
-
-<p>Currently endeavouring to build a software company Crowd Coded.  Also doing
-contract work, web development and hosting.</p>
-
-<p>Tooling up in the area of artificial intelligence (in Golang).</p>
-
-<h2 id="previous-position">Previous Position</h2>
-
-<p>Worked at AppOrbit on the AppSwitch project.  From the project documentation:</p>
-
-<pre><code>AppSwitch performs service discovery, access control and traffic management
-functions on behalf of the applications by transparently taking over the
-applications network API calls. 
-</code></pre>
-
-<p>Role involved writing Golang and C (kernel space and user space).  AppSwitch
-includes a Linux kernel driver to intercept system calls and also provides the
-same functionality in user space using BPF.</p>
-
-<p>Testing done in Python, Bash, C, and Golang.  Was responsible for writing and
-maintaining end to end tests (written in Python and shell) utilising docker in
-docker.</p>
 
 <h2 id="open-source-experience">Open Source Experience</h2>
 
@@ -149,32 +126,72 @@ docker.</p>
 <li>Binutils, GNU Assembler (Documentation).</li>
 </ul>
 
-<p>Work on the Linux kernel, primarily the Kernel Self Protection Project and
-netdev. Also interested in filesystems, networking, device drivers and
-security. Current Linux kernel maintainer of the leaking_addresses.pl script.</p>
-
-<p>Previously worked on layer 2 networking code within the Linux kernel. Focus on
-the KS7010 Wi-Fi driver (drivers/staging/ks7010).  Also some Power PC work.
-While resolving Power PC kernel issues contributed documentation patches to the
-GNU Assembler, as well as an assembly code patch series within the kernel
-PowerPC code.  Minor bug fixes and clean up patches to the Power PC tree as well
-as trivial cleanup patches into the kernel core (net, purgatory, mm).</p>
+<p>Linux kernel contributor since May 2016.  Author and maintainer of intree kernel
+Perl script <code>scripts/leaking_addresses.pl</code>.  Responsible for hashing <code>printk</code>
+specifier <code>%p</code>, landed in <code>v3.15</code>.  Involved in the removal of Variable Length Arrays
+from the kernel tree, enabling <code>make -Wvla</code>.  Worked on layer 2 networking
+code.  Focus on the KS7010 SDIO Wi-Fi driver.  PowerPC contributions; while resolving
+PowerPC kernel issues contributed documentation patches to the GNU Assembler, as
+well as assembly code.  Various other contributions to: device drivers (staging),
+networking (including wireless), Kernel Self Protection Project, storage, and
+memory management.  200+ patches merged into the mainline.</p>
 
 <p>While studying data structures and algorithms contributed code, and design test
 implementation, to the Gonum graph library written in Golang.  Utilized graph
 library as reference while implementing solutions to graph problems on
 HackerRank.</p>
 
-<p>Contributed to the Free Software Foundation Guile project.  Interacted with
-Guile community via public mailing list.  Iterated multiple revisions in order
-to assimilate a personal fix into a patch that was acceptable by the community.
-Produced a solution to a known outstanding issue requiring a multi-language
-patch set in C and Scheme.</p>
+<p>Contributed to the Free Software Foundation Guile project.  Interacted with Guile
+community via public mailing list.  Iterated multiple revisions in order to
+assimilate a personal fix into a patch that was acceptable by the
+community.  Produced a solution to a known outstanding issue requiring a multi-
+language patch set in C and Scheme.</p>
 
-<p>Two months focused work on OpenBazaar Server code in Python.  First non-company
-contributor to the project.  Most patches were unit testing and code
+<p>Contributed to the OpenBazaar Server project, codebase in Python.  First
+non-company contributor to the project.  Most patches were unit testing and code
 refactoring.  Some work on the command line interface and interoperability
 between operating systems.</p>
+
+<h2 id="work-experience">Work Experience</h2>
+
+<h4 id="october-2018-present-software-developer-crowd-coded-pty-ltd">October 2018 – present: <strong>Software Developer</strong> Crowd Coded Pty Ltd</h4>
+
+<p>Contract software developer. Role involves:<br />
+- Development and maintenance of userspace applications in Golang and Python.<br />
+- Upstream Linux kernel development (memory management).</p>
+
+<h4 id="january-2018-october-2018-software-developer-apporbit-incorporated">January 2018 - October 2018: <strong>Software Developer</strong> AppOrbit Incorporated</h4>
+
+<p>Role involved debugging and developing new features. Code base is predominantly
+Golang but also includes userspace C code and an out of tree kernel module.</p>
+
+<p>Testing done in Python, Bash, C, and Golang. Responsible for writing and
+maintaining end to end tests (written in Python and shell) utilizing docker in
+docker.</p>
+
+<p>Assisted in building release images using Packer targeting AWS and
+Google Cloud. Project is developed and released as a docker image. Development
+environment is docker running in Centos on top of Vagrant.</p>
+
+<h4 id="february-2017-december-2017-junior-kernel-developer-crowd-coded-pty-ltd">February 2017 – December 2017: <strong>Junior Kernel</strong> Developer Crowd Coded Pty Ltd</h4>
+
+<p>Started out doing code clean up in drivers/staging. Worked on the KS7010 SDIO
+WiFi driver.  Hashed <code>printk</code> specifier <code>%p</code>.  Authored and became maintainer
+of <a href="https://git.kernel.org/pub/scm/linux/kernel/git/tobin/leaks.git/">scripts/leaking_addresses.pl</a>.</p>
+
+<h4 id="april-2015-march-2017-software-development-apprenticeship">April 2015 – March 2017: <strong>Software Development Apprenticeship</strong></h4>
+
+<p>Two year self directed and funded software development apprenticeship. See below
+for details.</p>
+
+<h4 id="january-2013-march-2015-sales-manager-black-swan-trading-company-pty-ltd">January 2013 – March 2015: <strong>Sales Manager</strong> Black Swan Trading Company Pty Ltd</h4>
+
+<p>Sales and logistics. Managed a staff of 5.</p>
+
+<h4 id="january-2007-december-2012-support-technician-sydney-city-networks-pty-ltd">January 2007 – December 2012: <strong>Support Technician</strong> Sydney City Networks Pty Ltd</h4>
+
+<p>Mac OSX support technician. Residential and small office network design,
+installation, and support.</p>
 
 <h2 id="education">Education</h2>
 
@@ -258,7 +275,7 @@ Computer Society (2015).</p>
             <div class="push"></div>
         </div>
         <footer class="footer text-center">
-<p>Copyright &copy; 2018 Tobin Harding -
+<p>Copyright &copy; 2019 Tobin Harding -
 <span class="credit">
   This site is <a target="_blank"
 		  href="https://github.com/tcharding/tobin.cc">open source</a>.
