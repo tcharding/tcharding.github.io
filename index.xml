@@ -82,8 +82,8 @@ available on the web. It is provided here for completeness and as a pre-amble to
       <pubDate>Mon, 17 Apr 2017 21:00:43 +1100</pubDate>
       
       <guid>/resume/</guid>
-      <description>4 years software development experience. 250 upstream Linux kernel patches (as of v5.0) Linux kernel maintainer (scripts/leaking_addresses.pl). 12 months commercial Golang experience. Undergraduate and postgraduate degrees in computer science. 12 years experience using Linux. Founder of Central Coast Linux Users Group. Founder of Crowd Coded Pty Ltd.  Open Source Experience Open source contributions made to the following projects, among others:
- Linux Kernel (C ). ZFS (C ).</description>
+      <description>4 years software development experience. 12 months commercial Golang experience. Linux kernel maintainer 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 12 years experience using Linux. Founder of Central Coast Linux Users Group. Founder of Crowd Coded Pty Ltd.  Open Source Experience Open source contributions made to the following projects, among others:
+ Linux Kernel (C ). ZFS (C ). Kubernetes (Go) Mystereum (blockchain, Go).</description>
     </item>
     
     <item>
