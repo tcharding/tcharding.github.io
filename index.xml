@@ -6,10 +6,19 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Dec 2018 08:58:20 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jul 2019 19:18:01 +1000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Learning Rust</title>
+      <link>/blog/learning-rust/</link>
+      <pubDate>Wed, 31 Jul 2019 19:18:01 +1000</pubDate>
+      
+      <guid>/blog/learning-rust/</guid>
+      <description>A few years ago I read about a code training method involving writing the same algorithm out every day. I liked the idea but never got around to doing it. A couple of months ago I got a job working on a code base in a language I had never used before - Rust. Not only did I want to come up to speed as quickly as I could but I wanted to get good at Rust fast.</description>
+    </item>
     
     <item>
       <title>Reflections on working for a start up</title>
@@ -37,7 +46,9 @@
       <guid>/blog/k8s-color-help/</guid>
       <description>&lt;p&gt;Recently I started hacking on the Kubernetes (k8s) project. The code base is in Golang and is super
 fun work on. Development is done via &lt;a href=&#34;https://github.com/kubernetes/&#34;&gt;GitHub&lt;/a&gt; and
-&lt;a href=&#34;https://kubernetes.slack.com&#34;&gt;Slack&lt;/a&gt;.&lt;/p&gt;</description>
+&lt;a href=&#34;https://kubernetes.slack.com&#34;&gt;Slack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -73,7 +84,9 @@ fun work on. Development is done via &lt;a href=&#34;https://github.com/kubernet
       <guid>/blog/kernel-dev-1/</guid>
       <description>&lt;p&gt;This is the first in a series of posts about getting started in Linux
 kernel development. Most of what is written in this post is already
-available on the web. It is provided here for completeness and as a pre-amble to the next post in the series.&lt;/p&gt;</description>
+available on the web. It is provided here for completeness and as a pre-amble to the next post in the series.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -97,7 +110,9 @@ framework in the kernel to ensure the quality of new kernel
 releases.&lt;/em&gt;&lt;br /&gt;
     - Shua Khan&lt;/p&gt;
 
-&lt;p&gt;Install and run Linux kernel selftests on Ubuntu 16.04&lt;/p&gt;</description>
+&lt;p&gt;Install and run Linux kernel selftests on Ubuntu 16.04&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -107,7 +122,9 @@ releases.&lt;/em&gt;&lt;br /&gt;
       
       <guid>/blog/fenwick/</guid>
       <description>&lt;p&gt;A Fenwick tree is a data structure that holds an ordered collection and supports
-the operations &lt;code&gt;sum&lt;/code&gt; and &lt;code&gt;update&lt;/code&gt;, both in &lt;em&gt;O(log n)&lt;/em&gt; time.&lt;/p&gt;</description>
+the operations &lt;code&gt;sum&lt;/code&gt; and &lt;code&gt;update&lt;/code&gt;, both in &lt;em&gt;O(log n)&lt;/em&gt; time.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -122,7 +139,9 @@ the operations &lt;code&gt;sum&lt;/code&gt; and &lt;code&gt;update&lt;/code&gt;,
 
 &lt;p&gt;The graph data structure is of high utility across the field of computer
 science. Graph problems come in many shapes and sizes but once modeled can
-typically be represented by a limited number of graph data type variants.&lt;/p&gt;</description>
+typically be represented by a limited number of graph data type variants.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -138,7 +157,9 @@ must read and write computer programs - many of them.&lt;/em&gt;[ASS96]&lt;/p&gt
 &lt;a href=&#34;http://hackerrank.com&#34;&gt;HackerRank&lt;/a&gt; completing questions in the &amp;lsquo;practice area&amp;rsquo; i.e I have
 not competed in any competitive programming competitions offered by the
 site. Today I reached the first milestone I had set, namely, to get a top 1000
-ranking (96th percentile) in the algorithms sub domain.&lt;/p&gt;</description>
+ranking (96th percentile) in the algorithms sub domain.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -152,7 +173,9 @@ ranking (96th percentile) in the algorithms sub domain.&lt;/p&gt;</description>
 minimum value) and &lt;em&gt;max heap&lt;/em&gt;. A heap is built using a binary tree where each
 node is said to &lt;em&gt;dominate&lt;/em&gt; the nodes below it. The meaning of dominate depends
 on the type of heap being implemented, for a &lt;em&gt;min heap&lt;/em&gt; the key of each node is
-&lt;em&gt;less&lt;/em&gt; than the keys of both of child nodes.&lt;/p&gt;</description>
+&lt;em&gt;less&lt;/em&gt; than the keys of both of child nodes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -165,7 +188,9 @@ on the type of heap being implemented, for a &lt;em&gt;min heap&lt;/em&gt; the k
 ends. Deque ends have such names as &lt;em&gt;left&lt;/em&gt;/&lt;em&gt;right&lt;/em&gt;, &lt;em&gt;front&lt;/em&gt;/&lt;em&gt;rear&lt;/em&gt; or, as we
 will use here, &lt;em&gt;front&lt;/em&gt; and &lt;em&gt;back&lt;/em&gt;. The &lt;em&gt;add/remove&lt;/em&gt; operations on a deque are
 typically called &lt;em&gt;enqueue&lt;/em&gt; and &lt;em&gt;dequeue&lt;/em&gt;. For ease of explanation but without loss
-of generality, we limit discussion to a deque of integers.&lt;/p&gt;</description>
+of generality, we limit discussion to a deque of integers.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -180,7 +205,9 @@ any tree, nodes may optionally contain satellite data.&lt;/p&gt;
 &lt;p&gt;A BST can support many dynamic container operations, including search, minimum,
 maximum, predecessor, successor, insert and delete. The defining feature of a
 BST is that keys are maintained in an ordered fashion. This makes a BST a useful
-data structure for implementing such things as ordered sets and bags.&lt;/p&gt;</description>
+data structure for implementing such things as ordered sets and bags.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -194,7 +221,9 @@ operations &lt;em&gt;Length&lt;/em&gt;, &lt;em&gt;Add&lt;/em&gt;, &lt;em&gt;Dele
 &lt;em&gt;FindAll&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Bags can be ordered or un-ordered. This post will be discussing un-ordered
-bags.&lt;/p&gt;</description>
+bags.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -209,7 +238,9 @@ order. The &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;put&lt;/em&gt; operations for 
 queues can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Queue&amp;rsquo;s minimise the maximum time spent waiting, however the average wait time
-will be the same whether a LIFO or a FIFO is used.&lt;/p&gt;</description>
+will be the same whether a LIFO or a FIFO is used.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -221,7 +252,9 @@ will be the same whether a LIFO or a FIFO is used.&lt;/p&gt;</description>
       <description>&lt;p&gt;A stack is a container that supports retrieval by last-in, first-out (LIFO)
 order. The &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;put&lt;/em&gt; operations for stacks are usually called &lt;em&gt;push&lt;/em&gt; and
 &lt;em&gt;pop&lt;/em&gt;, other operations may include &lt;em&gt;peek&lt;/em&gt; and &lt;em&gt;isEmpty&lt;/em&gt;. A full description of
-stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

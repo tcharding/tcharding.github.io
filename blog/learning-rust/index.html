@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Learning Rust &middot; Tobin Harding </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@eros ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="/about-me">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/blog">~/blog</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/reading-list">~/books</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/resume">~/resume</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/talks">~/talks</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="container wrapper">
+            <h1><a href="/blog/learning-rust/">Learning Rust</a></h1>
+            <span class="post-date">Jul 31, 2019 </span>
+            <div class="post-content">
+                <p>A few years ago I read about a code training method involving writing the same
+algorithm out every day.  I liked the idea but never got around to doing it.  A
+couple of months ago I got a job working on a code base in a language I had
+never used before - Rust.  Not only did I want to come up to speed as quickly as
+I could but I wanted to get <em>good</em> at Rust <strong>fast</strong>.  Enter algo training.  This
+post will outline what I&rsquo;ve done for the last two months and reflect upon it.</p>
+
+<p>First I&rsquo;d like to shout out to all those who wrote
+<a href="https://doc.rust-lang.org/stable/book/">The Rust Programming Language</a>.  Its
+open source and it is <em>very</em> well written.  If you are planning on learning Rust
+you should definitely read it.</p>
+
+<p>Rust has kind of a steep learning curve.  It was after I read the Rust book
+(above) and started trying to write some code that I realised that the nuances
+of Rust were going to be harder to grasp than some other languages I&rsquo;ve learned
+in the past.  This realisation was what sparked the idea to do algo training.</p>
+
+<p>The idea behind algo training is you pick an algorithm and write it out every
+day - simple.  Why would you want to do that?  Well writing the same code allows
+you to write without thinking too much about the logic of what you are writing
+so you can focus on other things, other things that are good to be good at as a
+professional programmer.  These may be different for each individual but in this
+case the primary thing I was focused on was learning the syntax of Rust.  If you
+haven&rsquo;t written Rust and are laughing right now then go read some Rust code and
+you will get what I mean.</p>
+
+<p>This was also a good excuse to practice my test driven development (TDD).
+Interestingly I found a bug in one of the algorithms I was writing after writing
+(and testing) it for a few weeks.  This highlighted that I was <em>not</em> correctly
+following TDD and was a very educational bug to find.  This bug was what really
+got me excited about this learning method and made me want to share it.  I am,
+hands down, a more rigorous developer now because of that bug - WIN.</p>
+
+<p>The algorithms I chose are not really that important as such.  I would pick a
+simple algorithm, simple logic but also simple as in including only a few new
+syntactical and/or language features.  Then write it out each morning at start
+of day.  Code incrementally using TDD.  Once I was super quick at typing it up,
+no mistakes, and putting no real thought into it then I&rsquo;d choose another
+algorithm.  Sometimes I&rsquo;d write a few on one day sometimes just one.  I used
+<a href="http://rosettacode.org/wiki/Rosetta_Code">Rosetta Code</a> for inspiration.  I was
+even able to contribute the bug fix I mention above back to Rosetta Code, that
+was nice.</p>
+
+<p>For completeness the algorithms I have used thus far, and the order I added them,
+are:</p>
+
+<ol>
+<li>linear search i.e., loop over an array</li>
+<li>binary search</li>
+<li>a vector macro</li>
+<li>usage of combinators</li>
+<li>quick sort</li>
+</ol>
+
+<p>The code is up on <a href="https://github.com/tcharding/rust-training">GitHub</a>.  If you
+have any suggestions or improvements on this method please email me (address is
+on my GitHub page.</p>
+
+<p>thanks</p>
+
+            </div>
+            
+            <div class="post-comments">
+                
+            </div>
+            
+            <div class="push"></div>
+        </div>
+        <footer class="footer text-center">
+<p>Copyright &copy; 2019 Tobin Harding -
+<span class="credit">
+  This site is <a target="_blank"
+		  href="https://github.com/tcharding/tobin.cc">open source</a>.
+  Powered by 
+  <a target="_blank" href="https://gohugo.io">Hugo</a>
+  and 
+  <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+    </body>
