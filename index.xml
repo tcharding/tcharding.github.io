@@ -262,14 +262,11 @@ stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt
       <pubDate>Sat, 15 Oct 2016 14:17:43 +1100</pubDate>
       
       <guid>/reading-list/</guid>
-      <description>Past, current, and future. List is in approximate reverse chronological order.
+      <description>Past, current, and future. List is in approximate reverse chronological order. Some texts are good enough to deserve a second reading, if so the text appears in the list twice with &amp;lsquo;(second reading)&amp;rsquo; appended.
 Future An Introduction to Functional Programming Systems Using Haskell A J T Davie
 Purely Functional Data Structures Chris Okasaki
 Hackers Delight Henry S. Warren, Jr.
-Coders At Work Reflections on the craft of programming - Peter Seibel
-Algorithms in C Parts 1 - 5 Robert Sedgewick
-Compilers Principles, Techniques, and Tools - Aho Lam, Sethi Ullman
-Artificial Intelligence A modern Approach - Stuart Russell and Peter Norvig</description>
+Coders At Work Reflections on the craft of programming - Peter Seibel</description>
     </item>
     
     <item>
