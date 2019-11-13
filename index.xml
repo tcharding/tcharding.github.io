@@ -57,14 +57,13 @@ fun work on. Development is done via &lt;a href=&#34;https://github.com/kubernet
       <pubDate>Wed, 02 Aug 2017 10:07:59 +1000</pubDate>
       
       <guid>/talks/</guid>
-      <description>Talk: Intro to Kernel Hacking - finding things to work on (slides)
-22nd January 2018 - Linux.conf.au
- Tutorial: Hacking Device Drivers - How to get into kernel development (git repo)
-14th September 2017 - Open Source Summit North America (slides)
-23rd August 2017 - Central Coast Linux Users Group
- Talk: Getting Started With Linux Kernel Development (slides)
-2nd August 2017 - Central Coast Linux Users Group
- Talk: Unix, Linux and Cryptography going into the Future</description>
+      <description>Beginning Rust - Fast track your learning (git repo)
+6th November - Central Coast Linux Users Group
+ Beginning Rust - Fast track your learning (git repo)
+29th October - RustSydney meet up
+ Workshop: Hacking Device Drivers - How to get into kernel development (git repo)
+20th August 2019 - Open Source Summit North America
+ Talk: Intro to Kernel Hacking - finding things to work on (slides)</description>
     </item>
     
     <item>
