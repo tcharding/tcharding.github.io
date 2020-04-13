@@ -6,10 +6,20 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jul 2019 19:18:01 +1000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 10:56:07 +1000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Resume of Tobin Harding: Linux Programmer</title>
+      <link>/resume/</link>
+      <pubDate>Mon, 13 Apr 2020 10:56:07 +1000</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>5 years software development experience. Commercial experience with C, Rust, Golang. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 12 years experience using Linux. Founder of Central Coast Linux Users Group.  Open Source Experience Open source contributions made to the following projects, among others:
+ Linux Kernel (C ). ZFS (C ). Kubernetes (Go) Mystereum (blockchain, Go). Gonum graph library (Go). OpenBazaar-Server (Python). Guile Scheme (Scheme, C).</description>
+    </item>
     
     <item>
       <title>Learning Rust</title>

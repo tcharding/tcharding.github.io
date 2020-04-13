@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/resume/</loc>
+    <lastmod>2020-04-13T10:56:07+10:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/learning-rust/</loc>
     <lastmod>2019-07-31T19:18:01+10:00</lastmod>
   </url>
@@ -120,7 +125,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-07-31T19:18:01+10:00</lastmod>
+    <lastmod>2020-04-13T10:56:07+10:00</lastmod>
     <priority>0</priority>
   </url>
   
