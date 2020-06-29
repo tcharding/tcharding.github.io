@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Anonymous peer to peer applicaitons in Rust (rust-libp2p over Tor) &middot; Tobin Harding </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@ares ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="/about-me">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/blog">~/blog</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/reading-list">~/books</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/resume">~/resume</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/talks">~/talks</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="container wrapper">
+            <h1><a href="/blog/tor-libp2p/">Anonymous peer to peer applicaitons in Rust (rust-libp2p over Tor)</a></h1>
+            <span class="post-date">Jun 26, 2020 </span>
+            <div class="post-content">
+                <p>We can write peer to peer applications in Rust using <code>rust-libp2p</code>. We
+can anonymize TCP streams by running them through the Tor network. How
+about writing anonymous peer to peer applications in Rust that run
+over the Tor network?</p>
+
+<p></p>
+
+<p>Recently I was tasked with investigating whether it was possible (or
+practical) to run libp2p traffic over the Tor network. I work for a
+company [1] that writes software in Rust that utilises the
+<a href="https://github.com/libp2p/rust-libp2p">rust-libp2p</a> library for its
+network layer. We were interested in seeing if we could get our
+traffic to run over the Tor network. This post explains how we did it.</p>
+
+<p>Upfront; there is very little that is <em>new</em> here. I just &lsquo;stood on the
+shoulders of giants&rsquo; so to speak and wired together a few nice open
+source libraries. This took me a while to work out though, so in the
+name of saving the next guy some time and effort here goes &hellip;</p>
+
+<p>Disclaimer: I started this project knowing basically zero about Tor.
+I&rsquo;m a journeyman, if I have made a mistake please help me out by
+telling me. PRs welcome to all repositories mentioned (that I control
+:).</p>
+
+<p>I tackled this challenge in three steps and I will explain the
+solution using these same three steps:</p>
+
+<ol>
+<li>Write a basic libp2p application to use as a proof of concept.</li>
+<li>Write an application in Rust that can connect TCP streams over Tor.</li>
+<li>Wire what we learn in (2) into the application we wrote in (1).</li>
+<li>As they say &hellip; profit!</li>
+</ol>
+
+<h2 id="basic-networked-networked-application-in-rust-using-libp2p">Basic networked networked application in Rust using libp2p</h2>
+
+<p>In order to quickly hack up a basic application in Rust that uses
+<code>rust-libp2p</code> for the networking layer I had to look no further than
+the
+<a href="https://github.com/libp2p/rust-libp2p/tree/master/examples">examples</a>
+directory of the <code>rust-libp2p</code> project. There you will find a simple
+ping listener/dialer (peer 2 peer parlance for client/server). Using
+that code I hacked up an application by simply separating the listener
+and dialer logic into separate functions and slapping a
+<a href="https://github.com/TeXitoi/structopt">structopt</a> CLI on top.</p>
+
+<p>So far so good.</p>
+
+<h2 id="arbitrary-tcp-ip-streams-over-tor">Arbitrary TCP/IP streams over Tor</h2>
+
+<p>Next I had to learn how to interface with Tor using Rust. A few folks
+in other languages were doing this and after a bit of digging I
+settled on using the <a href="https://gitweb.torproject.org/torspec.git/tree/control-spec.txt">Tor Control
+Protocol</a>
+via the very nice <a href="https://github.com/teawithsand/torut">torut</a>
+library. Once again the examples directory was my friend.</p>
+
+<p>What with not knowing how Tor works and not knowing how the Tor
+Control Protocol (TorCP) works I found this pretty difficult, the
+fault for this is all my own and I learned a bunch about how I learn
+(or don&rsquo;t learn) things in the process. The time I spent doing this
+step was the motivation for writing this post.</p>
+
+<p>The code discussed below is in this repository:
+<a href="https://github.com/tcharding/simple-tor-tc">github.com/tcharding/simple-tor-tc</a></p>
+
+<p>I am running Ubuntu 18 LTS, I installed Tor using the package manager
+(<code>apt</code>). At first I was starting Tor using systemd but I quickly found
+out that, for reasons I still do not full understand, TorCP only lets
+you connect to Tor and get the information required for making an
+authenticated connection once. You need to spin up a new instance of
+Tor each time you want to connect. <code>torut</code> handles that for us</p>
+
+<pre><code>let child = run_tor(&quot;/usr/bin/tor&quot;, &amp;mut [
+    &quot;--CookieAuthentication&quot;, &quot;1&quot;,
+    &quot;--defaults-torrc&quot;, &quot;/usr/share/tor/tor-service-defaults-torrc&quot;,
+    &quot;-f&quot;, &quot;/etc/tor/torrc&quot;,
+].iter()).expect(&quot;Starting tor filed&quot;);
+let _child = AutoKillChild::new(child);
+println!(&quot;Tor instance started&quot;);
+</code></pre>
+
+<p>This is the default invocation used by systemd on Ubuntu, I saw no
+reason to change it. This implies that the default configuration for
+Tor works too - win!</p>
+
+<p>Next lets spawn an echo listener (server). I&rsquo;m omitting the code for
+brevity but you can find it in
+<a href="https://github.com/tcharding/simple-tor-tc/blob/master/src/echo.rs">echo.rs</a>.</p>
+
+<p>The plan is to create an onion service (previously called a hidden
+service) that redirects to the locally running echo listener. This is
+all done using the TorCP and <code>torut</code>. Lets get a TCP connection to the
+TorCP port</p>
+
+<pre><code>let stream = let sock = TcpStream::connect(*TOR_CP_ADDR).await?;
+</code></pre>
+
+<p>Using a static global for the address:</p>
+
+<pre><code>pub static ref TOR_PROXY_ADDR: SocketAddr = SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::LOCALHOST, 9050));
+</code></pre>
+
+<p><em>Note: All the libraries used depend on Tokio, and therefore use the
+Tokio types (<code>TcpStream</code>, <code>TcpListener</code> etc.).</em></p>
+
+<p>Now the fun part, as is required by the TorCP spec we connect to the
+Tor instance and ask it for the information required to authenticate.
+This includes authentication method (we will use cookies), the
+location of the cookie file etc.</p>
+
+<pre><code>mut utc = UnauthenticatedConn::new(stream);
+
+let info = match utc.load_protocol_info().await {
+    Ok(info) =&gt; info,
+    Err(_) =&gt; bail!(&quot;failed to load protocol info from Tor&quot;)
+};
+let ad = info.make_auth_data()?.expect(&quot;failed to make auth data&quot;);
+</code></pre>
+
+<p>Using the information returned by Tor we can authenticate (assuming we
+have read access to the cookie file). <code>torut</code> wraps all this up nicely
+for us (did I mention that I really like this library):</p>
+
+<pre><code>if utc.authenticate(&amp;ad).await.is_err() {
+    bail!(&quot;failed to authenticate with Tor&quot;)
+}
+let mut ac = utc.into_authenticated().await;
+
+ac.set_async_event_handler(Some(|_| {
+    async move { Ok(()) }
+}));
+
+ac.take_ownership().await.unwrap();
+</code></pre>
+
+<p>I&rsquo;m not totally across the event handler but from what I understand
+its basically the code that runs for async events from Tor, since we
+do not need any async events we just ignore this as is done in the
+example code. (I actually do not know when Tor produces these events
+or what exactly these events are for.)</p>
+
+<p>Onwards and upwards.</p>
+
+<p>We have an authenticated connection to the locally running Tor
+instance that we started. We can now use that connection to create an
+onion service.</p>
+
+<p>An onion service is made up of the hash of a public key with a 2 byte
+checksum and a single byte version number. We need a private key to
+use and <code>torut</code> will handle generating this and everything to do with
+adding the onion service to the Tor network. (See
+<a href="https://2019.www.torproject.org/docs/onion-services.html.en">here</a>
+for an explanation of how the onion service protocol works.)</p>
+
+<p>Lets generate a private key to use</p>
+
+<pre><code>let key = TorSecretKeyV3::generate();
+</code></pre>
+
+<p>I just realised I never seed any randomness directly, I did not verify
+how <code>torut</code> handles this.</p>
+
+<p><code>torut</code> can then command the local Tor instance to create the onion
+service for us, this service remains available as long as the TCP
+connection to the Tor instance remains open. This explains why the
+code has an enormous single function and no smaller functions since
+any calls to <code>Drop</code> close the TCP connection. (That and laziness on my
+behalf for not working out the types required to correctly pass all
+this stuff around.)</p>
+
+<pre><code>ac.add_onion_v3(&amp;key, false, false, false, None, &amp;mut [
+    (PORT, SocketAddr::new(IpAddr::from(Ipv4Addr::new(127,0,0,1)), PORT)),
+    ].iter()).await.unwrap();
+
+let onion_addr = key.public().get_onion_address();
+let onion = format!(&quot;{}:{}&quot;, onion_addr, PORT);
+println!(&quot;onion service: {}&quot;, onion);
+</code></pre>
+
+<p>Ok, so now we have a local echo service listening on a local port and
+a onion service available via the Tor network that redirects to this
+local echo service. Nice.</p>
+
+<p>Next lets connect to the echo service, thus proving that we can make
+arbitrary TCP connections over Tor in Rust code.</p>
+
+<p>Getting the <code>TcpStream</code> is wrapped in a helper function, here it is:</p>
+
+<pre><code>pub async fn connect_tor_socks_proxy&lt;'a&gt;(proxy: SocketAddr, dest: impl IntoTargetAddr&lt;'a&gt;) -&gt; Result&lt;TcpStream&gt; {
+    let sock = Socks5Stream::connect(proxy, dest).await?;
+    Ok(sock.into_inner())
+}
+</code></pre>
+
+<p><code>into_inner()</code> gives us a raw <code>TcpStream</code> that we can read from and
+write to. <code>IntoTargetAddr</code> is implemented on a string that &lsquo;looks
+like&rsquo; an onion address i.e., not a multiaddr but something like:</p>
+
+<pre><code>vww6ybal4bd7szmgncyruucpgfkqahzddi37ktceo3ah7ngmcopnpyyd.onion:1234
+</code></pre>
+
+<p>Now we have a Tokio <code>TcpStream</code> that we can read from and write to as
+we wish:</p>
+
+<pre><code>stream.write_all(b&quot;ping\n&quot;).await?;
+
+let mut buf = [0u8; 128];
+let n = stream.read(&amp;mut buf).await?;
+println!(&quot;received {} bytes: {}&quot;, n, std::str::from_utf8(&amp;buf[0..n]).unwrap());
+</code></pre>
+
+<p>BOOM! Arbitrary data sent using TCP via the Tor network.</p>
+
+<h2 id="rust-libp2p-connection-over-tor">rust-libp2p connection over Tor</h2>
+
+<p>Now for the holy grail; connect our POC ping application that we wrote
+in step one using <code>rust-libp2p</code> over the Tor network.</p>
+
+<p>Functionally the listener side of the application does not need to
+change. In order to prove this works though, and for convenience, we
+start the Tor node when we run the ping listener. This could have been
+done differently but it is the simplest way that proves what we want
+to prove.</p>
+
+<p>From here on we will be discussing code in the
+<a href="https://github.com/tcharding/ping-pong">github.com/tcharding/ping-pong</a>
+repository. This code, as stated above, is based on the ping example
+code in the <a href="https://github.com/libp2p/rust-libp2p">rust-lib2p</a> repository.</p>
+
+<p>For ease of development we hard code the local address used for the
+listener, localhost on port 7777. The application accepts a
+<a href="https://docs.libp2p.io/concepts/addressing/">Multiaddr</a> (a
+libp2p specified format for addresses) which is the multiadddr for the
+onion service we wish to connect to.</p>
+
+<p>I&rsquo;m omitting the code for creating the onion service because it is
+identical to that discussed above, the only addition is converting the
+private key into a multaddr. Currently the <code>torut</code> and <code>libp2p</code>
+libraries do not play nicely together. <code>torut</code> uses a 34 byte array
+for its underlying onion v3 address while libp2p uses 35 (the final
+byte being the version number, in this case &lsquo;3&rsquo;). Part of the
+upstreaming work from this experiment is to resolve this, hopefully by
+the time you read this its already upstream. So, there is a bit of
+munging to convert the private key we generate into an onion address, add
+the port number and feed this into libp2p - all in a days work. We
+print the onion address, in multiaddr format, to standard out for the
+user to use when starting the dialer.</p>
+
+<p>The dialer is where the real fun starts. In a libp2p application we do
+not control anything about dialing except for passing in the multiaddr
+to dial. (Well not entirely true, we control the Transport used by the
+way we build the libp2p switch (previously swarm), discussion of this
+is beyond the scope of this post. See the <a href="https://docs.libp2p.io/">libp2p
+docs</a> for more). So we need to do some libp2p
+hacking. To get this working I copied the TCP Transport from the
+<code>rust-libp2p</code> repo off the master branch. Next some minor code changes
+to remove the <code>async-std</code> stuff and just use <code>Tokio</code>. Then all that was
+left to do was hack the dial method to do what we wanted it to do -
+connect to the Tor socks5 proxy and return this <code>TcpStream</code> instead of
+a direct connection. For reference, here is what it looks like before
+we started</p>
+
+<pre><code>    fn dial(self, addr: Multiaddr) -&gt; Result&lt;Self::Dial, TransportError&lt;Self::Error&gt;&gt; {
+        let socket_addr =
+            if let Ok(socket_addr) = multiaddr_to_socketaddr(&amp;addr) {
+                if socket_addr.port() == 0 || socket_addr.ip().is_unspecified() {
+                    debug!(&quot;Instantly refusing dialing {}, as it is invalid&quot;, addr);
+                    return Err(TransportError::Other(io::ErrorKind::ConnectionRefused.into()))
+                }
+                socket_addr
+            } else {
+                return Err(TransportError::MultiaddrNotSupported(addr))
+            };
+
+        debug!(&quot;Dialing {}&quot;, addr);
+
+        async fn do_dial(cfg: $tcp_config, socket_addr: SocketAddr) -&gt; Result&lt;$tcp_trans_stream, io::Error&gt; {
+            let stream = &lt;$tcp_stream&gt;::connect(&amp;socket_addr).await?;
+            $apply_config(&amp;cfg, &amp;stream)?;
+            Ok($tcp_trans_stream { inner: stream })
+        }
+
+        Ok(Box::pin(do_dial(self, socket_addr)))
+    }
+</code></pre>
+
+<p>Patched, it looks like this:</p>
+
+<pre><code>    fn dial(self, addr: Multiaddr) -&gt; Result&lt;Self::Dial, TransportError&lt;Self::Error&gt;&gt; {
+        let dest = tor_address_format(addr.clone())
+            .map_err(|_| TransportError::MultiaddrNotSupported(addr.clone()))?;
+
+        debug!(&quot;multi: {}&quot;, addr);
+        debug!(&quot;onion: {}&quot;, dest);
+
+        async fn do_dial(
+            cfg: TokioTcpConfig,
+            dest: String,
+        ) -&gt; Result&lt;TokioTcpTransStream, io::Error&gt; {
+            info!(&quot;connecting to Tor proxy ...&quot;);
+            let stream = crate::connect_tor_socks_proxy(dest)
+                .await
+                .map_err(|e| io::Error::new(io::ErrorKind::ConnectionRefused, e))?;
+            info!(&quot;connection established&quot;);
+
+            apply_config(&amp;cfg, &amp;stream)?;
+
+            Ok(TokioTcpTransStream { inner: stream })
+        }
+
+        Ok(Box::pin(do_dial(self, dest)))
+    }
+</code></pre>
+
+<p>Connecting to the Tor socks5 proxy is done as we do above using the
+<code>tokio-socks</code> library, here are the relevant lines of code again:</p>
+
+<pre><code>let sock = Socks5Stream::connect(*TOR_PROXY_ADDR, dest).await?;
+Ok(sock.into_inner())
+</code></pre>
+
+<p>The default TorCP port is hard coded out of lazyness, I&rsquo;m thinking this
+will go in the Transport config so they can be set by the user.</p>
+
+<p>In hindsight pretty simple huh!? I hope you enjoyed this as much as I did.</p>
+
+<p>Happy Hacking &ndash; Tobin C. Harding.</p>
+
+<h2 id="todo-upstream-work">TODO / upstream work</h2>
+
+<ul>
+<li>Patch <code>torut</code> to expose getting the raw onion address bytes</li>
+<li>Patch <code>rust-libp2p</code>&rsquo;s onion multiaddr to add functionality to
+stringify it in a format that Tor understands.</li>
+<li>Try to upstream the Tor Transport to <code>rust-libp2p</code> as explained above</li>
+</ul>
+
+<h2 id="thank-yous">Thank yous</h2>
+
+<p>Thanks to the <code>torut</code> authors for saving me from having to interface
+with the Tor Control Protocol manually. Thanks to <code>rust-libp2p</code> for
+being so modular and making it trivial to extend the Tokio TCP
+Transport to support connection via Tor. Finally, thanks to my
+employer for paying me to work on this.</p>
+
+<h3 id="reference">reference:</h3>
+
+<p>[1] CoBloX blockchain research lab I currently work for: <a href="https://coblox.tech/">https://coblox.tech/</a></p>
+
+<ul>
+<li>The code base we hope to integrate this work into: <a href="https://github.com/comit-network/comit-rs">https://github.com/comit-network/comit-rs</a></li>
+</ul>
+
+<p>Libraries used/mentioned above:</p>
+
+<ul>
+<li>rust-libp2p: <a href="https://github.com/libp2p/rust-libp2p">https://github.com/libp2p/rust-libp2p</a></li>
+<li>torut: <a href="https://github.com/teawithsand/torut">https://github.com/teawithsand/torut</a></li>
+<li>tokio-socks: <a href="https://github.com/sticnarf/tokio-socks">https://github.com/sticnarf/tokio-socks</a></li>
+</ul>
+
+<p>Code I wrote, all code is open source, free as in freedom, and licensed under the GPL v3.</p>
+
+<ul>
+<li>Simple Tor Control Protocol application: <a href="https://github.com/tcharding/simple-tor-tc">https://github.com/tcharding/simple-tor-tc</a></li>
+<li>Ping written in Rust using <code>rust-libp2p</code> over Tor:  <a href="https://github.com/tcharding/ping-pong">https://github.com/tcharding/ping-pong</a></li>
+</ul>
+            </div>
+            
+            <div class="post-comments">
+                
+            </div>
+            
+            <div class="push"></div>
+        </div>
+        <footer class="footer text-center">
+<p>Copyright &copy; 2020 Tobin Harding -
+<span class="credit">
+  This site is <a target="_blank"
+		  href="https://github.com/tcharding/tobin.cc">open source</a>.
+  Powered by 
+  <a target="_blank" href="https://gohugo.io">Hugo</a>
+  and 
+  <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+    </body>

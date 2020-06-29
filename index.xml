@@ -6,10 +6,24 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2020 10:56:07 +1000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2020 14:07:12 +1000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Anonymous peer to peer applicaitons in Rust (rust-libp2p over Tor)</title>
+      <link>/blog/tor-libp2p/</link>
+      <pubDate>Fri, 26 Jun 2020 14:07:12 +1000</pubDate>
+      
+      <guid>/blog/tor-libp2p/</guid>
+      <description>&lt;p&gt;We can write peer to peer applications in Rust using &lt;code&gt;rust-libp2p&lt;/code&gt;. We
+can anonymize TCP streams by running them through the Tor network. How
+about writing anonymous peer to peer applications in Rust that run
+over the Tor network?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Resume of Tobin Harding: Linux Programmer</title>
