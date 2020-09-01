@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/tor-libp2p-2/</loc>
+    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/tor-libp2p/</loc>
     <lastmod>2020-06-26T14:07:12+10:00</lastmod>
   </url>
@@ -114,7 +119,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2020-06-26T14:07:12+10:00</lastmod>
+    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -130,7 +135,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-06-26T14:07:12+10:00</lastmod>
+    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,26 @@
     <description>Recent content in Blogs on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2020 14:07:12 +1000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2020 11:17:01 +1000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rust-libp2p over Tor - Version 2</title>
+      <link>/blog/tor-libp2p-2/</link>
+      <pubDate>Tue, 01 Sep 2020 11:17:01 +1000</pubDate>
+      
+      <guid>/blog/tor-libp2p-2/</guid>
+      <description>&lt;p&gt;This is an update of the &lt;a href=&#34;../tor-libp2p&#34;&gt;initial&lt;/a&gt; blog post on running
+&lt;a href=&#34;https://github.com/libp2p/rust-libp2p&#34;&gt;rust-libp2p&lt;/a&gt; traffic over the
+Tor network. In that post we used the
+&lt;a href=&#34;https://github.com/teawithsand/torut&#34;&gt;torut&lt;/a&gt; library to configure the
+tor onion service in code. Turns out, for some use cases, there is a
+more simple method. This post runs through that method.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Anonymous peer to peer applications in Rust (rust-libp2p over Tor)</title>
