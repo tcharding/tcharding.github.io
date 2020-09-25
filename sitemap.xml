@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
+  </url>
   
   <url>
     <loc>/blog/tor-libp2p-2/</loc>
@@ -14,6 +19,11 @@
   
   <url>
     <loc>/resume/</loc>
+    <lastmod>2020-04-13T10:56:07+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2020-04-13T10:56:07+10:00</lastmod>
   </url>
   
@@ -118,25 +128,11 @@
   </url>
   
   <url>
-    <loc>/blog/</loc>
-    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

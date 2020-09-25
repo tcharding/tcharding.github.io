@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -101,47 +101,33 @@ minimum value) and <em>max heap</em>. A heap is built using a binary tree where 
 node is said to <em>dominate</em> the nodes below it. The meaning of dominate depends
 on the type of heap being implemented, for a <em>min heap</em> the key of each node is
 <em>less</em> than the keys of both of child nodes.</p>
-
-<p></p>
-
 <p>From here on, without loss of generality, we will talk about a heap of integers
 (keys) ignoring satellite data that may or may not be associated with each
 integer key. <em>Node</em> and <em>key</em> will therefore be used interchangeably.</p>
-
 <p>Like a binary search tree a heap can be implemented using a linked data
 structure. There is however, a nifty method of implementing a heap using an
 array, thereby reducing the memory requirements since there are no pointers to
 store. We store the data as an array of keys and use the index of the keys to
 implicitly satisfy the role of pointers.</p>
-
 <p><strong>The root node is stored at index 1 and all operations are 1-indexed</strong>.</p>
-
 <p>For node at index <em>k</em> the left child can be found at index <em>2k</em> and the
 right child at index <em>2k + 1</em>. (Quite clearly, checks must be made prior to
 access that an index lies within the underlying array).</p>
-
 <p>One additional limitation must be placed on the tree, that it is <em>complete</em>, i.e
 all levels of the tree are full with the possible exception of the last level,
 and if the last level is not full all nodes are as far to the left as
 possible. This limitation results in an array with no holes in it.</p>
-
 <p>A heap as just described may be defined in Go as such;</p>
-
 <pre><code>type heap struct {
 	xs []int
 }
-</code></pre>
-
-<p>We wrap the array inside a struct to abstract the implementation and limit
+</code></pre><p>We wrap the array inside a struct to abstract the implementation and limit
 access to the functions that we define. Care must be taken
 to remember that the heap is 1-indexed.</p>
-
 <pre><code>func (h *heap) Len() int {
 	return len(h.xs) - 1 // heap is 1-indexed
 }
-</code></pre>
-
-<p>Insertion of a key into a heap can be achieved by adding the key to the end of
+</code></pre><p>Insertion of a key into a heap can be achieved by adding the key to the end of
 the underlying array. Whilst maintaining the structure of the heap this may
 violate the <em>heap property</em> of the parent of the newly inserted key, namely the
 parent of the newly inserted key may not be dominant. The heap property for the
@@ -151,17 +137,13 @@ property. We can continue this <em>bubbling</em> of a node to successively highe
 until the heap property is restored. When swapping a node with the parent node
 we need not consider the sibling node since if a node dominates the parent then
 by definition it dominates the other sibling also.</p>
-
 <pre><code>// Insert x into the heap
 func (h *heap) Insert(x int) {
 	(*h).xs = append(h.xs, x)
 	h.bubbleUp(len(h.xs) - 1)
 }
-</code></pre>
-
-<p>Note that parenthesis are required to dereference the heap pointer in order to save the
+</code></pre><p>Note that parenthesis are required to dereference the heap pointer in order to save the
 return value of <code>append()</code>.</p>
-
 <pre><code>func (h *heap) bubbleUp(k int) {
 	p, ok := parent(k)
 	if !ok {
@@ -172,13 +154,9 @@ return value of <code>append()</code>.</p>
 		h.bubbleUp(p)
 	}
 }
-</code></pre>
-
-<p>The function terminates when either the node is in place or it has reached the
+</code></pre><p>The function terminates when either the node is in place or it has reached the
 root position.</p>
-
 <p>We define functions for manipulating indices as described above;</p>
-
 <pre><code>// get index of parent of node at index k
 func parent(k int) (int, bool) {
 	if k == 1 {
@@ -196,9 +174,7 @@ func left(k int) int {
 func right(k int) int {
 	return 2*k + 1
 }
-</code></pre>
-
-<p>We are now ready to extract the key for which our heap was designed (minimum
+</code></pre><p>We are now ready to extract the key for which our heap was designed (minimum
 or maximum). This key is clearly at index 1, extracting this key however, leaves a hole which
 must be filled. Swapping the last key of the array into the hole restores the
 heap structure but once again may violate the <em>heap property</em>. In a similar
@@ -207,7 +183,6 @@ the tree until it is either a leaf node or no longer violates the heap
 property. In doing this we must consider both child nodes and swap any
 non-dominant parent node with the child node that is <em>most</em> dominant in order for
 the heap property of these three nodes to be maintained.</p>
-
 <pre><code>// ExtractMin: get minimum value of heap
 // and remove value from heap
 func (h *heap) ExtractMin() (int, bool) {
@@ -238,16 +213,11 @@ func (h *heap) bubbleDown(k int) {
 		h.bubbleDown(min)
 	}
 }
-</code></pre>
-
-<p>Caution is again needed here since the array indexing and loop conditionals are
+</code></pre><p>Caution is again needed here since the array indexing and loop conditionals are
 unusual because of the 1-indexing.</p>
-
 <p>See Github for complete
 <a href="https://github.com/tcharding/types/tree/master/heaps/minInt">source code</a> and tests.</p>
-
 <h3 id="final-note">Final Note</h3>
-
 <p>This implementation is based on the text <em>The Algorithm Design
 Manual</em> [Ski08]. In this, the author Steven S. Skiena makes an interesting
 observation on the construction of a heap. At first glance one may think to
@@ -264,11 +234,8 @@ assures us quickly converges to linear. He does however, caution us that this
 benefit may not be that useful if the algorithm we plan to use our heap for is
 not governed by the construction (i.e heapsort will still run in O(<em>n</em> log
 <em>n</em>)).</p>
-
-<hr />
-
+<hr>
 <h4 id="bibliography">Bibliography:</h4>
-
 <p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena</p>
             </div>
             

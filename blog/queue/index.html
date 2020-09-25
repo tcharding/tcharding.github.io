@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -99,16 +99,10 @@
 order. The <em>get</em> and <em>put</em> operations for a queue are usually called <em>enqueue</em> and
 <em>dequeue</em>, other operations may include <em>isEmpty</em>. A full description of
 queues can be found online <a href="http://opendatastructures.org">here</a>.</p>
-
 <p>Queue&rsquo;s minimise the maximum time spent waiting, however the average wait time
 will be the same whether a LIFO or a FIFO is used.</p>
-
-<p></p>
-
 <p>A queue can be easily implemented in Go using slices.</p>
-
 <h2 id="queue-of-integers">queue of integers</h2>
-
 <pre><code>package queue
 
 type Queue []int
@@ -130,10 +124,7 @@ func (q *Queue) Dequeue() (int, bool) {
 func (q *Queue) isEmpty() bool {
 	return len(*q) == 0
 }
-</code></pre>
-
-<p>We can then use our queue of integers like this</p>
-
+</code></pre><p>We can then use our queue of integers like this</p>
 <pre><code>func fn() {
     var q Queue
 
@@ -145,15 +136,11 @@ func (q *Queue) isEmpty() bool {
     x = q.Dequeue()   // x = 2
     x = q.Dequeue()   // x = 3
 }
-</code></pre>
-
-<h2 id="queue-of-structs">queue of structs</h2>
-
+</code></pre><h2 id="queue-of-structs">queue of structs</h2>
 <p>Today I found a nice implementation of a Queue in the
 <a href="https://github.com/gonum/graph/blob/master/internal/linear/linear.go">graph</a>
 package by the people at <a href="https://github.com/gonum">Gonum</a>. I have stripped it
 down to a queue of structs</p>
-
 <pre><code>// Queue implements a FIFO queue.
 type Queue struct {
 	head int
@@ -164,19 +151,13 @@ type Queue struct {
 type item struct {
 	data string
 }
-</code></pre>
-
-<p><code>head</code> is the index of the head of the queue. Length of the queue is then the
+</code></pre><p><code>head</code> is the index of the head of the queue. Length of the queue is then the
 length of the data slice less the index of the head item.</p>
-
 <pre><code>// Len returns the number of items in the queue.
 func (q *Queue) Len() int { return len(q.data) - q.head }
-</code></pre>
-
-<p>In order to reuse the underlying array, when an item is enqueued, if there is
+</code></pre><p>In order to reuse the underlying array, when an item is enqueued, if there is
 room at the front of the queue then we copy the current queue contents back to
 the start of the array.</p>
-
 <pre><code>// Enqueue adds the node n to the back of the queue.
 func (q *Queue) Enqueue(n item) {
 	if len(q.data) == cap(q.data) &amp;&amp; q.head &gt; 0 {
@@ -188,25 +169,19 @@ func (q *Queue) Enqueue(n item) {
 		q.data = append(q.data, n)
 	}
 }
-</code></pre>
-
-<p>Note that arguments to copy may be overlapping, Go&rsquo;s built in <code>copy</code> allows
+</code></pre><p>Note that arguments to copy may be overlapping, Go&rsquo;s built in <code>copy</code> allows
 this. This is a nice efficiency tweak over the simple implementation given at
 the start of this post. We now reduce the number of times that a new underlying
 array is created.</p>
-
 <p>The memory usage of this implementation is quite different from the simple
 queue. Like as is often the case with data structures, different data structures
 may perform differently under different workloads, one is not necessarily better
 than another.</p>
-
-<hr />
-
+<hr>
 <h4 id="bibliography">Bibliography:</h4>
-
-<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br>
 [CLRS09] - <strong>Introduction to Algorithms</strong>, Thomas H.Cormen, Charles E. Leiserson,
-Ronald L. Rivest, Clifford Stein<br />
+Ronald L. Rivest, Clifford Stein<br>
 [Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
             </div>
             

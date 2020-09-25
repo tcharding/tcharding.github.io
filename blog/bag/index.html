@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -98,23 +98,15 @@
                 <p>A bag is a container of non-unique items. Bags are defined by the following
 operations <em>Length</em>, <em>Add</em>, <em>Delete</em> and <em>Find</em>. Bags often also need to support
 <em>FindAll</em>.</p>
-
 <p>Bags can be ordered or un-ordered. This post will be discussing un-ordered
 bags.</p>
-
-<p></p>
-
 <p>Bags are useful when one needs to store a bunch of things and later check
 if a certain thing is present. For example, storing the characters of a string
 (and perhaps, the frequency count).</p>
-
 <p>A bag can be easily implemented in Go using a map.</p>
-
 <h2 id="bag-of-integers">bag of integers</h2>
-
 <p>For the sake of simplicity, we will first cover a bag of integers, then move
 onto a bag of characters (including some useful functions on such a bag).</p>
-
 <pre><code>package bag
 
 type count int
@@ -148,10 +140,7 @@ func (b *Bag) Find(x int) (int, bool) {
 func (b *Bag) FindAll(x int) (int, bool) {
 	return b.Find(x) // not useful for this implementation
 }
-</code></pre>
-
-<p>We can then use our bag of integers like this</p>
-
+</code></pre><p>We can then use our bag of integers like this</p>
 <pre><code>func fn() {
     bag := make(Bag)
 
@@ -170,18 +159,13 @@ func (b *Bag) FindAll(x int) (int, bool) {
     bag.Add(2)
     x, ok := bag.Find(2)  // x = 2 (two 2's in bag), ok = true
 }
-</code></pre>
-
-<h2 id="bag-of-bytes">bag of bytes</h2>
-
+</code></pre><h2 id="bag-of-bytes">bag of bytes</h2>
 <p>A bag of bytes can be used to store such things as byte values for characters
 encoded using ASCII. This bag would not be very useful for storing text written
 in Greek but would be useful for some cryptography tasks.</p>
-
 <p>The basic operations are similar to the above, except of course we replace
 occurences of <code>int</code> with <code>byte</code>. Also we add a helper function to create a bag
 from a string (ASCII values only remember).</p>
-
 <pre><code>type Bag map[byte]int
 
 func makeBag(s string) Bag {
@@ -191,10 +175,7 @@ func makeBag(s string) Bag {
 	}
 	return bag
 }
-</code></pre>
-
-<p>We can then write some other functions to operate on this bag</p>
-
+</code></pre><p>We can then write some other functions to operate on this bag</p>
 <pre><code>func (b *Bag) difference(c Bag) Bag {
 	bag := make(Bag)
 	for k, vb := range *b {
@@ -209,19 +190,14 @@ func makeBag(s string) Bag {
 	}
 	return bag
 }
-</code></pre>
-
-<p>Similarly, one can implement union, and intersection in the above manner. See
+</code></pre><p>Similarly, one can implement union, and intersection in the above manner. See
 Github for complete
 <a href="https://github.com/tcharding/types/tree/master/bags">source code</a> and tests.</p>
-
-<hr />
-
+<hr>
 <h4 id="bibliography">Bibliography:</h4>
-
-<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br>
 [CLRS09] - <strong>Introduction to Algorithms</strong>, Thomas H.Cormen, Charles E. Leiserson,
-Ronald L. Rivest, Clifford Stein<br />
+Ronald L. Rivest, Clifford Stein<br>
 [Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
             </div>
             

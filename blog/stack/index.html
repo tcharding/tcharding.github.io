@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -99,16 +99,10 @@
 order. The <em>get</em> and <em>put</em> operations for stacks are usually called <em>push</em> and
 <em>pop</em>, other operations may include <em>peek</em> and <em>isEmpty</em>. A full description of
 stacks can be found online <a href="http://opendatastructures.org">here</a>.</p>
-
-<p></p>
-
 <p><em>Stacks are simple to implement and very efficient. For this reason, stacks are
 probably the right container to use when retrieval order doesn&rsquo;t matter [Ski08]</em></p>
-
 <p>A stack can be easily implemented in Go using slices.</p>
-
 <h2 id="stack-of-integers">stack of integers</h2>
-
 <pre><code>// stack of integers
 package stack
 
@@ -148,10 +142,7 @@ func (s *Stack) Peek() (int, bool) {
 
 	return x, true
 }
-</code></pre>
-
-<p>We can then use our stack of integers like this</p>
-
+</code></pre><p>We can then use our stack of integers like this</p>
 <pre><code>func fn() {
     var stack Stack
 
@@ -163,48 +154,33 @@ func (s *Stack) Peek() (int, bool) {
     x = stack.Pop()    // x = 3
     x = stack.Peek()   // x = 2
 }
-</code></pre>
-
-<p>It is trivial to replace integers with any other type
+</code></pre><p>It is trivial to replace integers with any other type
 (<a href="https://github.com/tcharding/types/tree/master/stacks/string">string</a>,
 struct, etc).</p>
-
 <h2 id="stack-of-anything">stack of anything</h2>
-
 <p>One downside to the above method is that a new stack needs to be written for
 each data type. An alternative is to use the empty interface to allow stacks of
 anything.</p>
-
 <pre><code>// All types satisfy the empty interface, so we can store anything here.
 type Stack []interface{}
-</code></pre>
-
-<p>Then any time we pop or peek at an item from the stack we use a type
+</code></pre><p>Then any time we pop or peek at an item from the stack we use a type
 assertion.</p>
-
 <pre><code>var stack Stack
 stack.Push(&quot;this&quot;)
 
 item := stack.Pop()
 fmt.Printf(&quot;%s\n&quot;, item.(string))
-</code></pre>
-
-<p>This comes with the usual warnings that using the empty type interface reduces
+</code></pre><p>This comes with the usual warnings that using the empty type interface reduces
 the ability of the compiler to catch type errors, one of the benefits of using a
 strongly typed language.</p>
-
 <p>Full source code is available <a href="https://github.com/tcharding/types/tree/master/stacks">here</a>.</p>
-
 <p>Also Douglas Hall has done a nice stack implementation using linked lists instead of
 slices. You can find his gist <a href="https://gist.github.com/bemasher/1777766">here</a>.</p>
-
-<hr />
-
+<hr>
 <h4 id="bibliography">Bibliography:</h4>
-
-<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br>
 [CLRS09] - <strong>Introduction to Algorithms</strong>, Thomas H.Cormen, Charles E. Leiserson,
-Ronald L. Rivest, Clifford Stein<br />
+Ronald L. Rivest, Clifford Stein<br>
 [Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
             </div>
             

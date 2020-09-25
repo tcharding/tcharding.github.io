@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -100,11 +100,7 @@ ends. Deque ends have such names as <em>left</em>/<em>right</em>, <em>front</em>
 will use here, <em>front</em> and <em>back</em>. The <em>add/remove</em> operations on a deque are
 typically called <em>enqueue</em> and <em>dequeue</em>. For ease of explanation but without loss
 of generality, we limit discussion to a deque of integers.</p>
-
-<p></p>
-
 <p>This gives us the following;</p>
-
 <pre><code>type Deque struct {
 	// Has unexported fields.
 }
@@ -113,14 +109,11 @@ func (d *Deque) DequeueB() (int, bool)
 func (d *Deque) DequeueF() (int, bool)
 func (d *Deque) EnqueueB(x int)
 func (d *Deque) EnqueueF(x int)
-</code></pre>
-
-<p>One method of implementing a deque is to use two stacks, one representing the
+</code></pre><p>One method of implementing a deque is to use two stacks, one representing the
 front of the deque and the other representing the back of the deque. <em>Enqueueing</em>
 and <em>dequeueing</em> then become simply a matter of <em>pushing</em> or <em>popping</em> to, or from, the
 appropriate stack. . We will use a simple stack, supporting the operations push, pop, and
 length. Previous blog <a href="../stack">post</a> on implementing stacks in Golang.</p>
-
 <pre><code>type stack []int
 
 // push a new integer onto the stack
@@ -144,15 +137,12 @@ func (s *stack) pop() (int, bool) {
 func (s *stack) len() int {
 	return len(*s)
 }
-</code></pre>
-
-<p>By now, the astute reader will be asking what happens when one stack becomes
+</code></pre><p>By now, the astute reader will be asking what happens when one stack becomes
 empty and a further request comes to deque from that end. The solution to this
 dilemma presents the only complexity in this implementation of a deque. Each
 time an item is added to, or removed from, the deque we balance the two stacks to
 maintain the invariant that while there are 2 or more items, each stack holds at
 least one third as many items as the other. In code, that is;</p>
-
 <pre><code>// balance stacks if needed
 func (d *Deque) balance() {
 	small, big := order(&amp;d.front, &amp;d.back)
@@ -164,16 +154,12 @@ func (d *Deque) balance() {
 		d.rebalance()
 	}
 }
-</code></pre>
-
-<p><code>order()</code> simply gives us the stacks back in order of size. Ignoring the
+</code></pre><p><code>order()</code> simply gives us the stacks back in order of size. Ignoring the
 implementation of <code>rebalance()</code> and time complexity for now, we have a deque that
 maintains two <em>&lsquo;balanced&rsquo;</em> stacks, one holding items for the front of the deque
 and the other holding items for the back of the deque. We can enqueue and
 dequeue from both ends.</p>
-
 <h2 id="balancing-the-deque">balancing the deque</h2>
-
 <p>Based on <a href="http://opendatastructures.org">Open Data Structures</a> [Mor], we
 maintain the invariant stated above (neither stack falls below 3x the size of
 the other). Before giving the implementation let us discuss the running
@@ -183,14 +169,11 @@ with running time of O(N). This would be disastrous since we call <code>balance(
 each <em>enqueue/dequeue</em> operation. It turns out though, that while the worst case running
 time is O(N), the amortized running time is O(1). Stated another way, for M
 enqueue/dequeue operations we will have running time in the order of O(M).</p>
-
 <p>For those familiar with the running time complexity analysis of dynamic
 arrays, the above statement will not come as a surprise. For a more complete
 analysis see [Mor].</p>
-
 <p>One method of balancing the stacks is by way of a couple of additional temporary
 stacks and a sequence of <em>push</em> and <em>pop</em> operations.</p>
-
 <pre><code>// rebalance stacks
 func (d *Deque) rebalance() {
 	small, big := order(&amp;d.front, &amp;d.back)
@@ -203,11 +186,8 @@ func (d *Deque) rebalance() {
 	mvAll(small, tmpS)   // restore small
 	mvAll(big, tmpB)     // restore big
 }
-</code></pre>
-
-<p>As mentioned previously, <code>order()</code> simply gives us the stacks back in order of size, the other helper
+</code></pre><p>As mentioned previously, <code>order()</code> simply gives us the stacks back in order of size, the other helper
 functions are;</p>
-
 <pre><code>// mvN: move n items from dst and push to src
 func mvN(dst, src *stack, n int) {
 	for i := 0; i &lt; n; i++ {
@@ -220,15 +200,10 @@ func mvN(dst, src *stack, n int) {
 func mvAll(dst, src *stack) {
 	mvN(dst, src, src.len())
 }
-</code></pre>
-
-<p>See Github for complete
+</code></pre><p>See Github for complete
 <a href="https://github.com/tcharding/types/tree/master/deques/twinStacks">source code</a> and tests.</p>
-
-<hr />
-
+<hr>
 <h4 id="bibliography">Bibliography:</h4>
-
 <p>[Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
             </div>
             

@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -97,81 +97,60 @@
             <div class="post-content">
                 <p>A binary search tree (BST) is a binary tree where each node has a comparable key. As with
 any tree, nodes may optionally contain satellite data.</p>
-
 <p>A BST can support many dynamic container operations, including search, minimum,
 maximum, predecessor, successor, insert and delete. The defining feature of a
 BST is that keys are maintained in an ordered fashion. This makes a BST a useful
 data structure for implementing such things as ordered sets and bags.</p>
-
-<p></p>
-
 <p>BST time complexity at worst case is O(<em>n</em>), this occurs when the tree
 is a linear chain of <em>n</em> nodes. The expected height of a randomly built binary
 tree is however <em>log n</em>. This leads to the primary attraction of the BST, namely
 that many operations have running time complexity of O(<em>log n</em>). However, it is worth
 keeping in mind the conditions that lead to worst case performance of a binary
 tree. Building a tree from a sorted list of keys will produce worst case performance.</p>
-
 <p>The typical data structure used to implement a binary search tree found in the
 literature as pseudo-code is</p>
-
 <pre><code>Node {
     integer key
     left Node
     right Node
 }
-</code></pre>
-
-<p>Translated into Go, with the addition of a parent node pointer to facilitate
+</code></pre><p>Translated into Go, with the addition of a parent node pointer to facilitate
 more complex functionality, this becomes</p>
-
 <pre><code>type Node struct {
     key    int
     left   *Node
     right  *Node
     parent *Node
 }
-</code></pre>
-
-<p>In beginning our discussion on binary search trees we will ignore satellite
+</code></pre><p>In beginning our discussion on binary search trees we will ignore satellite
 data. This is justified by the fact that a BST with an integer key alone is
 useful for many operations coupled with the fact that the addition of satellite
 data involves only minor changes the underlying types.</p>
-
 <p>If one proceeds, using the above node type, to implement typical BST operations,
 it will not be long before a subtle problem arises. If one attempts to create an
 empty tree by starting with a zero value node <code>var n Node</code> the tree will contain
 a node with the key value of <code>0</code>. This is because the zero value of a node is
 equivalent to</p>
-
 <pre><code>    var n Node
     n.key = 0
     n.left = nil
     n.right = nil
     n.parent = nil
-</code></pre>
-
-<p>This may not be the desired behaviour. One solution presents itself from
+</code></pre><p>This may not be the desired behaviour. One solution presents itself from
 this (overly explicit) snippet. An empty tree can be created using a node pointer instead
 of a node <code>var n *Node</code>. Another solution, and the one we will use henceforth,
 is to wrap a pointer to the root node within another data structure</p>
-
 <pre><code>type Tree struct {
     root *Node
 }
-</code></pre>
-
-<p>This allows for the zero value of a Tree to be useful <code>var t Tree</code>. It also
+</code></pre><p>This allows for the zero value of a Tree to be useful <code>var t Tree</code>. It also
 abstracts the details of an empty tree away from the user.</p>
-
 <h2 id="tree-traversal">Tree Traversal</h2>
-
 <p>It is common to visit the nodes of a binary tree in one of three manners,
 pre-order, in-order, or post-order. As the names suggest, these involve visiting
 the node before, between, or after visiting it&rsquo;s children. For a BST with
 integer keys, it is often most useful to utilise in-order tree traversal (tree
 walk). Such a tree traversal will give the keys in ascending sorted order.</p>
-
 <pre><code>// Walk tree in order calling fn for each node
 func (n *Node) inorder(fn func(n *Node)) {
 	if n != nil {
@@ -180,10 +159,7 @@ func (n *Node) inorder(fn func(n *Node)) {
 		n.right.inorder(fn)
 	}
 }
-</code></pre>
-
-<p>Using this function, and Go&rsquo;s support for closures, we can do things like</p>
-
+</code></pre><p>Using this function, and Go&rsquo;s support for closures, we can do things like</p>
 <pre><code>// Flatten: return inorder slice of keys
 func (t *Tree) Flatten() []int {
 	var keys []int
@@ -193,18 +169,13 @@ func (t *Tree) Flatten() []int {
 	t.root.inorder(fn)
 	return keys
 }
-</code></pre>
-
-<p>Related to tree traversal are the operations minimum and maximum. By the formal
+</code></pre><p>Related to tree traversal are the operations minimum and maximum. By the formal
 definition for the relation between the keys of a BST</p>
-
 <p><em>The keys in a binary search tree are always sorted. Let x be a node in a binary
 search tree. If y is a node in the left subtree of x, then y.key &lt; x.key. If y
 is a node in the right subtree of x, then y.key &gt;= x.key</em> [CLRS09]</p>
-
 <p>the node with the maximum key value will be found in the right-most leaf of the
 tree</p>
-
 <pre><code>// Max: return maximum key from tree
 func (t *Tree) Max() (int, error) {
 	if t.root == nil {
@@ -221,34 +192,25 @@ func (n *Node) max() *Node {
 	}
 	return n
 }
-</code></pre>
-
-<p>This shows one implication of using a separate Tree type. Methods may be
+</code></pre><p>This shows one implication of using a separate Tree type. Methods may be
 defined on Node types and/or on Tree types. For consistency Node methods will
 return a node pointer giving us access to the node while Tree methods will
 return the key value. Your millage may vary depending on the specific usage of
 the tree. Minimum can be implemented in a similar fashion, for brevity it is
 omitted but full source code can be found
 <a href="https://github.com/tcharding/types/tree/master/trees/bsts/intKey/unique">here</a>.</p>
-
 <h2 id="insertion-and-deletion">Insertion and Deletion</h2>
-
 <p>This section follows the algorithmic design outlined in <em>Introduction to
 Algorithms</em> [CLRS09]</p>
-
 <p>Insertion into a BST is simply a matter of locating the correct position and
 inserting a new node. First we will create a new node with the requisite key</p>
-
 <pre><code>// newNode: create a new node from key
 func newNode(key int) *Node {
 	var n Node
 	n.key = key
 	return &amp;n
 }
-</code></pre>
-
-<p>Then we can insert the node into the tree</p>
-
+</code></pre><p>Then we can insert the node into the tree</p>
 <pre><code>// Add key to tree
 func (t *Tree) Add(key int) {
 	n := newNode(key)
@@ -280,13 +242,10 @@ func (t *Tree) insert(new *Node) {
 	}
 	new.parent = p
 }
-</code></pre>
-
-<p>Thus far we have allowed multiple keys with the same value, this may or may not
+</code></pre><p>Thus far we have allowed multiple keys with the same value, this may or may not
 be the required behaviour. It is however, trivial to transform one implementation to
 the other, requiring only the addition of a check for equality between the new
 nodes key and the current key</p>
-
 <pre><code>    // ...
     for n != nil {
 		p = n
@@ -300,15 +259,12 @@ nodes key and the current key</p>
 	}
     // ...
 
-</code></pre>
-
-<p>Detion is somewhat more involved. One way to think about it is as
+</code></pre><p>Detion is somewhat more involved. One way to think about it is as
 follows; if a node has no children it can safely be removed. If a node has only
 children in one subtree it can be replaced by that subtree. If a node has two
 children it&rsquo;s successor must be found and used to replace the deleted node. Only
 the last of these three cases presents any complexity. Firstly, let us get the
 successor node to a key value that exists within the tree</p>
-
 <pre><code>// Successor: find smallest key value larger than key
 // panic if key not present, ok if found
 func (t *Tree) Successor(key int) (int, bool) {
@@ -347,24 +303,18 @@ func (n *Node) successor() *Node {
 	}
 	return p
 }
-</code></pre>
-
-<p>Now returning to deletion. As stated it is not overly complex to remove a node
+</code></pre><p>Now returning to deletion. As stated it is not overly complex to remove a node
 with zero or one child(ren). Let us now focus on the case of a node (n) with two
 children.</p>
-
 <p>This can be split into two cases; firstly if the successor (s) of n is the
 direct right child of n (this implies s has a nil left child) then s can be
 &lsquo;transplanted&rsquo; into the position of n.</p>
-
 <p>If the successor is further down the right subtree of n then it must be further
 moved. We can modify the right right subtree of n by removing s and creating a
 tree with s as the root and the reaming nodes as the right child of s. Since the
 successor is by definition the smallest of n&rsquo;s right children this new tree
 maintains correct structure. This tree can then be transplanted into position.</p>
-
 <p>The code to transplant a node is</p>
-
 <pre><code>// transplant replaces subtree rooted at u with subtree rooted at v
 func (t *Tree) transplant(u, v *Node) {
 	if u.parent == nil {
@@ -378,11 +328,8 @@ func (t *Tree) transplant(u, v *Node) {
 		v.parent = u.parent
 	}
 }
-</code></pre>
-
-<p>We then wrap the call to Delete (by key) method around a call to delete (by Node),
+</code></pre><p>We then wrap the call to Delete (by key) method around a call to delete (by Node),
 easing later additions to the Tree type.</p>
-
 <pre><code>// Delete node with key from tree
 // true if deleted
 func (t *Tree) Delete(key int) bool {
@@ -411,16 +358,13 @@ func (t *Tree) delete(d *Node) {
 		n.left.parent = n
 	}
 }
-</code></pre>
-
-<p>Often when thinking about algoritms involving binary trees, recursive solutions
+</code></pre><p>Often when thinking about algoritms involving binary trees, recursive solutions
 come to mind. And while many binary tree operations can be implemented in a
 recursive manner some can be re-written in an iterative manner. Some however
 cannot (e.g in-order tree walk). We must be careful to understand the
 implications of calling recursive functions in a language that does not
 implement tail call optimization. It is therefore sometimes prudent to consider an
 iterative implementation as well as recursive. Here is one such function</p>
-
 <pre><code>// elem: true if node with key exists in tree rooted at node n, recursive version
 func (n *Node) elem(key int) bool {
 	if n == nil {
@@ -433,10 +377,7 @@ func (n *Node) elem(key int) bool {
 	}
 	return n.right.elem(key)
 }
-</code></pre>
-
-<p>And an iterative implementation</p>
-
+</code></pre><p>And an iterative implementation</p>
 <pre><code>// elem: true if node with key exists in tree rooted at node n, iterative version
 func (n *Node) elem(key int) bool {
 	found := false
@@ -456,22 +397,16 @@ func (n *Node) elem(key int) bool {
 	}
 	return found
 }
-</code></pre>
-
-<p>For full source code including additional operations (sum, size, height etc) see
+</code></pre><p>For full source code including additional operations (sum, size, height etc) see
 <a href="https://github.com/tcharding/types/tree/master/trees/bsts/intKey/unique">github</a>.</p>
-
 <p>As a final note, binary search trees can take many forms. If you have any
 ideas on how I can better make use of search trees, or any comments at all,
 please feel free to email me or submit a pull request.</p>
-
-<hr />
-
+<hr>
 <h4 id="bibliography">Bibliography:</h4>
-
-<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br>
 [CLRS09] - <strong>Introduction to Algorithms</strong>, Thomas H.Cormen, Charles E. Leiserson,
-Ronald L. Rivest, Clifford Stein<br />
+Ronald L. Rivest, Clifford Stein<br>
 [Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
             </div>
             

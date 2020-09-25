@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -97,56 +97,36 @@
             <div class="post-content">
                 <p><em>Kselftest is an effort to enable a developer-focused unit test
 framework in the kernel to ensure the quality of new kernel
-releases.</em><br />
-    - Shua Khan</p>
-
+releases.</em><br>
+- Shua Khan</p>
 <p>Install and run Linux kernel selftests on Ubuntu 16.04</p>
-
-<p></p>
-
-<p>Presentation <a href="reference:
-http://www.elinux.org/images/6/61/Linux_Kernel_Selftest_Framework_-_Quality_Control_for_New_Releases.pdf">slides</a>
-by Shua Khan on self test framework.<br />
-Git <a href="git: https://git.kernel.org/cgit/linux/kernel/git/shuah/linux-kselftest.git">repository</a> for the project.</p>
-
+<p>Presentation [slides](reference:
+<a href="http://www.elinux.org/images/6/61/Linux_Kernel_Selftest_Framework_-_Quality_Control_for_New_Releases.pdf">http://www.elinux.org/images/6/61/Linux_Kernel_Selftest_Framework_-_Quality_Control_for_New_Releases.pdf</a>)
+by Shua Khan on self test framework.<br>
+Git [repository](git: <a href="https://git.kernel.org/cgit/linux/kernel/git/shuah/linux-kselftest.git">https://git.kernel.org/cgit/linux/kernel/git/shuah/linux-kselftest.git</a>) for the project.</p>
 <h2 id="test-machine">Test machine</h2>
-
-<p>Product: Intel&reg; Core&trade; i5-4590 CPU @ 3.30GHz<br />
-Description:    Ubuntu 16.04.1 LTS<br />
+<p>Product: Intel(R) Core(TM) i5-4590 CPU @ 3.30GHz<br>
+Description:	Ubuntu 16.04.1 LTS<br>
 Kernel: Linux 4.10.0-rc6+ x86_64 GNU/Linux</p>
-
 <h2 id="build-on-ubuntu">Build on Ubuntu</h2>
-
 <p>The following packages are required</p>
-
-<p>libcap-ng-dev<br />
-libnuma-dev<br />
-libcap-dev<br />
-libpopt-dev<br />
+<p>libcap-ng-dev<br>
+libnuma-dev<br>
+libcap-dev<br>
+libpopt-dev<br>
 libmount-dev</p>
-
 <pre><code>$ KTREE = /path/to/kernel/tree  
 $ cd $KTREE/tools/testing/selftests  
 $ make  
-</code></pre>
-
-<h2 id="run">Run</h2>
-
+</code></pre><h2 id="run">Run</h2>
 <p>Some tests require root privileges to run</p>
-
 <pre><code>$ sudo make run_tests
-</code></pre>
-
-<p>Your machine may appear to die as the tests start.
+</code></pre><p>Your machine may appear to die as the tests start.
 Tests run in approx 10 minutes on this machine, your results may vary.</p>
-
 <p>Test targets may be specified using</p>
-
 <pre><code>$ sudo make TARGETS='size' run_tests
 $ sudo make TARGETS='net networking' run_tests
-</code></pre>
-
-<p>Single or multiple targets are accepted. Target names come from
+</code></pre><p>Single or multiple targets are accepted. Target names come from
 directory names under tools/testing/selftests.</p>
             </div>
             

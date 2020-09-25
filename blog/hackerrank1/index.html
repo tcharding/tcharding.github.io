@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -97,29 +97,22 @@
             <div class="post-content">
                 <p><em>To appreciate programming as an intellectual activity in its own right &hellip; you
 must read and write computer programs - many of them.</em>[ASS96]</p>
-
 <p>For the past nine weeks I have been working on programming questions at
 <a href="http://hackerrank.com">HackerRank</a> completing questions in the &lsquo;practice area&rsquo; i.e I have
 not competed in any competitive programming competitions offered by the
 site. Today I reached the first milestone I had set, namely, to get a top 1000
 ranking (96th percentile) in the algorithms sub domain.</p>
-
-<p></p>
-
-<h3 id="hackerrank-com">HackerRank.com</h3>
-
+<h3 id="hackerrankcom">HackerRank.com</h3>
 <p>First a brief introduction to HackerRank (1). The site is one of many
 competitive programming sites available currently. This is not, in any way, a
 post about the merits of one site vs another. As such I do not intend to compare
 HackerRank to any of its competitors.</p>
-
 <p>HackerRank is divided into two areas. One is the competitive programming
 competitions and the other is the practice arena, an area of the site listing
 multiple discrete programming questions divided into domains. This post is
 concerning the practice arena. I will not be mentioning the competitions again
 and may at times take the liberty of referring to the practice arena as &lsquo;the
 site&rsquo; in general without further specification.</p>
-
 <p>The site (I did warn you), is divided into domains. The three &lsquo;big&rsquo; ones are
 algorithms, artificial intelligence, and functional programming. Each domain is
 separate in terms of score and rank. For each domain a user will have score (of
@@ -129,39 +122,29 @@ etc. Questions are rated easy, medium, hard etc and allotted a maximum
 score. Partial solutions garner partial scores and multiple submissions are of
 course allowed. Also statistics on success rates of completion are listed for
 each question.</p>
-
 <h3 id="statistics">Statistics</h3>
-
 <p>I focused on the algorithms domain. I used Golang for all questions. As stated
 above my first milestone was to get into the top 1000. During the nine weeks it
 took me to do this I was aided by the texts listed in the bibliography
 below. The primary aim of completing this milestone was to become a better
 programmer and more specifically to become a better programmer in Go.</p>
-
 <p>Without further ado;</p>
-
-<p>150 hours over nine weeks<br />
-140 questions attempted<br />
+<p>150 hours over nine weeks<br>
+140 questions attempted<br>
 12 000 lines of code</p>
-
 <h3 id="what-i-learned">What I learned</h3>
-
 <p>All solutions must be complete i.e no libraries, so data structures and algorithms must be
 written from scratch. This means that I learned thoroughly, for example, how to
 implement and traverse a graph.</p>
-
 <p>The importance of data structures quickly becomes very clear, most used were; queue, stack, tree
 (binary search tree, ordered statistical tree, n-ary tree), graph
 (directed/undirected, weighted/unweighted).</p>
-
 <p>All questions read input from standard in and expect output on standard out. For
 simplicity I tended to use <code>fmt.Fscanf</code>. However on occasion IO
 was found to be a bottleneck and I learned that <code>bufio.Scanner</code> is faster.</p>
-
 <p>To test each solution I used a trick from Donovan and Kernighan [DK16]. In the
 main file we declare two global variables <code>in</code> and <code>out</code>. Also <code>main()</code> is
 simply a call to another function;</p>
-
 <pre><code>var (
 	in  io.Reader = os.Stdin
 	out io.Writer = os.Stdout
@@ -174,11 +157,8 @@ func main() {
 func solve() {
     // ...
 }
-</code></pre>
-
-<p>Then in the test file, using <a href="https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go">table driven testing</a>, we override <code>in</code> and <code>out</code> in
+</code></pre><p>Then in the test file, using <a href="https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go">table driven testing</a>, we override <code>in</code> and <code>out</code> in
 order to supply test cases and check the output.</p>
-
 <pre><code>func Tes(t *testing.T) {
 	var tests = []struct {
 		input string
@@ -199,18 +179,14 @@ order to supply test cases and check the output.</p>
 		}
     }
 }
-</code></pre>
-
-<p>Generally speaking the easy questions are solvable with an O(N^2) algorithm. Once
+</code></pre><p>Generally speaking the easy questions are solvable with an O(N^2) algorithm. Once
 onto the medium questions however typically an O(NlogN) solution is
 required. Often it suffices to look over the solution and change the algorithm
 as needed but at times bench marking is helpful. I learned that Go&rsquo;s built in
 benchmark facilities are quick and easy to use and provided all one needs to get
 the running times down on trickier questions.</p>
-
 <p>Bench marking can be implemented (assuming the question is coded as above) in
 Golang by simply adding to a test file the following function;</p>
-
 <pre><code>func BenchmarkSolve(b *testing.B) {
 	for i := 0; i &lt; b.N; i++ {
 		input := &quot;1 2 3\n&quot;
@@ -219,16 +195,9 @@ Golang by simply adding to a test file the following function;</p>
 		solve()
 	}
 }
-</code></pre>
-
-<p>A Bench mark file can be produced with <code>$ go test -run=None -bench=Solve
--cpuprofile=cpu.out</code>. One can then view the output using <code>go tool pprof -text
--nodecount=20 ./prog.test cpu.out</code>. Where <code>prog.test</code> is the executable that <code>go
-test</code> saves by default using the program name and the suffix <code>.test</code>. The
+</code></pre><p>A Bench mark file can be produced with <code>$ go test -run=None -bench=Solve -cpuprofile=cpu.out</code>. One can then view the output using <code>go tool pprof -text -nodecount=20 ./prog.test cpu.out</code>. Where <code>prog.test</code> is the executable that <code>go test</code> saves by default using the program name and the suffix <code>.test</code>. The
 <code>-run=None</code> flag stops all other tests from being run during the bench mark.</p>
-
 <h3 id="conclusion">Conclusion</h3>
-
 <p>I found HackerRank to be well written, both the content and the site
 operations. The questions were well paced and progressed in difficulty at a nice rate. There
 are ample questions and a nice little dopamine release generated
@@ -237,21 +206,16 @@ structures and algorithms is surely advisable. I found Golang to be very
 suitable and pleasant to work with even though it can be verbose at times. If
 you would like to deepen your understanding and quicken your algorithmic output
 I can wholeheartedly recommend a few weeks spent on HackerRank.</p>
-
-<hr />
-
+<hr>
 <h4 id="notes">Notes:</h4>
-
 <p>(1) <strong>I am not affiliated in any way with hackerrank.com</strong></p>
-
 <h4 id="bibliography">Bibliography:</h4>
-
-<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br />
+<p>[Ski08] - <strong>The Algorithm Design Manual</strong>, Steven S. Skiena<br>
 [CLRS09] - <strong>Introduction to Algorithms</strong>, Thomas H.Cormen, Charles E. Leiserson,
-Ronald L. Rivest, Clifford Stein<br />
-[Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1<br />
+Ronald L. Rivest, Clifford Stein<br>
+[Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1<br>
 [ASS96] - <strong>Structure and Interpretation of Computer Programs</strong>, Harold Abelson
-andGerald Jay Sussman with Julie Sussman.<br />
+andGerald Jay Sussman with Julie Sussman.<br>
 [DK16] - <strong>The GO Programming Language</strong>, Alan A. A. Donovan, Brian
 W. Kernighan.</p>
             </div>
