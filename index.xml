@@ -274,14 +274,5 @@ Compilers Principles, Techniques, and Tools - Aho Lam, Sethi Ullman</description
       <description>According to Apprenticeship Patterns by Bavid H. Hoover and Adewale Oshineye, in order to become a journeyman one must learn to explain their craft to others. This is one apprentices effort to learn these skills.</description>
     </item>
     
-    <item>
-      <title>About Me</title>
-      <link>/about-me/</link>
-      <pubDate>Tue, 11 Oct 2016 21:59:47 +1100</pubDate>
-      
-      <guid>/about-me/</guid>
-      <description>Hello people, I am Tobin Harding. I code in the Linux environment. I like command line interfaces and statically typed languages. When I am trying to relax I listen to classical music, when I&amp;rsquo;m eating - jazz, and when getting excitable I like to listen to techno. I like learning things, mostly computer related things, but also jiu-jitsu. For health and giggles I do yoga, rock climb, ferment, grow vegetables.</description>
-    </item>
-    
   </channel>
 </rss>
