@@ -18,16 +18,6 @@
   </url>
   
   <url>
-    <loc>/resume/</loc>
-    <lastmod>2020-04-13T10:56:07+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-04-13T10:56:07+10:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/learning-rust/</loc>
     <lastmod>2019-07-31T19:18:01+10:00</lastmod>
   </url>
@@ -49,6 +39,11 @@
   
   <url>
     <loc>/talks/</loc>
+    <lastmod>2017-08-02T10:07:59+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2017-08-02T10:07:59+10:00</lastmod>
   </url>
   

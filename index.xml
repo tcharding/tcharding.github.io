@@ -6,7 +6,7 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2020 10:56:07 +1000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Aug 2017 10:07:59 +1000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -35,16 +35,6 @@ more simple method. This post runs through that method.&lt;/p&gt;</description>
 can anonymize TCP streams by running them through the Tor network. How
 about writing anonymous peer to peer applications in Rust that run
 over the Tor network?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Resume of Tobin Harding: Linux Programmer</title>
-      <link>/resume/</link>
-      <pubDate>Mon, 13 Apr 2020 10:56:07 +1000</pubDate>
-      
-      <guid>/resume/</guid>
-      <description>6 years software development experience. Commercial experience with C, Rust, Golang. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 17 years experience using Linux. Founder of Central Coast Linux Users Group.  Open Source Experience Open source contributions made to the following projects, among others:
- bdk (Rust). rust-secp256k1 (Rust). rust-libp2p (Rust). Linux Kernel (C ). ZFS (C ). Kubernetes (Go). Gonum graph library (Go). OpenBazaar-Server (Python).</description>
     </item>
     
     <item>
