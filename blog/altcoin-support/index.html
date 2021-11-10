@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> rust-bitcoin - Altcoin Support &middot; Tobin Harding </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href=/>tobin@ares ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="/about-me">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/blog">~/blog</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/reading-list">~/books</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/resume">~/resume</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="/talks">~/talks</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="container wrapper">
+            <h1><a href="/blog/altcoin-support/">rust-bitcoin - Altcoin Support</a></h1>
+            <span class="post-date">Nov 10, 2021 </span>
+            <div class="post-content">
+                <p>Writing bitcoin wallets in Rust is easy with
+<a href="https://github.com/bitcoindevkit/bdk/">bdk</a>, what if we want to write a wallet
+for one of the altcoins that forked off from <code>bitcoind</code>. Well with some research
+and a little bit of hacking we are off to the races.</p>
+<p>Recently I was tasked with adding support to a software wallet for two coins
+that both forked the <code>bitcoind</code> codebase, Dogecoin and Litecoin. We already have
+support for Bitcoin by way of <code>bdk</code> and since <code>bdk</code> is super nice to use I
+wanted to use it for the others also.</p>
+<p><code>bdk</code>, like most software in Rust that works with Bitcoin, uses a bunch of
+repositories that all live under the
+<a href="https://github.com/rust-bitcoin">rust-bitcoin</a> organisation on GitHub (links
+here are to my forks).</p>
+<ul>
+<li><a href="https://github.com/tcharding/bitcoin_hashes">bitcoin_hashes</a></li>
+<li><a href="https://github.com/tcharding/rust-secp256k1">rust-secp256k1</a></li>
+<li><a href="https://github.com/tcharding/rust-bitcoin">rust-bitcoin</a></li>
+<li><a href="https://github.com/tcharding/rust-miniscript">rust-miniscript</a></li>
+<li><a href="https://github.com/tcharding/rust-bitcoincore-rpc">rust-bitcoincore-rpc</a>
+(Used by test code in <code>bdk</code>) - I won&rsquo;t discuss it further.</li>
+</ul>
+<p>Turns out that to get altcoin support working I only had to hack <code>rust-bitcoin</code>,
+<code>rust-miniscript</code>, and <code>bdk</code>.</p>
+<h2 id="address-prefixes">Address prefixes</h2>
+<p>I&rsquo;m no expert on Litecoin or Dogecoin, as far as I could tell the only thing
+that has changed, from the perspective of a wallet developer, was the address
+prefixes used by the various chains. It took me a bit of digging around to find
+these but eventually I found <code>src/chainparams.cpp</code> and came up with this table:</p>
+<pre><code>| Type           | BTC mainnet | BTC testnet | DOGE mainnet | DOGE testnet | LTC mainnet | LTC testnet |
+|----------------+-------------+-------------+--------------+--------------+-------------+-------------|
+| PUBKEY_ADDRESS | 0 - 0x00    | 111 - 0x6f  | 30 - 0x1e    | 113 - 0x71   | 48 - 0x30   | 111 - 0x6f  |
+| SCRIPT_ADDRESS | 5 - 0x05    | 196 - 0xc4  | 22 - 0x16    | 196 - 0xc4   | 0x32 (0x05) | 58 - 0x3a   |
+| SECRET_KEY     | 128 - 0x80  | 239 - 0xef  | 158 - 0x9e   | 241 - 0xf1   |             |             |
+| EXT_PUBLIC_KEY | 0488B21E    | 043587CF    | 02FACAFD     | 043587CF     |             |             |
+| EXT_SECRET_KEY | 0488ADE4    | 04358394    | 02FAC398     | 04358394     |             |             |
+
+</code></pre><p>Its not complete, but that was enough to get the functionality I needed. Now
+herein lies an insidious problem. The astute among you might have realised that
+there are duplicate values in the table above, more on this below.</p>
+<p>In order to work with addresses in <code>rust-bitcoin</code> we need to be able to go to
+and from strings.</p>
+<p>The <code>Address</code> struct currently looks like this:</p>
+<pre><code>/// A Bitcoin address
+pub struct Address {
+    /// The type of the address
+    pub payload: Payload,
+    /// The network on which this address is usable
+    pub network: Network,
+}
+</code></pre><p>At first I just wanted to throw a <code>blockchain</code> field in there and then use that
+to map between prefixes, but since I&rsquo;m not as clever as I wish I was I didn&rsquo;t
+notice the duplicate value problem until after I&rsquo;d written that code. So, once
+I&rsquo;d run into that wall, I added a <code>prefix</code> field instead.</p>
+<pre><code>    ...
+    /// Any prefix data we need to be able to serialize the address.
+    pub prefix: Prefix,
+}
+
+/// Prefix data required to serialize an address.
+// This is tightly coupled with the Network, if someone mutates an address by
+// changing the network without updating the prefix bad things will happen.
+pub enum Prefix {
+    /// Pubkey hash prefix byte.
+    Pubkey(u8),
+    /// Script hash prefix byte.
+    Script(u8),
+    /// Segwit prefix characters e.g., &quot;bc&quot;
+    Segwit(String),
+}
+</code></pre><p>From the code comment on <code>Prefix</code> we can already see that this is not going to
+be pretty.</p>
+<p>For the record, this work has zero chance of upstreaming, and I would not want
+to push it up anyways. I&rsquo;m thankful that I was able to use these libraries to
+get the job done but I in no way condone adding altcoin support to the Bitcoin
+stack.</p>
+<p>Now we can add the <code>Blockchain</code> struct</p>
+<pre><code>/// Supported blockchains.
+pub enum Blockchain {
+    /// The Bitcoin blockchain.
+    Bitcoin,
+    /// The Dogecoin blockchain.
+    Dogecoin,
+    /// The Litecoin blockchain.
+    Litecoin,
+}
+</code></pre><p>As we can see above an <code>Address</code> has two parts, the <code>Payload</code> and the <code>Network</code>.
+We can work out the prefix as long as we have both of these and the chain we are
+on. To stringify an <code>Address</code> we need the prefix.</p>
+<p>Now to go the other way, from an address string to an <code>Address</code> we just parse
+the prefix.</p>
+<p>Walah, that&rsquo;s more or less all there is to it. Now its just a matter of updating
+the whole stack to use the new <code>Address</code> type and constructors. None of the
+other repositories required any interesting or difficult work, you can check
+them out by fetching the <code>altcoin-support</code> branch of each repo on my GitHub
+account (linked above).</p>
+<p>I hope this is useful if you find yourself supporting Bitcoin clones in wallet
+software written in Rust. Feel free to open PRs adding support for additional
+coins.</p>
+<p>Thanks!</p>
+            </div>
+            
+            <div class="post-comments">
+                
+            </div>
+            
+            <div class="push"></div>
+        </div>
+        <footer class="footer text-center">
+<p>Copyright &copy; 2021 Tobin Harding -
+<span class="credit">
+  This site is <a target="_blank"
+		  href="https://github.com/tcharding/tobin.cc">open source</a>.
+  Powered by 
+  <a target="_blank" href="https://gohugo.io">Hugo</a>
+  and 
+  <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+    </body>

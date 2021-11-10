@@ -6,10 +6,22 @@
     <description>Recent content in Blogs on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2020 11:17:01 +1000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Nov 2021 13:21:39 +1100</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rust-bitcoin - Altcoin Support</title>
+      <link>/blog/altcoin-support/</link>
+      <pubDate>Wed, 10 Nov 2021 13:21:39 +1100</pubDate>
+      
+      <guid>/blog/altcoin-support/</guid>
+      <description>&lt;p&gt;Writing bitcoin wallets in Rust is easy with
+&lt;a href=&#34;https://github.com/bitcoindevkit/bdk/&#34;&gt;bdk&lt;/a&gt;, what if we want to write a wallet
+for one of the altcoins that forked off from &lt;code&gt;bitcoind&lt;/code&gt;. Well with some research
+and a little bit of hacking we are off to the races.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>rust-libp2p over Tor - Version 2</title>
