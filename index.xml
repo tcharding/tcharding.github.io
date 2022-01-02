@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Rust Bitcoin - Day 1</title>
+      <link>/blog/rust-bitcoin-day-1/</link>
+      <pubDate>Mon, 03 Jan 2022 08:25:28 +1100</pubDate>
+      
+      <guid>/blog/rust-bitcoin-day-1/</guid>
+      <description>&lt;p&gt;Eight years ago at Perth &lt;a href=&#34;https://linux.org.au/linux-conf-au/&#34;&gt;LCA&lt;/a&gt; I sat in the
+kernel mini-conf for the first time and listened to a bunch of kernel hackers
+discuss patching the kernel - at that moment I said to myself &amp;ldquo;I want to do
+that&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>rust-bitcoin - Altcoin Support</title>
       <link>/blog/altcoin-support/</link>
       <pubDate>Wed, 10 Nov 2021 13:21:39 +1100</pubDate>
