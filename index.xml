@@ -50,8 +50,9 @@ and a little bit of hacking we are off to the races.&lt;/p&gt;</description>
       <pubDate>Tue, 20 Jul 2021 21:59:47 +1100</pubDate>
       
       <guid>/resume/</guid>
-      <description>6 years software development experience. Commercial experience with C, Rust, Golang. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 17 years experience using Linux. Founder of Central Coast Linux Users Group.  Open Source Experience Open source contributions made to the following projects, among others:
- bdk (Rust). rust-secp256k1 (Rust). rust-libp2p (Rust). Linux Kernel (C ). ZFS (C ). Kubernetes (Go). Gonum graph library (Go). OpenBazaar-Server (Python).</description>
+      <description>7 years professional software development experience. Experience with Rust, Golang, C, Python. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 18 years experience using Linux. Founder of Central Coast Linux Users Group.  Open Source Experience Currently working full time as a maintainer of rust-bitcoin under an Open Source grant.
+Open source contributions made to the following projects, among others:
+ rust-miniscript (Rust). rust-bitcoin (Rust). rust-secp256k1 (Rust).</description>
     </item>
     
     <item>
@@ -294,7 +295,7 @@ stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt
       <description>Past, current, and future. List is in approximate reverse chronological order. Some texts are good enough to deserve a second reading, if so the text appears in the list twice with &amp;lsquo;(second reading)&amp;rsquo; appended.
 Future Hackers Delight - Henry S. Warren, Jr.
 Artificial Intelligence A modern Approach - Stuart Russell and Peter Norvig
-Algorithms in C Parts 1-5 - Robert Sedgewick
+Algorithms in C Part 5 - Robert Sedgewick
 Compilers Principles, Techniques, and Tools - Aho Lam, Sethi Ullman</description>
     </item>
     
