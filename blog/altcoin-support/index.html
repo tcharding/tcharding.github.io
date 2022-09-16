@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -122,7 +122,7 @@ here are to my forks).</p>
 that has changed, from the perspective of a wallet developer, was the address
 prefixes used by the various chains. It took me a bit of digging around to find
 these but eventually I found <code>src/chainparams.cpp</code> and came up with this table:</p>
-<pre><code>| Type           | BTC mainnet | BTC testnet | DOGE mainnet | DOGE testnet | LTC mainnet | LTC testnet |
+<pre tabindex="0"><code>| Type           | BTC mainnet | BTC testnet | DOGE mainnet | DOGE testnet | LTC mainnet | LTC testnet |
 |----------------+-------------+-------------+--------------+--------------+-------------+-------------|
 | PUBKEY_ADDRESS | 0 - 0x00    | 111 - 0x6f  | 30 - 0x1e    | 113 - 0x71   | 48 - 0x30   | 111 - 0x6f  |
 | SCRIPT_ADDRESS | 5 - 0x05    | 196 - 0xc4  | 22 - 0x16    | 196 - 0xc4   | 0x32 (0x05) | 58 - 0x3a   |
@@ -136,7 +136,7 @@ there are duplicate values in the table above, more on this below.</p>
 <p>In order to work with addresses in <code>rust-bitcoin</code> we need to be able to go to
 and from strings.</p>
 <p>The <code>Address</code> struct currently looks like this:</p>
-<pre><code>/// A Bitcoin address
+<pre tabindex="0"><code>/// A Bitcoin address
 pub struct Address {
     /// The type of the address
     pub payload: Payload,
@@ -147,7 +147,7 @@ pub struct Address {
 to map between prefixes, but since I&rsquo;m not as clever as I wish I was I didn&rsquo;t
 notice the duplicate value problem until after I&rsquo;d written that code. So, once
 I&rsquo;d run into that wall, I added a <code>prefix</code> field instead.</p>
-<pre><code>    ...
+<pre tabindex="0"><code>    ...
     /// Any prefix data we need to be able to serialize the address.
     pub prefix: Prefix,
 }
@@ -170,7 +170,7 @@ to push it up anyways. I&rsquo;m thankful that I was able to use these libraries
 get the job done but I in no way condone adding altcoin support to the Bitcoin
 stack.</p>
 <p>Now we can add the <code>Blockchain</code> struct</p>
-<pre><code>/// Supported blockchains.
+<pre tabindex="0"><code>/// Supported blockchains.
 pub enum Blockchain {
     /// The Bitcoin blockchain.
     Bitcoin,

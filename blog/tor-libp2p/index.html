@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -152,7 +152,7 @@ out that, for reasons I still do not full understand, TorCP only lets
 you connect to Tor and get the information required for making an
 authenticated connection once. You need to spin up a new instance of
 Tor each time you want to connect. <code>torut</code> handles that for us</p>
-<pre><code>let child = run_tor(&quot;/usr/bin/tor&quot;, &amp;mut [
+<pre tabindex="0"><code>let child = run_tor(&quot;/usr/bin/tor&quot;, &amp;mut [
     &quot;--CookieAuthentication&quot;, &quot;1&quot;,
     &quot;--defaults-torrc&quot;, &quot;/usr/share/tor/tor-service-defaults-torrc&quot;,
     &quot;-f&quot;, &quot;/etc/tor/torrc&quot;,
@@ -169,16 +169,16 @@ brevity but you can find it in
 service) that redirects to the locally running echo listener. This is
 all done using the TorCP and <code>torut</code>. Lets get a TCP connection to the
 TorCP port</p>
-<pre><code>let stream = let sock = TcpStream::connect(*TOR_CP_ADDR).await?;
+<pre tabindex="0"><code>let stream = let sock = TcpStream::connect(*TOR_CP_ADDR).await?;
 </code></pre><p>Using a static global for the address:</p>
-<pre><code>pub static ref TOR_PROXY_ADDR: SocketAddr = SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::LOCALHOST, 9050));
+<pre tabindex="0"><code>pub static ref TOR_PROXY_ADDR: SocketAddr = SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::LOCALHOST, 9050));
 </code></pre><p><em>Note: All the libraries used depend on Tokio, and therefore use the
 Tokio types (<code>TcpStream</code>, <code>TcpListener</code> etc.).</em></p>
 <p>Now the fun part, as is required by the TorCP spec we connect to the
 Tor instance and ask it for the information required to authenticate.
 This includes authentication method (we will use cookies), the
 location of the cookie file etc.</p>
-<pre><code>mut utc = UnauthenticatedConn::new(stream);
+<pre tabindex="0"><code>mut utc = UnauthenticatedConn::new(stream);
 
 let info = match utc.load_protocol_info().await {
     Ok(info) =&gt; info,
@@ -188,7 +188,7 @@ let ad = info.make_auth_data()?.expect(&quot;failed to make auth data&quot;);
 </code></pre><p>Using the information returned by Tor we can authenticate (assuming we
 have read access to the cookie file). <code>torut</code> wraps all this up nicely
 for us (did I mention that I really like this library):</p>
-<pre><code>if utc.authenticate(&amp;ad).await.is_err() {
+<pre tabindex="0"><code>if utc.authenticate(&amp;ad).await.is_err() {
     bail!(&quot;failed to authenticate with Tor&quot;)
 }
 let mut ac = utc.into_authenticated().await;
@@ -214,7 +214,7 @@ adding the onion service to the Tor network. (See
 <a href="https://2019.www.torproject.org/docs/onion-services.html.en">here</a>
 for an explanation of how the onion service protocol works.)</p>
 <p>Lets generate a private key to use</p>
-<pre><code>let key = TorSecretKeyV3::generate();
+<pre tabindex="0"><code>let key = TorSecretKeyV3::generate();
 </code></pre><p>I just realised I never seed any randomness directly, I did not verify
 how <code>torut </code> handles this.</p>
 <p><code>torut</code> can then command the local Tor instance to create the onion
@@ -224,7 +224,7 @@ code has an enormous single function and no smaller functions since
 any calls to <code>Drop</code> close the TCP connection. (That and laziness on my
 behalf for not working out the types required to correctly pass all
 this stuff around.)</p>
-<pre><code>ac.add_onion_v3(&amp;key, false, false, false, None, &amp;mut [
+<pre tabindex="0"><code>ac.add_onion_v3(&amp;key, false, false, false, None, &amp;mut [
     (PORT, SocketAddr::new(IpAddr::from(Ipv4Addr::new(127,0,0,1)), PORT)),
     ].iter()).await.unwrap();
 
@@ -237,17 +237,17 @@ local echo service. Nice.</p>
 <p>Next lets connect to the echo service, thus proving that we can make
 arbitrary TCP connections over Tor in Rust code.</p>
 <p>Getting the <code>TcpStream</code> is wrapped in a helper function, here it is:</p>
-<pre><code>pub async fn connect_tor_socks_proxy&lt;'a&gt;(proxy: SocketAddr, dest: impl IntoTargetAddr&lt;'a&gt;) -&gt; Result&lt;TcpStream&gt; {
+<pre tabindex="0"><code>pub async fn connect_tor_socks_proxy&lt;'a&gt;(proxy: SocketAddr, dest: impl IntoTargetAddr&lt;'a&gt;) -&gt; Result&lt;TcpStream&gt; {
     let sock = Socks5Stream::connect(proxy, dest).await?;
     Ok(sock.into_inner())
 }
 </code></pre><p><code>into_inner()</code> gives us a raw <code>TcpStream</code> that we can read from and
 write to. <code>IntoTargetAddr</code> is implemented on a string that &lsquo;looks
 like&rsquo; an onion address i.e., not a multiaddr but something like:</p>
-<pre><code>vww6ybal4bd7szmgncyruucpgfkqahzddi37ktceo3ah7ngmcopnpyyd.onion:1234
+<pre tabindex="0"><code>vww6ybal4bd7szmgncyruucpgfkqahzddi37ktceo3ah7ngmcopnpyyd.onion:1234
 </code></pre><p>Now we have a Tokio <code>TcpStream</code> that we can read from and write to as
 we wish:</p>
-<pre><code>stream.write_all(b&quot;ping\n&quot;).await?;
+<pre tabindex="0"><code>stream.write_all(b&quot;ping\n&quot;).await?;
 
 let mut buf = [0u8; 128];
 let n = stream.read(&amp;mut buf).await?;
@@ -295,7 +295,7 @@ left to do was hack the dial method to do what we wanted it to do -
 connect to the Tor socks5 proxy and return this <code>TcpStream</code> instead of
 a direct connection. For reference, here is what it looks like before
 we started</p>
-<pre><code>    fn dial(self, addr: Multiaddr) -&gt; Result&lt;Self::Dial, TransportError&lt;Self::Error&gt;&gt; {
+<pre tabindex="0"><code>    fn dial(self, addr: Multiaddr) -&gt; Result&lt;Self::Dial, TransportError&lt;Self::Error&gt;&gt; {
         let socket_addr =
             if let Ok(socket_addr) = multiaddr_to_socketaddr(&amp;addr) {
                 if socket_addr.port() == 0 || socket_addr.ip().is_unspecified() {
@@ -318,7 +318,7 @@ we started</p>
         Ok(Box::pin(do_dial(self, socket_addr)))
     }
 </code></pre><p>Patched, it looks like this:</p>
-<pre><code>    fn dial(self, addr: Multiaddr) -&gt; Result&lt;Self::Dial, TransportError&lt;Self::Error&gt;&gt; {
+<pre tabindex="0"><code>    fn dial(self, addr: Multiaddr) -&gt; Result&lt;Self::Dial, TransportError&lt;Self::Error&gt;&gt; {
         let dest = tor_address_format(addr.clone())
             .map_err(|_| TransportError::MultiaddrNotSupported(addr.clone()))?;
 
@@ -344,7 +344,7 @@ we started</p>
     }
 </code></pre><p>Connecting to the Tor socks5 proxy is done as we do above using the
 <code>tokio-socks</code> library, here are the relevant lines of code again:</p>
-<pre><code>let sock = Socks5Stream::connect(*TOR_PROXY_ADDR, dest).await?;
+<pre tabindex="0"><code>let sock = Socks5Stream::connect(*TOR_PROXY_ADDR, dest).await?;
 Ok(sock.into_inner())
 </code></pre><p>The default TorCP port is hard coded out of lazyness, I&rsquo;m thinking this
 will go in the Transport config so they can be set by the user.</p>
@@ -353,7 +353,7 @@ will go in the Transport config so they can be set by the user.</p>
 <h2 id="todo--upstream-work">TODO / upstream work</h2>
 <ul>
 <li>Patch <code>torut</code> to expose getting the raw onion address bytes</li>
-<li>Patch <code>rust-libp2p</code>'s onion multiaddr to add functionality to
+<li>Patch <code>rust-libp2p</code>&rsquo;s onion multiaddr to add functionality to
 stringify it in a format that Tor understands.</li>
 <li>Try to upstream the Tor Transport to <code>rust-libp2p</code> as explained above</li>
 </ul>

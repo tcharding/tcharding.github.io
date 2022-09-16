@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -109,14 +109,14 @@ keeping in mind the conditions that lead to worst case performance of a binary
 tree. Building a tree from a sorted list of keys will produce worst case performance.</p>
 <p>The typical data structure used to implement a binary search tree found in the
 literature as pseudo-code is</p>
-<pre><code>Node {
+<pre tabindex="0"><code>Node {
     integer key
     left Node
     right Node
 }
 </code></pre><p>Translated into Go, with the addition of a parent node pointer to facilitate
 more complex functionality, this becomes</p>
-<pre><code>type Node struct {
+<pre tabindex="0"><code>type Node struct {
     key    int
     left   *Node
     right  *Node
@@ -131,7 +131,7 @@ it will not be long before a subtle problem arises. If one attempts to create an
 empty tree by starting with a zero value node <code>var n Node</code> the tree will contain
 a node with the key value of <code>0</code>. This is because the zero value of a node is
 equivalent to</p>
-<pre><code>    var n Node
+<pre tabindex="0"><code>    var n Node
     n.key = 0
     n.left = nil
     n.right = nil
@@ -140,7 +140,7 @@ equivalent to</p>
 this (overly explicit) snippet. An empty tree can be created using a node pointer instead
 of a node <code>var n *Node</code>. Another solution, and the one we will use henceforth,
 is to wrap a pointer to the root node within another data structure</p>
-<pre><code>type Tree struct {
+<pre tabindex="0"><code>type Tree struct {
     root *Node
 }
 </code></pre><p>This allows for the zero value of a Tree to be useful <code>var t Tree</code>. It also
@@ -151,7 +151,7 @@ pre-order, in-order, or post-order. As the names suggest, these involve visiting
 the node before, between, or after visiting it&rsquo;s children. For a BST with
 integer keys, it is often most useful to utilise in-order tree traversal (tree
 walk). Such a tree traversal will give the keys in ascending sorted order.</p>
-<pre><code>// Walk tree in order calling fn for each node
+<pre tabindex="0"><code>// Walk tree in order calling fn for each node
 func (n *Node) inorder(fn func(n *Node)) {
 	if n != nil {
 		n.left.inorder(fn)
@@ -160,7 +160,7 @@ func (n *Node) inorder(fn func(n *Node)) {
 	}
 }
 </code></pre><p>Using this function, and Go&rsquo;s support for closures, we can do things like</p>
-<pre><code>// Flatten: return inorder slice of keys
+<pre tabindex="0"><code>// Flatten: return inorder slice of keys
 func (t *Tree) Flatten() []int {
 	var keys []int
 	fn := func(n *Node) {
@@ -176,7 +176,7 @@ search tree. If y is a node in the left subtree of x, then y.key &lt; x.key. If 
 is a node in the right subtree of x, then y.key &gt;= x.key</em> [CLRS09]</p>
 <p>the node with the maximum key value will be found in the right-most leaf of the
 tree</p>
-<pre><code>// Max: return maximum key from tree
+<pre tabindex="0"><code>// Max: return maximum key from tree
 func (t *Tree) Max() (int, error) {
 	if t.root == nil {
 		return 0, fmt.Errorf(&quot;Max() called on empty tree&quot;)
@@ -204,14 +204,14 @@ omitted but full source code can be found
 Algorithms</em> [CLRS09]</p>
 <p>Insertion into a BST is simply a matter of locating the correct position and
 inserting a new node. First we will create a new node with the requisite key</p>
-<pre><code>// newNode: create a new node from key
+<pre tabindex="0"><code>// newNode: create a new node from key
 func newNode(key int) *Node {
 	var n Node
 	n.key = key
 	return &amp;n
 }
 </code></pre><p>Then we can insert the node into the tree</p>
-<pre><code>// Add key to tree
+<pre tabindex="0"><code>// Add key to tree
 func (t *Tree) Add(key int) {
 	n := newNode(key)
 	t.insert(n)
@@ -246,7 +246,7 @@ func (t *Tree) insert(new *Node) {
 be the required behaviour. It is however, trivial to transform one implementation to
 the other, requiring only the addition of a check for equality between the new
 nodes key and the current key</p>
-<pre><code>    // ...
+<pre tabindex="0"><code>    // ...
     for n != nil {
 		p = n
 		if new.key == n.key {
@@ -265,7 +265,7 @@ children in one subtree it can be replaced by that subtree. If a node has two
 children it&rsquo;s successor must be found and used to replace the deleted node. Only
 the last of these three cases presents any complexity. Firstly, let us get the
 successor node to a key value that exists within the tree</p>
-<pre><code>// Successor: find smallest key value larger than key
+<pre tabindex="0"><code>// Successor: find smallest key value larger than key
 // panic if key not present, ok if found
 func (t *Tree) Successor(key int) (int, bool) {
 	n := t.root.find(key)
@@ -315,7 +315,7 @@ tree with s as the root and the reaming nodes as the right child of s. Since the
 successor is by definition the smallest of n&rsquo;s right children this new tree
 maintains correct structure. This tree can then be transplanted into position.</p>
 <p>The code to transplant a node is</p>
-<pre><code>// transplant replaces subtree rooted at u with subtree rooted at v
+<pre tabindex="0"><code>// transplant replaces subtree rooted at u with subtree rooted at v
 func (t *Tree) transplant(u, v *Node) {
 	if u.parent == nil {
 		t.root = v
@@ -330,7 +330,7 @@ func (t *Tree) transplant(u, v *Node) {
 }
 </code></pre><p>We then wrap the call to Delete (by key) method around a call to delete (by Node),
 easing later additions to the Tree type.</p>
-<pre><code>// Delete node with key from tree
+<pre tabindex="0"><code>// Delete node with key from tree
 // true if deleted
 func (t *Tree) Delete(key int) bool {
 	n := t.root.find(key)
@@ -365,7 +365,7 @@ cannot (e.g in-order tree walk). We must be careful to understand the
 implications of calling recursive functions in a language that does not
 implement tail call optimization. It is therefore sometimes prudent to consider an
 iterative implementation as well as recursive. Here is one such function</p>
-<pre><code>// elem: true if node with key exists in tree rooted at node n, recursive version
+<pre tabindex="0"><code>// elem: true if node with key exists in tree rooted at node n, recursive version
 func (n *Node) elem(key int) bool {
 	if n == nil {
 		return false
@@ -378,7 +378,7 @@ func (n *Node) elem(key int) bool {
 	return n.right.elem(key)
 }
 </code></pre><p>And an iterative implementation</p>
-<pre><code>// elem: true if node with key exists in tree rooted at node n, iterative version
+<pre tabindex="0"><code>// elem: true if node with key exists in tree rooted at node n, iterative version
 func (n *Node) elem(key int) bool {
 	found := false
 	for {

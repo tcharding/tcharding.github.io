@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -115,16 +115,16 @@ libnuma-dev<br>
 libcap-dev<br>
 libpopt-dev<br>
 libmount-dev</p>
-<pre><code>$ KTREE = /path/to/kernel/tree  
+<pre tabindex="0"><code>$ KTREE = /path/to/kernel/tree  
 $ cd $KTREE/tools/testing/selftests  
 $ make  
 </code></pre><h2 id="run">Run</h2>
 <p>Some tests require root privileges to run</p>
-<pre><code>$ sudo make run_tests
+<pre tabindex="0"><code>$ sudo make run_tests
 </code></pre><p>Your machine may appear to die as the tests start.
 Tests run in approx 10 minutes on this machine, your results may vary.</p>
 <p>Test targets may be specified using</p>
-<pre><code>$ sudo make TARGETS='size' run_tests
+<pre tabindex="0"><code>$ sudo make TARGETS='size' run_tests
 $ sudo make TARGETS='net networking' run_tests
 </code></pre><p>Single or multiple targets are accepted. Target names come from
 directory names under tools/testing/selftests.</p>

@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -101,7 +101,7 @@ will use here, <em>front</em> and <em>back</em>. The <em>add/remove</em> operati
 typically called <em>enqueue</em> and <em>dequeue</em>. For ease of explanation but without loss
 of generality, we limit discussion to a deque of integers.</p>
 <p>This gives us the following;</p>
-<pre><code>type Deque struct {
+<pre tabindex="0"><code>type Deque struct {
 	// Has unexported fields.
 }
 
@@ -114,7 +114,7 @@ front of the deque and the other representing the back of the deque. <em>Enqueue
 and <em>dequeueing</em> then become simply a matter of <em>pushing</em> or <em>popping</em> to, or from, the
 appropriate stack. . We will use a simple stack, supporting the operations push, pop, and
 length. Previous blog <a href="../stack">post</a> on implementing stacks in Golang.</p>
-<pre><code>type stack []int
+<pre tabindex="0"><code>type stack []int
 
 // push a new integer onto the stack
 func (s *stack) push(x int) {
@@ -143,7 +143,7 @@ dilemma presents the only complexity in this implementation of a deque. Each
 time an item is added to, or removed from, the deque we balance the two stacks to
 maintain the invariant that while there are 2 or more items, each stack holds at
 least one third as many items as the other. In code, that is;</p>
-<pre><code>// balance stacks if needed
+<pre tabindex="0"><code>// balance stacks if needed
 func (d *Deque) balance() {
 	small, big := order(&amp;d.front, &amp;d.back)
 	if small.len() == 0 &amp;&amp; big.len() == 1 {
@@ -174,7 +174,7 @@ arrays, the above statement will not come as a surprise. For a more complete
 analysis see [Mor].</p>
 <p>One method of balancing the stacks is by way of a couple of additional temporary
 stacks and a sequence of <em>push</em> and <em>pop</em> operations.</p>
-<pre><code>// rebalance stacks
+<pre tabindex="0"><code>// rebalance stacks
 func (d *Deque) rebalance() {
 	small, big := order(&amp;d.front, &amp;d.back)
 	half := (small.len() + big.len()) / 2
@@ -188,7 +188,7 @@ func (d *Deque) rebalance() {
 }
 </code></pre><p>As mentioned previously, <code>order()</code> simply gives us the stacks back in order of size, the other helper
 functions are;</p>
-<pre><code>// mvN: move n items from dst and push to src
+<pre tabindex="0"><code>// mvN: move n items from dst and push to src
 func mvN(dst, src *stack, n int) {
 	for i := 0; i &lt; n; i++ {
 		x, _ := src.pop()

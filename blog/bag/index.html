@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -107,7 +107,7 @@ if a certain thing is present. For example, storing the characters of a string
 <h2 id="bag-of-integers">bag of integers</h2>
 <p>For the sake of simplicity, we will first cover a bag of integers, then move
 onto a bag of characters (including some useful functions on such a bag).</p>
-<pre><code>package bag
+<pre tabindex="0"><code>package bag
 
 type count int
 
@@ -141,7 +141,7 @@ func (b *Bag) FindAll(x int) (int, bool) {
 	return b.Find(x) // not useful for this implementation
 }
 </code></pre><p>We can then use our bag of integers like this</p>
-<pre><code>func fn() {
+<pre tabindex="0"><code>func fn() {
     bag := make(Bag)
 
 	// add some values to bag
@@ -166,7 +166,7 @@ in Greek but would be useful for some cryptography tasks.</p>
 <p>The basic operations are similar to the above, except of course we replace
 occurences of <code>int</code> with <code>byte</code>. Also we add a helper function to create a bag
 from a string (ASCII values only remember).</p>
-<pre><code>type Bag map[byte]int
+<pre tabindex="0"><code>type Bag map[byte]int
 
 func makeBag(s string) Bag {
 	bag := make(Bag)
@@ -176,7 +176,7 @@ func makeBag(s string) Bag {
 	return bag
 }
 </code></pre><p>We can then write some other functions to operate on this bag</p>
-<pre><code>func (b *Bag) difference(c Bag) Bag {
+<pre tabindex="0"><code>func (b *Bag) difference(c Bag) Bag {
 	bag := make(Bag)
 	for k, vb := range *b {
 		vc, ok := c[k]

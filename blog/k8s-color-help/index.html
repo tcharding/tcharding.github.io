@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -118,7 +118,7 @@ allows you to, as the name suggests, colorize anything.</p>
 Debian based system just search the package manager for <code>grc</code>. You will need a configuration file in
 <code>~/.grc/grc.conf</code></p>
 <p>While we are at it lets colorize <code>go test</code> as well.</p>
-<pre><code># Go
+<pre tabindex="0"><code># Go
 \bgo.* test\b
 conf.gotest
 
@@ -127,7 +127,7 @@ conf.gotest
 conf.kubectlhelp
 </code></pre><p>Colorization is then achieved via regular expressions. You will need a configuration file for each
 entry above. Here is <code>conf.kubectlhelp</code></p>
-<pre><code>regexp=  \#.*
+<pre tabindex="0"><code>regexp=  \#.*
 colour=blue
 -
 regexp=--.+?(?==)
@@ -145,7 +145,7 @@ color=cyan
 regexp=^Options:
 color=cyan
 </code></pre><p>and <code>conf.gotest</code></p>
-<pre><code>regexp==== RUN .*
+<pre tabindex="0"><code>regexp==== RUN .*
 colour=blue
 -
 regexp=--- PASS: .*
@@ -163,7 +163,7 @@ colour=red
 regexp=[^\s]+\.go(:\d+)?
 colour=cyan
 </code></pre><p>If you like shell aliases you may like to define the following</p>
-<pre><code>alias kch='/usr/bin/grc kubectl help'
+<pre tabindex="0"><code>alias kch='/usr/bin/grc kubectl help'
 alias go='/usr/bin/grc go'
 </code></pre><p>voilà <code>kch</code> now presents nice colorized output and you can easily discern the options for whichever
 Kubernetes command you are investigating. Bonus points: <code>go test</code> is colorized too.</p>

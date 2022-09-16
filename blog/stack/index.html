@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -103,7 +103,7 @@ stacks can be found online <a href="http://opendatastructures.org">here</a>.</p>
 probably the right container to use when retrieval order doesn&rsquo;t matter [Ski08]</em></p>
 <p>A stack can be easily implemented in Go using slices.</p>
 <h2 id="stack-of-integers">stack of integers</h2>
-<pre><code>// stack of integers
+<pre tabindex="0"><code>// stack of integers
 package stack
 
 type Stack []int
@@ -143,7 +143,7 @@ func (s *Stack) Peek() (int, bool) {
 	return x, true
 }
 </code></pre><p>We can then use our stack of integers like this</p>
-<pre><code>func fn() {
+<pre tabindex="0"><code>func fn() {
     var stack Stack
 
     stack.Push(1)
@@ -161,11 +161,11 @@ struct, etc).</p>
 <p>One downside to the above method is that a new stack needs to be written for
 each data type. An alternative is to use the empty interface to allow stacks of
 anything.</p>
-<pre><code>// All types satisfy the empty interface, so we can store anything here.
+<pre tabindex="0"><code>// All types satisfy the empty interface, so we can store anything here.
 type Stack []interface{}
 </code></pre><p>Then any time we pop or peek at an item from the stack we use a type
 assertion.</p>
-<pre><code>var stack Stack
+<pre tabindex="0"><code>var stack Stack
 stack.Push(&quot;this&quot;)
 
 item := stack.Pop()

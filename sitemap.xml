@@ -1,148 +1,90 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2022-01-03T08:25:28+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/rust-bitcoin-day-1/</loc>
-    <lastmod>2022-01-03T08:25:28+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/altcoin-support/</loc>
-    <lastmod>2021-11-10T13:21:39+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about-me/</loc>
-    <lastmod>2021-07-20T21:59:47+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/resume/</loc>
-    <lastmod>2021-07-20T21:59:47+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2021-07-20T21:59:47+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/tor-libp2p-2/</loc>
-    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/tor-libp2p/</loc>
-    <lastmod>2020-06-26T14:07:12+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/learning-rust/</loc>
-    <lastmod>2019-07-31T19:18:01+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/reflections-on-first-job/</loc>
-    <lastmod>2018-12-14T08:58:20+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/apprenticeship/</loc>
-    <lastmod>2017-12-05T16:01:57+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/k8s-color-help/</loc>
-    <lastmod>2017-08-29T20:20:12+10:00</lastmod>
-  </url>
-  
   <url>
     <loc>/talks/</loc>
-    <lastmod>2017-08-02T10:07:59+10:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-09-15T10:07:59+10:00</lastmod>
+  </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2022-01-03T08:25:28+11:00</lastmod>
+  </url><url>
+    <loc>/blog/rust-bitcoin-day-1/</loc>
+    <lastmod>2022-01-03T08:25:28+11:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-01-03T08:25:28+11:00</lastmod>
+  </url><url>
+    <loc>/blog/altcoin-support/</loc>
+    <lastmod>2021-11-10T13:21:39+11:00</lastmod>
+  </url><url>
+    <loc>/about-me/</loc>
+    <lastmod>2021-07-20T21:59:47+11:00</lastmod>
+  </url><url>
+    <loc>/resume/</loc>
+    <lastmod>2021-07-20T21:59:47+11:00</lastmod>
+  </url><url>
+    <loc>/blog/tor-libp2p-2/</loc>
+    <lastmod>2020-09-01T11:17:01+10:00</lastmod>
+  </url><url>
+    <loc>/blog/tor-libp2p/</loc>
+    <lastmod>2020-06-26T14:07:12+10:00</lastmod>
+  </url><url>
+    <loc>/blog/learning-rust/</loc>
+    <lastmod>2019-07-31T19:18:01+10:00</lastmod>
+  </url><url>
+    <loc>/blog/reflections-on-first-job/</loc>
+    <lastmod>2018-12-14T08:58:20+11:00</lastmod>
+  </url><url>
+    <loc>/blog/apprenticeship/</loc>
+    <lastmod>2017-12-05T16:01:57+11:00</lastmod>
+  </url><url>
+    <loc>/blog/k8s-color-help/</loc>
+    <lastmod>2017-08-29T20:20:12+10:00</lastmod>
+  </url><url>
     <loc>/blog/kernel-dev-2/</loc>
     <lastmod>2017-07-20T08:28:24+10:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/kernel-dev-1/</loc>
     <lastmod>2017-07-19T10:28:42+10:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/kselftests/</loc>
     <lastmod>2017-02-02T11:38:39+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/fenwick/</loc>
     <lastmod>2017-01-07T11:21:35+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/graph/</loc>
     <lastmod>2017-01-05T10:08:31+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/hackerrank1/</loc>
     <lastmod>2016-12-06T11:14:39+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/heap/</loc>
     <lastmod>2016-11-10T08:29:33+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/deque/</loc>
     <lastmod>2016-11-08T11:14:55+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/bst/</loc>
     <lastmod>2016-11-01T11:37:27+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/bag/</loc>
     <lastmod>2016-10-26T10:49:04+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/queue/</loc>
     <lastmod>2016-10-26T09:54:21+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/stack/</loc>
     <lastmod>2016-10-17T08:28:17+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/reading-list/</loc>
     <lastmod>2016-10-15T14:17:43+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/initial-commit/</loc>
     <lastmod>2016-10-11T22:10:57+11:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
   </url>
-  
 </urlset>

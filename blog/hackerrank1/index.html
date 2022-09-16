@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -145,7 +145,7 @@ was found to be a bottleneck and I learned that <code>bufio.Scanner</code> is fa
 <p>To test each solution I used a trick from Donovan and Kernighan [DK16]. In the
 main file we declare two global variables <code>in</code> and <code>out</code>. Also <code>main()</code> is
 simply a call to another function;</p>
-<pre><code>var (
+<pre tabindex="0"><code>var (
 	in  io.Reader = os.Stdin
 	out io.Writer = os.Stdout
 )
@@ -159,7 +159,7 @@ func solve() {
 }
 </code></pre><p>Then in the test file, using <a href="https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go">table driven testing</a>, we override <code>in</code> and <code>out</code> in
 order to supply test cases and check the output.</p>
-<pre><code>func Tes(t *testing.T) {
+<pre tabindex="0"><code>func Tes(t *testing.T) {
 	var tests = []struct {
 		input string
 		want  string
@@ -187,7 +187,7 @@ benchmark facilities are quick and easy to use and provided all one needs to get
 the running times down on trickier questions.</p>
 <p>Bench marking can be implemented (assuming the question is coded as above) in
 Golang by simply adding to a test file the following function;</p>
-<pre><code>func BenchmarkSolve(b *testing.B) {
+<pre tabindex="0"><code>func BenchmarkSolve(b *testing.B) {
 	for i := 0; i &lt; b.N; i++ {
 		input := &quot;1 2 3\n&quot;
 		out = new(bytes.Buffer)

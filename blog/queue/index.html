@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -103,7 +103,7 @@ queues can be found online <a href="http://opendatastructures.org">here</a>.</p>
 will be the same whether a LIFO or a FIFO is used.</p>
 <p>A queue can be easily implemented in Go using slices.</p>
 <h2 id="queue-of-integers">queue of integers</h2>
-<pre><code>package queue
+<pre tabindex="0"><code>package queue
 
 type Queue []int
 
@@ -125,7 +125,7 @@ func (q *Queue) isEmpty() bool {
 	return len(*q) == 0
 }
 </code></pre><p>We can then use our queue of integers like this</p>
-<pre><code>func fn() {
+<pre tabindex="0"><code>func fn() {
     var q Queue
 
     q.Enque(1)
@@ -141,7 +141,7 @@ func (q *Queue) isEmpty() bool {
 <a href="https://github.com/gonum/graph/blob/master/internal/linear/linear.go">graph</a>
 package by the people at <a href="https://github.com/gonum">Gonum</a>. I have stripped it
 down to a queue of structs</p>
-<pre><code>// Queue implements a FIFO queue.
+<pre tabindex="0"><code>// Queue implements a FIFO queue.
 type Queue struct {
 	head int
 	data []item
@@ -153,12 +153,12 @@ type item struct {
 }
 </code></pre><p><code>head</code> is the index of the head of the queue. Length of the queue is then the
 length of the data slice less the index of the head item.</p>
-<pre><code>// Len returns the number of items in the queue.
+<pre tabindex="0"><code>// Len returns the number of items in the queue.
 func (q *Queue) Len() int { return len(q.data) - q.head }
 </code></pre><p>In order to reuse the underlying array, when an item is enqueued, if there is
 room at the front of the queue then we copy the current queue contents back to
 the start of the array.</p>
-<pre><code>// Enqueue adds the node n to the back of the queue.
+<pre tabindex="0"><code>// Enqueue adds the node n to the back of the queue.
 func (q *Queue) Enqueue(n item) {
 	if len(q.data) == cap(q.data) &amp;&amp; q.head &gt; 0 {
 		ln := q.Len()

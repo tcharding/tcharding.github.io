@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -119,11 +119,11 @@ I have since discovered that by simple adding a few lines to the tor
 runcom file (e.g. <code>/etc/tor/torcr</code>) we can configure the onion service
 and simplify considerably the usage of our tor transport. To the
 config file we can un-comment/add the following lines:</p>
-<pre><code>    HiddenServiceDir /var/lib/tor/hidden_service/
+<pre tabindex="0"><code>    HiddenServiceDir /var/lib/tor/hidden_service/
     HiddenServicePort 7 127.0.0.1:7777
 </code></pre><p>Once tor runs it will store the onion address for the service we just
 configured in the hidden service directory given i.e.,</p>
-<pre><code>cat /var/lib/tor/hidden_service/hostname
+<pre tabindex="0"><code>cat /var/lib/tor/hidden_service/hostname
 7gr3dngwhk74thi4vv6bm3v3bicaxe4apvcemoxo3hadpvsyfifjqnid.onion
 </code></pre><p>We pass this address to the swarm&rsquo;s dial method as one would expect to
 with any other multi address.</p>

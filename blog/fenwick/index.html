@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -145,7 +145,7 @@ we traverse up the tree, at each node we can ascertain from which child we
 arrived. See the above link for a more thorough explanation.</p>
 <h2 id="fenwick-tree-in-go">Fenwick Tree in Go</h2>
 <p>Without further ado</p>
-<pre><code>type Fenwick struct {
+<pre tabindex="0"><code>type Fenwick struct {
 	tree []int
 }
 
@@ -160,7 +160,7 @@ func NewFenwick(n int) *Fenwick {
 modification of the deceivingly subtle data that makes up the tree. Also, in my
 opinion, it makes the slice access in later code cleaner since we need not use
 pointer indirection to index into the array as is sometimes required <code>(*ptr)[i]</code>.</p>
-<pre><code>// Sum all values upto and including index.
+<pre tabindex="0"><code>// Sum all values upto and including index.
 func (fen *Fenwick) Sum(index int) int {
 	sum := 0
 	index++
@@ -180,7 +180,7 @@ to the code, however this is not the case. I merely translated the C code from
 <a href="https://en.wikipedia.org/wiki/Fenwick_tree">Wikipedia</a> into Go code. Even then, it took a while for me to implement the
 <a href="https://github.com/tcharding/types/tree/master/trees/fenwick/fenwick-mul">test</a>
 cases thoroughly enough that I understood what was going on.</p>
-<pre><code>// Update using addition index by value.
+<pre tabindex="0"><code>// Update using addition index by value.
 func (fen *Fenwick) Update(index, value int) {
 	index++
 	for index &lt;= fen.Size() {

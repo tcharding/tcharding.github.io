@@ -6,10 +6,22 @@
     <description>Recent content on Tobin Harding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Jul 2021 21:59:47 +1100</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 03 Jan 2022 08:25:28 +1100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Presentations</title>
+      <link>/talks/</link>
+      <pubDate>Thu, 15 Sep 2022 10:07:59 +1000</pubDate>
+      
+      <guid>/talks/</guid>
+      <description>Conditional Compilation in Rust (slides)
+14th September 2022 - RustAU meetup
+  Beginning Rust - Fast track your learning (git repo)
+6th November 2019 - Central Coast Linux Users Group
+  Beginning Rust - Fast track your learning (git repo)
+29th October 2019 - RustSydney meet up
+  Workshop: Hacking Device Drivers - How to get into kernel development (git repo)
+20th August 2019 - Open Source Summit North America</description>
+    </item>
     
     <item>
       <title>Rust Bitcoin - Day 1</title>
@@ -117,21 +129,6 @@ over the Tor network?&lt;/p&gt;</description>
       <description>&lt;p&gt;Recently I started hacking on the Kubernetes (k8s) project. The code base is in Golang and is super
 fun work on. Development is done via &lt;a href=&#34;https://github.com/kubernetes/&#34;&gt;GitHub&lt;/a&gt; and
 &lt;a href=&#34;https://kubernetes.slack.com&#34;&gt;Slack&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Presentations</title>
-      <link>/talks/</link>
-      <pubDate>Wed, 02 Aug 2017 10:07:59 +1000</pubDate>
-      
-      <guid>/talks/</guid>
-      <description>Beginning Rust - Fast track your learning (git repo)
-6th November - Central Coast Linux Users Group
-  Beginning Rust - Fast track your learning (git repo)
-29th October - RustSydney meet up
-  Workshop: Hacking Device Drivers - How to get into kernel development (git repo)
-20th August 2019 - Open Source Summit North America
-  Talk: Intro to Kernel Hacking - finding things to work on (slides)</description>
     </item>
     
     <item>
