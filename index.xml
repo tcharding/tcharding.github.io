@@ -13,14 +13,15 @@
       <pubDate>Thu, 15 Sep 2022 10:07:59 +1000</pubDate>
       
       <guid>/talks/</guid>
-      <description>Conditional Compilation in Rust (slides)
+      <description>Advanced Testing in Rust (slides / git repo)
+15th March 2023 - Everything Open conference Melbourne
+  Conditional Compilation in Rust (slides)
 14th September 2022 - RustAU meetup
   Beginning Rust - Fast track your learning (git repo)
 6th November 2019 - Central Coast Linux Users Group
   Beginning Rust - Fast track your learning (git repo)
 29th October 2019 - RustSydney meet up
-  Workshop: Hacking Device Drivers - How to get into kernel development (git repo)
-20th August 2019 - Open Source Summit North America</description>
+  Workshop: Hacking Device Drivers - How to get into kernel development (git repo)</description>
     </item>
     
     <item>
