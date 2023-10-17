@@ -5,25 +5,31 @@
         <title> Anonymous peer to peer applications in Rust (rust-libp2p over Tor) &middot; Tobin Harding </title>
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.115.0">
 
 
-<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="/css/nix.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="css/nix.css">
+
+
+
 
 
 <link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
 
 
 
@@ -32,70 +38,73 @@
 
     <body>
         <header>
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+	<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg font-header">
+		<div class="container-fluid">
+			<a class="navbar-brand" id="green-terminal" href=''>
+				tobin@ares ~ $
+			</a>
+			<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-1" 
+					aria-controls="navbar-collapse-1" aria-expanded="false">
+				<span class="visually-hidden">Toggle navigation</span>
+				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" id="green-terminal" href=/>tobin@ares ~ $</a>
+
+			
+			<div class="collapse navbar-collapse" id="navbar-collapse-1">
+				<ul class="nav navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href=''>
+							/home/tobin</a>
+					</li>
+					
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/about-me">~/about</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/blog">~/blog</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/reading-list">~/books</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/resume">~/resume</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/talks">~/talks</a>
+						
+					</li>
+					
+				</ul>
+			</div>
 		</div>
-
-		
-		<div class="collapse navbar-collapse" id="navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-
-				
-				
-				<li class="dropdown">
-                    
-            		<a href="/about-me">~/about</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/blog">~/blog</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/reading-list">~/books</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/resume">~/resume</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/talks">~/talks</a>
-            		
-        		</li>
-        		
-
-			</ul>
-		</div>
-	</div>
-</nav>
+	</nav>
 </header>
 
-        <div class="container wrapper">
-            <h1><a href="/blog/tor-libp2p/">Anonymous peer to peer applications in Rust (rust-libp2p over Tor)</a></h1>
-            <span class="post-date">Jun 26, 2020 </span>
-            <div class="post-content">
-                <p>We can write peer to peer applications in Rust using <code>rust-libp2p</code>. We
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="/blog/tor-libp2p/">Anonymous peer to peer applications in Rust (rust-libp2p over Tor)</a></h1>
+                <span class="post-date">2020-06-26 </span>
+                <div class="post-content">
+                    <p>We can write peer to peer applications in Rust using <code>rust-libp2p</code>. We
 can anonymize TCP streams by running them through the Tor network. How
 about writing anonymous peer to peer applications in Rust that run
 over the Tor network?</p>
@@ -152,13 +161,13 @@ out that, for reasons I still do not full understand, TorCP only lets
 you connect to Tor and get the information required for making an
 authenticated connection once. You need to spin up a new instance of
 Tor each time you want to connect. <code>torut</code> handles that for us</p>
-<pre tabindex="0"><code>let child = run_tor(&quot;/usr/bin/tor&quot;, &amp;mut [
-    &quot;--CookieAuthentication&quot;, &quot;1&quot;,
-    &quot;--defaults-torrc&quot;, &quot;/usr/share/tor/tor-service-defaults-torrc&quot;,
-    &quot;-f&quot;, &quot;/etc/tor/torrc&quot;,
-].iter()).expect(&quot;Starting tor filed&quot;);
+<pre tabindex="0"><code>let child = run_tor(&#34;/usr/bin/tor&#34;, &amp;mut [
+    &#34;--CookieAuthentication&#34;, &#34;1&#34;,
+    &#34;--defaults-torrc&#34;, &#34;/usr/share/tor/tor-service-defaults-torrc&#34;,
+    &#34;-f&#34;, &#34;/etc/tor/torrc&#34;,
+].iter()).expect(&#34;Starting tor filed&#34;);
 let _child = AutoKillChild::new(child);
-println!(&quot;Tor instance started&quot;);
+println!(&#34;Tor instance started&#34;);
 </code></pre><p>This is the default invocation used by systemd on Ubuntu, I saw no
 reason to change it. This implies that the default configuration for
 Tor works too - win!</p>
@@ -182,14 +191,14 @@ location of the cookie file etc.</p>
 
 let info = match utc.load_protocol_info().await {
     Ok(info) =&gt; info,
-    Err(_) =&gt; bail!(&quot;failed to load protocol info from Tor&quot;)
+    Err(_) =&gt; bail!(&#34;failed to load protocol info from Tor&#34;)
 };
-let ad = info.make_auth_data()?.expect(&quot;failed to make auth data&quot;);
+let ad = info.make_auth_data()?.expect(&#34;failed to make auth data&#34;);
 </code></pre><p>Using the information returned by Tor we can authenticate (assuming we
 have read access to the cookie file). <code>torut</code> wraps all this up nicely
 for us (did I mention that I really like this library):</p>
 <pre tabindex="0"><code>if utc.authenticate(&amp;ad).await.is_err() {
-    bail!(&quot;failed to authenticate with Tor&quot;)
+    bail!(&#34;failed to authenticate with Tor&#34;)
 }
 let mut ac = utc.into_authenticated().await;
 
@@ -229,29 +238,29 @@ this stuff around.)</p>
     ].iter()).await.unwrap();
 
 let onion_addr = key.public().get_onion_address();
-let onion = format!(&quot;{}:{}&quot;, onion_addr, PORT);
-println!(&quot;onion service: {}&quot;, onion);
+let onion = format!(&#34;{}:{}&#34;, onion_addr, PORT);
+println!(&#34;onion service: {}&#34;, onion);
 </code></pre><p>Ok, so now we have a local echo service listening on a local port and
 a onion service available via the Tor network that redirects to this
 local echo service. Nice.</p>
 <p>Next lets connect to the echo service, thus proving that we can make
 arbitrary TCP connections over Tor in Rust code.</p>
 <p>Getting the <code>TcpStream</code> is wrapped in a helper function, here it is:</p>
-<pre tabindex="0"><code>pub async fn connect_tor_socks_proxy&lt;'a&gt;(proxy: SocketAddr, dest: impl IntoTargetAddr&lt;'a&gt;) -&gt; Result&lt;TcpStream&gt; {
+<pre tabindex="0"><code>pub async fn connect_tor_socks_proxy&lt;&#39;a&gt;(proxy: SocketAddr, dest: impl IntoTargetAddr&lt;&#39;a&gt;) -&gt; Result&lt;TcpStream&gt; {
     let sock = Socks5Stream::connect(proxy, dest).await?;
     Ok(sock.into_inner())
 }
 </code></pre><p><code>into_inner()</code> gives us a raw <code>TcpStream</code> that we can read from and
-write to. <code>IntoTargetAddr</code> is implemented on a string that &lsquo;looks
+write to. <code>IntoTargetAddr</code> is implemented on a string that &rsquo;looks
 like&rsquo; an onion address i.e., not a multiaddr but something like:</p>
 <pre tabindex="0"><code>vww6ybal4bd7szmgncyruucpgfkqahzddi37ktceo3ah7ngmcopnpyyd.onion:1234
 </code></pre><p>Now we have a Tokio <code>TcpStream</code> that we can read from and write to as
 we wish:</p>
-<pre tabindex="0"><code>stream.write_all(b&quot;ping\n&quot;).await?;
+<pre tabindex="0"><code>stream.write_all(b&#34;ping\n&#34;).await?;
 
 let mut buf = [0u8; 128];
 let n = stream.read(&amp;mut buf).await?;
-println!(&quot;received {} bytes: {}&quot;, n, std::str::from_utf8(&amp;buf[0..n]).unwrap());
+println!(&#34;received {} bytes: {}&#34;, n, std::str::from_utf8(&amp;buf[0..n]).unwrap());
 </code></pre><p>BOOM! Arbitrary data sent using TCP via the Tor network.</p>
 <h2 id="rust-libp2p-connection-over-tor">rust-libp2p connection over Tor</h2>
 <p>Now for the holy grail, connect our POC ping application that we wrote
@@ -299,7 +308,7 @@ we started</p>
         let socket_addr =
             if let Ok(socket_addr) = multiaddr_to_socketaddr(&amp;addr) {
                 if socket_addr.port() == 0 || socket_addr.ip().is_unspecified() {
-                    debug!(&quot;Instantly refusing dialing {}, as it is invalid&quot;, addr);
+                    debug!(&#34;Instantly refusing dialing {}, as it is invalid&#34;, addr);
                     return Err(TransportError::Other(io::ErrorKind::ConnectionRefused.into()))
                 }
                 socket_addr
@@ -307,7 +316,7 @@ we started</p>
                 return Err(TransportError::MultiaddrNotSupported(addr))
             };
 
-        debug!(&quot;Dialing {}&quot;, addr);
+        debug!(&#34;Dialing {}&#34;, addr);
 
         async fn do_dial(cfg: $tcp_config, socket_addr: SocketAddr) -&gt; Result&lt;$tcp_trans_stream, io::Error&gt; {
             let stream = &lt;$tcp_stream&gt;::connect(&amp;socket_addr).await?;
@@ -322,18 +331,18 @@ we started</p>
         let dest = tor_address_format(addr.clone())
             .map_err(|_| TransportError::MultiaddrNotSupported(addr.clone()))?;
 
-        debug!(&quot;multi: {}&quot;, addr);
-        debug!(&quot;onion: {}&quot;, dest);
+        debug!(&#34;multi: {}&#34;, addr);
+        debug!(&#34;onion: {}&#34;, dest);
 
         async fn do_dial(
             cfg: TokioTcpConfig,
             dest: String,
         ) -&gt; Result&lt;TokioTcpTransStream, io::Error&gt; {
-            info!(&quot;connecting to Tor proxy ...&quot;);
+            info!(&#34;connecting to Tor proxy ...&#34;);
             let stream = crate::connect_tor_socks_proxy(dest)
                 .await
                 .map_err(|e| io::Error::new(io::ErrorKind::ConnectionRefused, e))?;
-            info!(&quot;connection established&quot;);
+            info!(&#34;connection established&#34;);
 
             apply_config(&amp;cfg, &amp;stream)?;
 
@@ -379,25 +388,23 @@ employer for paying me to work on this.</p>
 <li>Simple Tor Control Protocol application: <a href="https://github.com/tcharding/simple-tor-tc">https://github.com/tcharding/simple-tor-tc</a></li>
 <li>Ping written in Rust using <code>rust-libp2p</code> over Tor:  <a href="https://github.com/tcharding/ping-pong">https://github.com/tcharding/ping-pong</a></li>
 </ul>
-            </div>
-            
-            <div class="post-comments">
+                </div>
+                
+                <div class="post-comments">
+                    
+                </div>
                 
             </div>
-            
-            <div class="push"></div>
-        </div>
-        <footer class="footer text-center">
+            <footer class="footer text-center">
 <p>Copyright &copy; 2023 Tobin Harding -
 <span class="credit">
-  This site is <a target="_blank"
-		  href="https://github.com/tcharding/tobin.cc">open source</a>.
-  Powered by 
-  <a target="_blank" href="https://gohugo.io">Hugo</a>
-  and 
-  <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
 </span>
 </p>
 </footer>
 
+        </div>
     </body>

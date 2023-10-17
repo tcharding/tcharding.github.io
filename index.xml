@@ -13,15 +13,16 @@
       <pubDate>Thu, 15 Sep 2022 10:07:59 +1000</pubDate>
       
       <guid>/talks/</guid>
-      <description>Advanced Testing in Rust (slides / git repo)
-15th March 2023 - Everything Open conference Melbourne
-  Conditional Compilation in Rust (slides)
-14th September 2022 - RustAU meetup
-  Beginning Rust - Fast track your learning (git repo)
-6th November 2019 - Central Coast Linux Users Group
-  Beginning Rust - Fast track your learning (git repo)
-29th October 2019 - RustSydney meet up
-  Workshop: Hacking Device Drivers - How to get into kernel development (git repo)</description>
+      <description>Learning Bitcoin using Sparrow Wallet
+October 2023 - Central Coast Bitcoin Meetup
+Programming Bitcoin in Rust (git repo)
+September 2023 - Popup workshop in Nashville (Bitcoin Park)
+Programming Bitcoin in Rust (git repo)
+September 2023 - TABConf
+BTC Prague 2023 - rust-bitcoin workshop (git repo)
+What do you open source devs do all day
+25th March 2023 - Bitcoin Bush Bash
+Advanced Testing in Rust (slides / git repo)</description>
     </item>
     
     <item>
@@ -63,9 +64,9 @@ and a little bit of hacking we are off to the races.&lt;/p&gt;</description>
       <pubDate>Tue, 20 Jul 2021 21:59:47 +1100</pubDate>
       
       <guid>/resume/</guid>
-      <description>7 years professional software development experience. Experience with Rust, Golang, C, Python. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 18 years experience using Linux. Founder of Central Coast Linux Users Group.  Open Source Experience Currently working full time as a maintainer of rust-bitcoin under an Open Source grant.
+      <description>7 years professional software development experience. Experience with Rust, Golang, C, Python. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 18 years experience using Linux. Founder of Central Coast Linux Users Group. Open Source Experience Currently working full time as a maintainer of rust-bitcoin under an Open Source grant.
 Open source contributions made to the following projects, among others:
- rust-miniscript (Rust). rust-bitcoin (Rust). rust-secp256k1 (Rust).</description>
+rust-miniscript (Rust). rust-bitcoin (Rust). rust-secp256k1 (Rust). bdk (Rust).</description>
     </item>
     
     <item>

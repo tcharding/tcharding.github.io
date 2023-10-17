@@ -5,25 +5,31 @@
         <title> Binary Search Tree in Golang &middot; Tobin Harding </title>
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.115.0">
 
 
-<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="/css/nix.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="css/nix.css">
+
+
+
 
 
 <link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
 
 
 
@@ -32,70 +38,73 @@
 
     <body>
         <header>
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+	<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg font-header">
+		<div class="container-fluid">
+			<a class="navbar-brand" id="green-terminal" href=''>
+				tobin@ares ~ $
+			</a>
+			<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-1" 
+					aria-controls="navbar-collapse-1" aria-expanded="false">
+				<span class="visually-hidden">Toggle navigation</span>
+				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" id="green-terminal" href=/>tobin@ares ~ $</a>
+
+			
+			<div class="collapse navbar-collapse" id="navbar-collapse-1">
+				<ul class="nav navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href=''>
+							/home/tobin</a>
+					</li>
+					
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/about-me">~/about</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/blog">~/blog</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/reading-list">~/books</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/resume">~/resume</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/talks">~/talks</a>
+						
+					</li>
+					
+				</ul>
+			</div>
 		</div>
-
-		
-		<div class="collapse navbar-collapse" id="navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-
-				
-				
-				<li class="dropdown">
-                    
-            		<a href="/about-me">~/about</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/blog">~/blog</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/reading-list">~/books</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/resume">~/resume</a>
-            		
-        		</li>
-        		
-				
-				<li class="dropdown">
-                    
-            		<a href="/talks">~/talks</a>
-            		
-        		</li>
-        		
-
-			</ul>
-		</div>
-	</div>
-</nav>
+	</nav>
 </header>
 
-        <div class="container wrapper">
-            <h1><a href="/blog/bst/">Binary Search Tree in Golang</a></h1>
-            <span class="post-date">Nov 1, 2016 </span>
-            <div class="post-content">
-                <p>A binary search tree (BST) is a binary tree where each node has a comparable key. As with
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="/blog/bst/">Binary Search Tree in Golang</a></h1>
+                <span class="post-date">2016-11-01 </span>
+                <div class="post-content">
+                    <p>A binary search tree (BST) is a binary tree where each node has a comparable key. As with
 any tree, nodes may optionally contain satellite data.</p>
 <p>A BST can support many dynamic container operations, including search, minimum,
 maximum, predecessor, successor, insert and delete. The defining feature of a
@@ -179,7 +188,7 @@ tree</p>
 <pre tabindex="0"><code>// Max: return maximum key from tree
 func (t *Tree) Max() (int, error) {
 	if t.root == nil {
-		return 0, fmt.Errorf(&quot;Max() called on empty tree&quot;)
+		return 0, fmt.Errorf(&#34;Max() called on empty tree&#34;)
 	}
 	n := t.root.max()
 	return n.key, nil
@@ -258,7 +267,6 @@ nodes key and the current key</p>
 		}
 	}
     // ...
-
 </code></pre><p>Detion is somewhat more involved. One way to think about it is as
 follows; if a node has no children it can safely be removed. If a node has only
 children in one subtree it can be replaced by that subtree. If a node has two
@@ -270,7 +278,7 @@ successor node to a key value that exists within the tree</p>
 func (t *Tree) Successor(key int) (int, bool) {
 	n := t.root.find(key)
 	if n == nil {
-		panic(&quot;Succesor() called with non-existant key&quot;)
+		panic(&#34;Succesor() called with non-existant key&#34;)
 	}
 	next := n.successor()
 	if next == nil {
@@ -308,7 +316,7 @@ with zero or one child(ren). Let us now focus on the case of a node (n) with two
 children.</p>
 <p>This can be split into two cases; firstly if the successor (s) of n is the
 direct right child of n (this implies s has a nil left child) then s can be
-&lsquo;transplanted&rsquo; into the position of n.</p>
+&rsquo;transplanted&rsquo; into the position of n.</p>
 <p>If the successor is further down the right subtree of n then it must be further
 moved. We can modify the right right subtree of n by removing s and creating a
 tree with s as the root and the reaming nodes as the right child of s. Since the
@@ -408,25 +416,23 @@ please feel free to email me or submit a pull request.</p>
 [CLRS09] - <strong>Introduction to Algorithms</strong>, Thomas H.Cormen, Charles E. Leiserson,
 Ronald L. Rivest, Clifford Stein<br>
 [Mor] - <strong>Open Data Structures</strong>, Pat Morin, Edition 0.1</p>
-            </div>
-            
-            <div class="post-comments">
+                </div>
+                
+                <div class="post-comments">
+                    
+                </div>
                 
             </div>
-            
-            <div class="push"></div>
-        </div>
-        <footer class="footer text-center">
+            <footer class="footer text-center">
 <p>Copyright &copy; 2023 Tobin Harding -
 <span class="credit">
-  This site is <a target="_blank"
-		  href="https://github.com/tcharding/tobin.cc">open source</a>.
-  Powered by 
-  <a target="_blank" href="https://gohugo.io">Hugo</a>
-  and 
-  <a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
 </span>
 </p>
 </footer>
 
+        </div>
     </body>
