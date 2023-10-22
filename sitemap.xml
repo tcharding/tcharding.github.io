@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/resume/</loc>
+    <lastmod>2023-10-20T21:59:47+11:00</lastmod>
+  </url><url>
     <loc>/talks/</loc>
     <lastmod>2023-10-17T10:07:59+10:00</lastmod>
   </url><url>
@@ -18,9 +21,6 @@
     <lastmod>2021-11-10T13:21:39+11:00</lastmod>
   </url><url>
     <loc>/about-me/</loc>
-    <lastmod>2021-07-20T21:59:47+11:00</lastmod>
-  </url><url>
-    <loc>/resume/</loc>
     <lastmod>2021-07-20T21:59:47+11:00</lastmod>
   </url><url>
     <loc>/blog/tor-libp2p-2/</loc>

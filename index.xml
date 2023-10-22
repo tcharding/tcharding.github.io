@@ -8,6 +8,17 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jan 2022 08:25:28 +1100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Resume of Tobin Harding: Linux Programmer</title>
+      <link>/resume/</link>
+      <pubDate>Fri, 20 Oct 2023 21:59:47 +1100</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>9 years professional software development experience. Rust language expert. Proficient in C, Golang, Python. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 20+ years experience using Linux. Founder of Central Coast Linux Users Group. Open Source Experience Currently working full time as a maintainer of rust-bitcoin under an Open Source grant.
+Open source contributions made to the following projects, among others:
+rust-miniscript (Rust). rust-bitcoin (Rust). rust-secp256k1 (Rust).</description>
+    </item>
+    
+    <item>
       <title>Presentations</title>
       <link>/talks/</link>
       <pubDate>Tue, 17 Oct 2023 10:07:59 +1000</pubDate>
@@ -56,17 +67,6 @@ and a little bit of hacking we are off to the races.&lt;/p&gt;</description>
       
       <guid>/about-me/</guid>
       <description>Hello people, I am Tobin Harding. I code in the Linux environment. I like command line interfaces and statically typed languages. When I am trying to relax I listen to classical music, when I&amp;rsquo;m eating - jazz, and when getting excitable I like to listen to techno. I like learning things, mostly computer related things, but also jiu-jitsu. For health and giggles I do yoga, rock climb, ferment, grow vegetables.</description>
-    </item>
-    
-    <item>
-      <title>Resume of Tobin Harding: Linux Programmer</title>
-      <link>/resume/</link>
-      <pubDate>Tue, 20 Jul 2021 21:59:47 +1100</pubDate>
-      
-      <guid>/resume/</guid>
-      <description>7 years professional software development experience. Experience with Rust, Golang, C, Python. 250 mainline Linux kernel patches. Undergraduate and postgraduate degrees in computer science. 18 years experience using Linux. Founder of Central Coast Linux Users Group. Open Source Experience Currently working full time as a maintainer of rust-bitcoin under an Open Source grant.
-Open source contributions made to the following projects, among others:
-rust-miniscript (Rust). rust-bitcoin (Rust). rust-secp256k1 (Rust). bdk (Rust).</description>
     </item>
     
     <item>
