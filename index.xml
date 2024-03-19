@@ -66,7 +66,8 @@ and a little bit of hacking we are off to the races.&lt;/p&gt;</description>
       <pubDate>Tue, 20 Jul 2021 21:59:47 +1100</pubDate>
       
       <guid>/about-me/</guid>
-      <description>Hello people, I am Tobin Harding. I code in the Linux environment. I like command line interfaces and statically typed languages. When I am trying to relax I listen to classical music, when I&amp;rsquo;m eating - jazz, and when getting excitable I like to listen to techno. I like learning things, mostly computer related things, but also jiu-jitsu. For health and giggles I do yoga, rock climb, ferment, grow vegetables.</description>
+      <description>Hello, I am Tobin C. Harding. I code in the Linux environment. I like command line interfaces and statically typed languages. When I&amp;rsquo;m not coding I like free diving, playing jiu-jitsu, doing yoga, and eating beef - not necessarily in that order.
+I currently work maintaining various libraries within the https://github.com/rust-bitcoin organisation. Previously I dabbled in Linux Kernel work, now I only do Bitcoin - I write Rust all day.</description>
     </item>
     
     <item>
@@ -291,11 +292,10 @@ stacks can be found online &lt;a href=&#34;http://opendatastructures.org&#34;&gt
       <pubDate>Sat, 15 Oct 2016 14:17:43 +1100</pubDate>
       
       <guid>/reading-list/</guid>
-      <description>Past, current, and future. List is in approximate reverse chronological order. Some texts are good enough to deserve a second reading, if so the text appears in the list twice with &amp;lsquo;(second reading)&amp;rsquo; appended.
-Future Hackers Delight - Henry S. Warren, Jr.
-Artificial Intelligence A modern Approach - Stuart Russell and Peter Norvig
-Algorithms in C Part 5 - Robert Sedgewick
-Compilers Principles, Techniques, and Tools - Aho Lam, Sethi Ullman</description>
+      <description>Current, past, and future. List is in approximate reverse chronological order. Some texts are good enough to deserve a second reading, if so the text appears in the list twice with &amp;lsquo;(second reading)&amp;rsquo; appended.
+Current Took the year (2023) off reading computer books to read The Economist, this year I am reading non-computer related books.
+Past Hands-On Data Structures and Algorithms with Rust - Claus Matzinger (second reading) (a,a)
+Lecture Notes: Cryptographic Protocols - Berry Shchoenmakers (a,n)</description>
     </item>
     
     <item>
