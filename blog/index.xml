@@ -4,7 +4,7 @@
     <title>Blogs on Tobin Harding</title>
     <link>/blog/</link>
     <description>Recent content in Blogs on Tobin Harding</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jan 2022 08:25:28 +1100</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
