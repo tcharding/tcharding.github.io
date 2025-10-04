@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Why you should write your own Bitcoin Core RPC client &middot; Tobin Harding </title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.123.7">
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.1/css/all.css" integrity="sha384-QI8z31KmtR+tk1MYi0DfgxrjYgpTpLLol3bqZA/Q1Y8BvH+6k7/Huoj38gQOaCS7" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/css/nix.css">
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Concert+One&display=swap" rel="stylesheet">
+
+
+
+
+
+
+</head>
+
+<body>
+    <header>
+	<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg font-header">
+		<div class="container-fluid">
+			<a class="navbar-brand" id="green-terminal" href='/'>
+				tobin@ares ~ $
+			</a>
+			<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-1" 
+					aria-controls="navbar-collapse-1" aria-expanded="false">
+				<span class="visually-hidden">Toggle navigation</span>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			
+			<div class="collapse navbar-collapse" id="navbar-collapse-1">
+				<ul class="nav navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href='/'>
+							/home/tobin</a>
+					</li>
+					
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/about-me">~/about</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/blog">~/blog</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/reading-list">~/books</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/resume">~/resume</a>
+						
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						
+						<a class="nav-link" href="/talks">~/talks</a>
+						
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+    <div class="flex-wrapper">
+        <div class="container wrapper">
+            <h1><a href="/blog/core-rpc-client/">Why you should write your own Bitcoin Core RPC client</a></h1>
+            
+            
+            
+            <span class="post-date">2025-10-03</span>
+            
+                        
+            <div class="post-content">
+                <p>If you are an application or library developer and you need something
+from Bitcoin Core then you may want to use the JSON RPC API that Core
+provides. So far so good. You might then wonder to yourself, &ldquo;seems
+pretty easy, surely someone has written a crate (Rust library) already
+that does that, let me just grab it&rdquo;. This post is about why that is
+a bad idea.</p>
+<h2 id="application-considerations">Application Considerations</h2>
+<p>When an application wants to hit a Core RPC endpoint there are a few
+high level things that you may want to consider:</p>
+<ul>
+<li>What versions of Core do we expect to be able to hit?</li>
+<li>What RPC methods do we need to call?</li>
+<li>When calling those methods what, if any, optional arguments do we
+need to use?</li>
+</ul>
+<p>All three of these can be answered by instead answering one or both of
+these question:</p>
+<ol>
+<li>What data do we need from Core?</li>
+<li>What effect do I wish to have on the node?</li>
+</ol>
+<h2 id="technical-considerations">Technical Considerations</h2>
+<p>Now lets assume there exists a client library that wraps all this RPC
+stuff up for you, there obviously are, and you want to use one. You
+may want to make any of the following technical considerations when
+assessing the crate:</p>
+<ol>
+<li>How are you going to hit the endpoint? (JSON RPC is transport agnostic.)</li>
+<li>How much of that code do you want to write yourself? I.e., how
+tolerant are you to dependencies and transitive dependencies?</li>
+<li>Is you usecase blocking or async?</li>
+</ol>
+<h2 id="why-i-am-not-going-to-write-and-maintain-a-production-client-for-you">Why I am not going to write and maintain a production client for you</h2>
+<p>Hopefully already you can see why I, a library maintainer, am totally
+unable to answer the technical considerations for you. I put it to you
+that I am also unable to answer the application considerations for you
+other than &lsquo;support all the versions, all the methods, all the
+optional arguments&rsquo;. Which, even if it were possible, would be a ton of
+work.</p>
+<h2 id="the-solution">The solution</h2>
+<p>You should do what ever you like, this is open source. But I
+personally won&rsquo;t be writing a production client for you because I do
+not think its a good use of developer time. Instead I propose this:</p>
+<p>If we had a crate that provided types (structs and enums) for <em>all</em>
+the JSON data returned by the whole Core RPC API for <em>all</em> the
+versions then a client writer would need only decide what methods they
+want to use, what data they need from those methods, what versions of
+Core provide that data and BOOM we are off to the races.</p>
+<p>We have such a crate: <a href="https://crates.io/crates/corepc-types"><code>corepc-types</code></a></p>
+<p>One small caveat, there are a bunch of undocumented RPC methods that
+we don&rsquo;t support yet.</p>
+<p>Here is the workflow:</p>
+<ol>
+<li>Answer all the application considerations above.</li>
+<li>Answer all the technical considerations above.</li>
+<li>Work out what methods you need to call, what data they return, and
+if it exists for all the versions you want to support (if you
+definitely must have it).</li>
+</ol>
+<p>The repository is here: <a href="https://github.com/rust-bitcoin/corepc">https://github.com/rust-bitcoin/corepc</a></p>
+<p>We want your client to be bullet proof so the <code>types</code> crate is
+designed a little strangely. Bare with me.</p>
+<p>We provide version specific types e.g., <code>types::v28::SomeCoreMethod</code>
+is the data returned by Bitcoin Core version 28 for the
+<code>somecoremethod</code> method. Note however that the version specific types
+only use rust standard types e.g., <code>String</code>, <code>u64</code> etc. If you want
+the fields strongly typed using <code>rust-bitcoin</code> types then we provide a
+version non-specific counterpart in the <code>model</code> module e.g.,
+<code>model::SomeCoreMethod</code>.</p>
+<p>WTF, you idiot, why did you do that? Just deserialize the JSON into
+<code>rust-bitcoin</code> types when getting back from Core?</p>
+<p>The reason we did this is the bullet proof thing</p>
+<ul>
+<li>I don&rsquo;t want bugs in <code>rust-bitcoin</code>&rsquo;s <code>serde</code> impls breaking your
+client in production.</li>
+<li>I don&rsquo;t want data formatting problems in Core&rsquo;s API breaking your
+client in production.</li>
+<li>And when one or both of these things does happen, and trust me it
+will, I want your team to have at least some hope of debugging it.</li>
+</ul>
+<p>Every version specific type implements a function <code>into_model()</code> that
+can be called to convert it into a version non-specific type of the
+same name. That type will have optional fields if things have changed
+since v17. It will have <code>rust-bitcoin</code> types for any field that
+requires it. And it will give you a decent debugging message when it
+fails. And you&rsquo;ll know if the failure was with the Core data or with
+the conversion logic.</p>
+<p>So there you have it. If you don&rsquo;t like it that is ok. If you do like
+it use it, it&rsquo;s free, it&rsquo;s open, and it is done.</p>
+<p>Thanks for reading.</p>
+            </div>
+            
+            <div class="post-comments">
+                
+            </div>
+            
+        </div>
+        <footer class="footer text-center">
+<p>Copyright &copy; 2025 Tobin Harding -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+    </div>
+</body>
